@@ -1,28 +1,33 @@
+import { Link, Routes, Route } from "react-router-dom";
+import Module from "../pages/modules/Module";
+
 export default function Kafel(props) {
   const className = props.className
     ? props.className
     : "bg-slate-400 p-6 h-64 w-96 rounded-xl flex flex-col justify-end";
 
   return (
-    <a href="#">
-      <div
-        className={`p-6 h-64 w-96 hover:bg-yellow-500 transition-all duration-200 rounded-xl flex flex-col justify-end ${className}`}
-      >
-        <div className="text-slate-100 font-black">
-          {props.kwalifikacje.map((kwalifikacja) => (
-            <p key={kwalifikacja}>
-              <span className="text-zinc-900">
-                {props.technik ? "TECHNIK" : "BRAK"}
-              </span>{" "}
-              {kwalifikacja}
-            </p>
-          ))}
+    <>
+      <Link to={`/modules/inf${props.nrKwalifikacji}`}>
+        <div
+          className={`p-6 h-64 w-96 hover:bg-yellow-500 transition-all duration-200 rounded-xl flex flex-col justify-end ${className}`}
+        >
+          <div className="text-slate-100 font-black">
+            {props.kwalifikacje.map((kwalifikacja) => (
+              <p key={kwalifikacja}>
+                <span className="text-zinc-900">
+                  {props.technik ? "TECHNIK" : "BRAK"}
+                </span>{" "}
+                {kwalifikacja}
+              </p>
+            ))}
+          </div>
+          <p className="text-7xl text-slate-100 font-black">
+            <span className="text-zinc-900">{props.inf ? "INF" : "BRAK"}</span>
+            {props.nrKwalifikacji}
+          </p>
         </div>
-        <p className="text-7xl text-slate-100 font-black">
-          <span className="text-zinc-900">{props.inf ? "INF" : "BRAK"}</span>
-          {props.nrKwalifikacji}
-        </p>
-      </div>
-    </a>
+      </Link>
+    </>
   );
 }

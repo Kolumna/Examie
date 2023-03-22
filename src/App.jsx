@@ -1,38 +1,28 @@
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/elements/Footer";
 import Header from "./components/elements/Header";
-import Banner from "./components/elements/home/Banner";
-import Section from "./components/elements/home/Section";
+import Home from "./pages/Home";
+import Module from "./pages/modules/Module";
+import About from "./pages/About";
 
 function App() {
+  const content = (
+    <section className="min-h-screen bg-slate-100">
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/o-nas" element={<About />} />
+        <Route path="/modules/:modules" element={<Module />} />
+      </Routes>
+    </section>
+  );
+
   return (
     <main className="bg-yellow-500 min-h-screen">
-      <Header />
-      <Banner />
-      <Section
-        className="bg-slate-100"
-        label="EGZAMINY ZAWODOWE"
-        kafle={[
-          {
-            nrKwalifikacji: "02",
-            kwalifikacje: { name: ["INFORMATYK"] },
-            color: "bg-slate-400",
-          },
-          {
-            nrKwalifikacji: "03",
-            kwalifikacje: { name: ["INFORMATYK", "PROGRAMISTA"] },
-            color: "bg-gray-400",
-          },
-          {
-            nrKwalifikacji: "04",
-            kwalifikacje: { name: ["PROGRAMISTA"] },
-            color: "bg-zinc-400",
-          },
-        ]}
-        inf
-        technik
-      />
-      <Section className="bg-slate-200" label="MATURKA Z INFY" content="JUŻ WKRÓTCE!" />
-      <Footer />
+      <Router>
+        <Header />
+        {content}
+        <Footer />
+      </Router>
     </main>
   );
 }
