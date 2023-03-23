@@ -11,14 +11,14 @@ export default function Header() {
           </Link>
           <div className="flex items-center">
             <Link to="o-nas">
-              <button className="bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 p-2 px-6 text-xs rounded-full text-slate-50 font-black">
+              <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-black">
                 O NAS
               </button>
             </Link>
           </div>
         </div>
         <div className="flex items-center">
-          <button className="bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 p-2 px-6 text-xs rounded-full text-slate-50 font-black">
+          <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-90 font-black">
             ZALOGUJ
           </button>
         </div>
