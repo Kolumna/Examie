@@ -7,7 +7,7 @@ import About from "./pages/About";
 
 function App() {
   const content = (
-    <section className="min-h-screen bg-slate-100">
+    <section className="min-h-screen bg-slate-100 ">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/o-nas" element={<About />} />

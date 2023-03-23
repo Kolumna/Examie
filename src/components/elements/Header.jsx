@@ -4,7 +4,7 @@ import examieLogo from "../../assets/svgs/logo.svg";
 export default function Header() {
   return (
     <header className="px-12 bg-slate-100 py-6 w-full flex items-center">
-      <div className="flex justify-between w-full">
+      <div className="flex justify-between w-full max-w-7xl mx-auto">
         <div className="flex gap-12">
           <Link to="/">
             <img className="h-12" src={examieLogo} alt="Examie logo" />
