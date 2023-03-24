@@ -6,7 +6,12 @@ export default function App() {
           <div className="bg-slate-100 p-2 text-5xl font-black">ZDAJ</div>
           <div className="bg-slate-100 p-2 text-5xl font-black">EGZAMIN</div>
           <div className="bg-slate-100 p-2 text-5xl font-black">NA</div>
-          <div className="bg-slate-100 p-2 text-5xl font-black">POZIOMIE!</div>
+          <div className="flex h-full">
+            <div className="bg-slate-100 p-2 text-5xl font-black">
+              POZIOMIE!
+            </div>
+            <div className="bg-zinc-900 w-4 animate-pulse"></div>
+          </div>
         </div>
         {/* <div className="bg-slate-600 max-w-7xl mx-auto w-2/3 h-full flex items-center justify-end gap-12">
            <button className="w-72 h-48 flex justify-center flex-col items-center gap-8 bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 rounded-xl font-black text-3xl">

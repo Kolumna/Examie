@@ -5,7 +5,7 @@ export default function Section(props) {
 
   return (
     <section className={`${className} px-12`}>
-      <section className="max-w-7xl flex items-center flex-col mx-auto">
+      <section className="container flex items-center flex-col mx-auto">
         <div className="text-4xl font-black p-12 pt-20">
           <h1>{props.label}</h1>
         </div>

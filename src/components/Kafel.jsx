@@ -1,5 +1,4 @@
-import { Link, Routes, Route } from "react-router-dom";
-import Module from "../pages/modules/Module";
+import { Link } from "react-router-dom";
 
 export default function Kafel(props) {
   const className = props.className
