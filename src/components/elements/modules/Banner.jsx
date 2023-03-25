@@ -16,12 +16,12 @@ const Banner = (props) => {
                   <div className="h-12 w-3/4 bg-zinc-700 animate-pulse"></div>
                 </div>
               ) : (
-                <>
+                <div className="text-slate-700">
                   {props.title.slice(0, -2)}
                   <span className="text-slate-200">
                     {props.title.slice(-2)}
                   </span>
-                </>
+                </div>
               )}
             </span>
             {!props.loading && (
