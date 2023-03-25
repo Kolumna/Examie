@@ -8,7 +8,7 @@ export default function App() {
           <div className="bg-slate-100 p-2 text-5xl font-black">NA</div>
           <div className="flex h-full">
             <div className="bg-slate-100 p-2 text-5xl font-black">
-              POZIOMIE!
+              STÓWKĘ!
             </div>
             <div className="bg-zinc-900 w-4 animate-pulse"></div>
           </div>

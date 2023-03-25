@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import examieLogo from "../../assets/svgs/logo.svg";
+import { MdAccountCircle } from "react-icons/md";
 
 export default function Header() {
   return (
@@ -12,7 +13,7 @@ export default function Header() {
           <div className="flex gap-4">
             <Link to="/about">
               <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-extrabold">
-                O NAS
+                ARENA
               </button>
             </Link>
             <Link to="/about">
@@ -28,8 +29,8 @@ export default function Header() {
           </div>
         </div>
         <div className="flex items-center">
-          <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-90 font-extrabold">
-            ZALOGUJ
+          <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 text-xl rounded-full text-zinc-90 font-extrabold">
+            <MdAccountCircle/>
           </button>
         </div>
       </div>
