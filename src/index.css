@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer {
+  .btn-anim {
+    @apply transition-all duration-200 ease-in-out;
+  }
+}

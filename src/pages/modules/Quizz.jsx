@@ -37,13 +37,33 @@ const quizzy = [
     ],
   },
   {
-    _id: 2,
+    _id: 3,
     title: "Czy Sebuś jest kochany?❤️",
     values: [
       { name: "Oczywiście", correct: true },
       { name: "Nie ma innej odpowiedzi", correct: true },
       { name: "Największy słodziak na świecie!", correct: true },
       { name: "Don't be gey pls", correct: true },
+    ],
+  },
+  {
+    _id: 4,
+    title: "Kto jest najszybszym człowiekiem na świecie?",
+    values: [
+      { name: "Mikołaj Piwoński", correct: true },
+      { name: "Święty Mikołaj", correct: false },
+      { name: "Pani Jadzia", correct: false },
+      { name: "Flash", correct: false },
+    ],
+  },
+  {
+    _id: 4,
+    title: "Kto jest szpiegiem CISCO?",
+    values: [
+      { name: "Michał Szymczak", correct: true },
+      { name: "Kacper Skrzeczyna", correct: false },
+      { name: "Profesor Grubas", correct: false },
+      { name: "Woody", correct: false },
     ],
   },
 ];
@@ -90,7 +110,7 @@ function Quizz(props) {
   return (
     <>
       <section className="flex justify-center flex-col gap-24 px-12 items-center">
-        <h1 className="text-6xl font-black text-slate-500 mt-24">QUIZZ</h1>
+        <h1 className="text-6xl font-black text-zinc-900 mt-24">QUIZZ</h1>
         <div
           className={`bg-yellow-500 ${
             loading && "animate-pulse bg-yellow-600"
@@ -130,7 +150,7 @@ function Quizz(props) {
                     : "bg-yellow-500"
                 } p-4 rounded-lg font-bold text-left w-full ${
                   !result && "hover:bg-yellow-400"
-                } transition-all duration-200 flex items-start`}
+                } btn-anim flex items-start`}
               >
                 {answer.name}
               </button>
@@ -140,7 +160,7 @@ function Quizz(props) {
         <div>
           <button
             onClick={fetchQuiz}
-            className="bg-slate-400 hover:bg-slate-500 transition-all duration-200 p-4 px-8 rounded-full text-slate-100 font-bold"
+            className="bg-zinc-800 hover:bg-slate-500 btn-anim p-4 px-8 rounded-full text-slate-100 font-bold"
           >
             KOLEJNE
           </button>
@@ -157,13 +177,13 @@ function Quizz(props) {
                 Egzamin składa się z <strong>20 pytań</strong>, które musisz
                 odpowiedzieć w <strong>20 min</strong>.
               </p>
-              <span className="text-5xl bg-slate-200 p-4 rounded-lg flex text-slate-500 gap-4 font-black">
+              <span className="text-5xl bg-slate-200 p-8 rounded-lg flex text-slate-500 gap-4 font-black">
                 {modules.toUpperCase()}
                 <MdDescription />
               </span>
             </div>
             <div className="flex flex-col gap-4 ml-12">
-              <button className="bg-slate-100 text-3xl hover:bg-slate-200 transition-all duration-200 p-8 rounded-lg font-black text-zinc-900">
+              <button className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900">
                 ROZPOCZNIJ
               </button>
             </div>
