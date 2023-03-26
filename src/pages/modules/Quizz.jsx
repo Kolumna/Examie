@@ -8,7 +8,10 @@ const quizzy = [
     title:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ut repellat odio similique nobis dicta provident sapiente reiciendis aliquid accusamus eius nam quos, itaque commodi, libero repudiandae quia. Perspiciatis, vel!",
     values: [
-      { name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ut repellat odio similique nobis dicta provident sapiente reiciendis aliquid accusamus eius nam quos, itaque commodi, libero repudiandae quia. Perspiciatis, vel!", correct: false },
+      {
+        name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ut repellat odio similique nobis dicta provident sapiente reiciendis aliquid accusamus eius nam quos, itaque commodi, libero repudiandae quia. Perspiciatis, vel!",
+        correct: false,
+      },
       { name: "B", correct: false },
       { name: "C", correct: false },
       { name: "D", correct: true },
@@ -76,6 +79,14 @@ function Quizz(props) {
     setLoading(false);
   };
 
+  const answerHanlder = (e, correct) => {
+    if (!result && !correct) {
+      console.log(result);
+      e.target.style.backgroundColor = "#ef4444";
+    }
+    setResult(true);
+  };
+
   return (
     <>
       <section className="flex justify-center flex-col gap-24 px-12 items-center">
@@ -109,13 +120,13 @@ function Quizz(props) {
             currentQuiz.values &&
             currentQuiz.values.map((answer) => (
               <button
-                onClick={(e) => setResult(true)}
+                onClick={(e) => answerHanlder(e, answer.correct)}
                 key={answer.id}
                 className={`${
                   result
                     ? answer.correct
-                      ? "bg-green-400"
-                      : "bg-red-400"
+                      ? "bg-green-500"
+                      : "bg-yellow-500"
                     : "bg-yellow-500"
                 } p-4 rounded-lg font-bold text-left w-full ${
                   !result && "hover:bg-yellow-400"
