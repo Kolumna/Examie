@@ -28,7 +28,7 @@ export default function Section(props) {
           )}
         </div>
         <div className="p-12">
-          <button className="bg-slate-400 text-slate-800 hover:bg-slate-300 transition-all duration-300 p-4 px-12 rounded-full font-black">
+          <button className="bg-slate-300 text-slate-800 hover:bg-slate-400 transition-all duration-300 p-4 px-12 rounded-full font-black">
             WIĘCEJ
           </button>
         </div>

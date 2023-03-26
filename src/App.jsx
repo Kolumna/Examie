@@ -1,10 +1,11 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Footer from "./components/elements/Footer";
-import Header from "./components/elements/Header";
+import Footer from "./components/layouts/Footer";
+import Header from "./components/layouts/Header";
 import Home from "./pages/Home";
 import Module from "./pages/modules/Module";
 import About from "./pages/About";
 import Layout from "./components/layouts/Layout";
+import Quizz from "./pages/modules/Quizz";
 
 function App() {
   const header = <Header />;
@@ -13,7 +14,9 @@ function App() {
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+      <Route path="/modules" element={<About />} />
       <Route path="/modules/:modules" element={<Module />} />
+      <Route path="/modules/:modules/quizzes" element={<Quizz />} />
     </Routes>
   );
 

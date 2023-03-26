@@ -1,4 +1,4 @@
-import { MdFavorite, MdMonitorHeart } from "react-icons/md";
+import { MdFavorite } from "react-icons/md";
 import logoFotter from "../../assets/svgs/logoFooter.svg";
 import { Link } from "react-router-dom";
 
