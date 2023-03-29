@@ -79,10 +79,10 @@ export default function Module(props) {
       ) : (
         <>
           <Banner loading />
-          <section className="flex justify-center items-center min-h-screen">
-            <span className="mt-24 font-bold text-6xl animate-bounce">
+          <section className="flex justify-center items-center">
+            {/* <span className="mt-24 font-bold text-6xl animate-bounce">
               Ładowanie
-            </span>
+            </span> */}
           </section>
         </>
       )}
