@@ -8,6 +8,7 @@ import Layout from "./components/layouts/Layout";
 import Quizz from "./pages/modules/Quizz";
 import { Suspense } from "react";
 import ScrollToUp from "./helpers/ScrollToUp";
+import Learning from "./pages/learning/Learning";
 
 function App() {
   const header = <Header />;
@@ -17,6 +18,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/learning" element={<Learning />} />
+        <Route path="/learning/:course" element={<Learning />} />
         <Route path="/modules" element={<About />} />
         <Route path="/modules/:modules" element={<Module />} />
         <Route path="/modules/:modules/quizzes" element={<Quizz />} />

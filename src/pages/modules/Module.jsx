@@ -42,10 +42,10 @@ export default function Module(props) {
 
           <Section bgColor="bg-slate-400" col>
             <Title title="SEKCJE" size="text-5xl" textColor="text-slate-700" />
-            <div className="flex gap-12">
+            <div className="flex justify-between gap-12 w-full">
               <LanguageKafel language="JavaScript" />
               <LanguageKafel language="SQL" />
-              <LanguageKafel language="HTML/CSS" />
+              <LanguageKafel language="HTML&CSS" />
               <LanguageKafel language="PHP" />
             </div>
           </Section>
