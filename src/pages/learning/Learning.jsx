@@ -6,9 +6,6 @@ function Learning(props) {
   return (
     <section>
       <h1>Learning {course}</h1>
-      <video className="w-full" src="https://www.w3schools.com/html/mov_bbb.mp4" controls>
-        Niestety twoja przeglądarka nie obsługuje odtwarzacza video :(
-      </video>
     </section>
   );
 }

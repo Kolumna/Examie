@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { MdCheckCircle, MdDescription } from "react-icons/md";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const quizzy = [
   {
@@ -183,9 +183,9 @@ function Quizz(props) {
               </span>
             </div>
             <div className="flex flex-col gap-4 ml-12">
-              <button className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900">
+              <Link to="/modules/inf03/quizzes/exam" className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900">
                 ROZPOCZNIJ
-              </button>
+              </Link>
             </div>
           </div>
         </div>
