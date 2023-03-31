@@ -4,7 +4,7 @@ import { MdAccountCircle } from "react-icons/md";
 
 export default function Header() {
   return (
-    <header className="px-12 bg-slate-100 py-6 w-full flex items-center">
+    <section className="px-12 bg-slate-100 py-6 w-full flex items-center">
       <div className="flex justify-between w-full container mx-auto">
         <div className="flex gap-12 items-center">
           <Link to="/">
@@ -34,6 +34,6 @@ export default function Header() {
           </button>
         </div>
       </div>
-    </header>
+    </section>
   );
 }
