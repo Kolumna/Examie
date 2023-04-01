@@ -1,20 +1,33 @@
-const QuizComponent = (props) => {
+import { MdCheckCircle, MdDescription } from "react-icons/md";
+import { Link, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+
+function QuizComponent(props) {
+  const [result, setResult] = useState(null);
+
+  const currentQuiz = props.data;
+
+  useEffect(() => {
+    setResult(null);
+  }, [currentQuiz]);
+
+  const answerHanlder = (e, correct) => {
+    if (!result && !correct) {
+      e.target.style.backgroundColor = "#ef4444";
+    }
+    setResult(true);
+  };
+
   return (
     <section className="flex w-full justify-center flex-col gap-24 px-12 items-center">
-      <h1 className="text-6xl font-black text-zinc-900 mt-24">
-        {props.exam ? `Pytanie ${props.number + 1}` : `Quiz`}
-      </h1>
+      <h1 className="text-6xl font-black text-zinc-900 mt-24">{props.title}</h1>
       <div
         className={`bg-yellow-500 ${
           props.loading && "animate-pulse bg-yellow-600"
         } w-full container mx-auto p-12 rounded-lg text-center`}
       >
         <span className="font-bold text-3xl">
-          {props.loading ? (
-            <p className="opacity-0">loading</p>
-          ) : (
-            props.currentQuiz.title
-          )}
+          {props.loading ? <p className="opacity-0">loading</p> : currentQuiz.title}
         </span>
       </div>
       <div className="grid grid-cols-2 gap-8 container w-full">
@@ -34,19 +47,19 @@ const QuizComponent = (props) => {
             </div>
           </>
         ) : (
-          props.currentQuiz.values &&
-          props.currentQuiz.values.map((answer) => (
+          currentQuiz.values &&
+          currentQuiz.values.map((answer) => (
             <button
-              onClick={(e) => props.answerHanlder(e, answer.correct)}
+              onClick={(e) => answerHanlder(e, answer.correct)}
               key={answer.id}
               className={`${
-                props.result
+                result
                   ? answer.correct
                     ? "bg-green-500"
                     : "bg-yellow-500"
                   : "bg-yellow-500"
               } p-4 rounded-lg font-bold text-left w-full ${
-                !props.result && "hover:bg-yellow-400"
+                !result && "hover:bg-yellow-400"
               } btn-anim flex items-start`}
             >
               {answer.name}
@@ -56,6 +69,6 @@ const QuizComponent = (props) => {
       </div>
     </section>
   );
-};
+}
 
 export default QuizComponent;
