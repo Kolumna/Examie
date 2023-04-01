@@ -1,6 +1,6 @@
 import { MdDescription } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
-import FetchQuiz from "../../../components/elements/modules/quiz/fetchQuiz";
+import FetchQuiz from "../../../components/elements/modules/quiz/FetchQuiz";
 
 function Quiz(props) {
   const { modules } = useParams();
