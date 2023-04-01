@@ -5,15 +5,15 @@ const quizy = [
   {
     _id: 0,
     title:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ut repellat odio similique nobis dicta provident sapiente reiciendis aliquid accusamus eius nam quos, itaque commodi, libero repudiandae quia. Perspiciatis, vel!",
+      "Czy Sebastian Puszakowski jest bambikiem?",
     values: [
       {
-        name: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum ut repellat odio similique nobis dicta provident sapiente reiciendis aliquid accusamus eius nam quos, itaque commodi, libero repudiandae quia. Perspiciatis, vel!",
-        correct: false,
+        name: "Definitywnie",
+        correct: true,
       },
-      { name: "B", correct: false },
-      { name: "C", correct: false },
-      { name: "D", correct: true },
+      { name: "Nie, bo ma v-dolce", correct: false },
+      { name: "Może", correct: true },
+      { name: "Czasami", correct: true },
     ],
   },
   {
@@ -72,25 +72,19 @@ function FetchQuiz(props) {
   const [currentQuizes, setCurrentQuizes] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const singleFetch = () => {
+  const fetch = (single) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(quizy[Math.floor(Math.random() * quizy.length)]);
-      }, 500);
-    });
-  };
-
-  const multiFetch = () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(quizy);
+        resolve(
+          single ? quizy[Math.floor(Math.random() * quizy.length)] : quizy
+        );
       }, 500);
     });
   };
 
   const fetchQuiz = async () => {
     setLoading(true);
-    const res = await singleFetch();
+    const res = await fetch(true);
     res.values.sort(() => Math.random() - 0.5);
     res.values = res.values.map(
       (answer) => (answer = { ...answer, id: Math.random() })
@@ -101,7 +95,7 @@ function FetchQuiz(props) {
 
   const fetchQuizes = async () => {
     setLoading(true);
-    const res = await multiFetch();
+    const res = await fetch(false);
     res.map((quiz) => {
       quiz.values.sort(() => Math.random() - 0.5);
       quiz.values = quiz.values.map(
@@ -124,8 +118,7 @@ function FetchQuiz(props) {
     <>
       {!props.exam ? (
         <QuizComponent data={currentQuiz} loading={loading} title="Quiz" />
-      ) : (
-        !loading ?
+      ) : !loading ? (
         currentQuizes.map((quiz, number) => {
           return (
             <QuizComponent
@@ -134,9 +127,9 @@ function FetchQuiz(props) {
               title={`Pytanie ${number + 1}`}
             />
           );
-        }) : (
-          <span>Loading...</span>
-        )
+        })
+      ) : (
+        <span className="text-3xl font-bold p-4">Ładowanie...</span>
       )}
 
       {!props.exam && (

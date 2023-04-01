@@ -33,6 +33,7 @@ function Quiz(props) {
               >
                 ROZPOCZNIJ
               </Link>
+              <span className="text-xl text-center font-bold bg-orange-500 p-1 px-2 rounded-lg text-slate-100">BETA</span>
             </div>
           </div>
         </div>
