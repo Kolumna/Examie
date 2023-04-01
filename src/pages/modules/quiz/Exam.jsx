@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import FetchQuiz from "../../../components/elements/modules/quiz/fetchQuiz";
+import FetchQuiz from "../../../components/elements/modules/quiz/FetchQuiz";
 
 function Exam(props) {
   const { modules } = useParams();
