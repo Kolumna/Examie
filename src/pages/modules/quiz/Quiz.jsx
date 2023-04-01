@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
 import { MdCheckCircle, MdDescription } from "react-icons/md";
 import { Link, useParams } from "react-router-dom";
+import QuizComponent from "../../../components/elements/modules/quiz/QuizComponent";
+import { useState, useEffect } from "react";
 
-const quizzy = [
+const quizy = [
   {
     _id: 0,
     title:
@@ -68,21 +69,16 @@ const quizzy = [
   },
 ];
 
-function Quizz(props) {
+function Quiz(props) {
+  const { modules } = useParams();
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [loading, setLoading] = useState(true);
   const [result, setResult] = useState(null);
 
-  const { modules } = useParams();
-
-  useEffect(() => {
-    fetchQuiz();
-  }, []);
-
   const fetch = () => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(quizzy[Math.floor(Math.random() * quizzy.length)]);
+        resolve(quizy[Math.floor(Math.random() * quizy.length)]);
       }, 500);
     });
   };
@@ -101,65 +97,28 @@ function Quizz(props) {
 
   const answerHanlder = (e, correct) => {
     if (!result && !correct) {
-      console.log(result);
       e.target.style.backgroundColor = "#ef4444";
     }
     setResult(true);
   };
 
+  useEffect(() => {
+    fetchQuiz();
+  }, []);
+
   return (
     <>
-      <section className="flex justify-center flex-col gap-24 px-12 items-center">
-        <h1 className="text-6xl font-black text-zinc-900 mt-24">QUIZZ</h1>
-        <div
-          className={`bg-yellow-500 ${
-            loading && "animate-pulse bg-yellow-600"
-          } w-full container mx-auto p-12 rounded-lg text-center`}
-        >
-          <span className="font-bold text-3xl">
-            {loading ? <p className="opacity-0">a</p> : currentQuiz.title}
-          </span>
-        </div>
-        <div className="grid grid-cols-2 gap-8 container w-full">
-          {loading ? (
-            <>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
-                <p className="opacity-0">a</p>
-              </div>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
-                <p className="opacity-0">a</p>
-              </div>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
-                <p className="opacity-0">a</p>
-              </div>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
-                <p className="opacity-0">a</p>
-              </div>
-            </>
-          ) : (
-            currentQuiz.values &&
-            currentQuiz.values.map((answer) => (
-              <button
-                onClick={(e) => answerHanlder(e, answer.correct)}
-                key={answer.id}
-                className={`${
-                  result
-                    ? answer.correct
-                      ? "bg-green-500"
-                      : "bg-yellow-500"
-                    : "bg-yellow-500"
-                } p-4 rounded-lg font-bold text-left w-full ${
-                  !result && "hover:bg-yellow-400"
-                } btn-anim flex items-start`}
-              >
-                {answer.name}
-              </button>
-            ))
-          )}
-        </div>
+      <section className="flex flex-col justify-center items-center gap-24">
+        <QuizComponent
+          loading={loading}
+          currentQuiz={currentQuiz}
+          answerHanlder={answerHanlder}
+          result={result}
+        />
         <div>
           <button
             onClick={fetchQuiz}
+            disabled={loading}
             className="bg-zinc-800 hover:bg-slate-500 btn-anim p-4 px-8 rounded-full text-slate-100 font-bold"
           >
             KOLEJNE
@@ -169,21 +128,24 @@ function Quizz(props) {
       <section>
         <div className="bg-slate-500 p-12 py-16 mt-24">
           <div className="container mx-auto flex justify-between items-center">
-            <div className="flex flex-col items-start gap-12">
+            <div className="flex flex-col items-start gap-8">
               <h1 className="text-6xl font-black text-slate-100">
                 SPRAWDŹ SIĘ NA EGZAMINIE!
               </h1>
               <p className="text-slate-100 text-2xl">
-                Egzamin składa się z <strong>20 pytań</strong>, które musisz
-                odpowiedzieć w <strong>20 min</strong>.
+                Egzamin składa się z <strong>20 pytań</strong>, na które musisz
+                odpowiedzieć w ciągu <strong>20 min</strong>.
               </p>
-              <span className="text-5xl bg-slate-200 p-8 rounded-lg flex text-slate-500 gap-4 font-black">
+              <span className="text-2xl bg-slate-200 p-4 items-center rounded-lg flex text-slate-500 gap-2 font-black">
                 {modules.toUpperCase()}
                 <MdDescription />
               </span>
             </div>
             <div className="flex flex-col gap-4 ml-12">
-              <Link to="/modules/inf03/quizzes/exam" className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900">
+              <Link
+                to="/modules/inf03/quiz/exam"
+                className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
+              >
                 ROZPOCZNIJ
               </Link>
             </div>
@@ -194,4 +156,4 @@ function Quizz(props) {
   );
 }
 
-export default Quizz;
+export default Quiz;

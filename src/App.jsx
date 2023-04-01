@@ -5,7 +5,7 @@ import Home from "./pages/Home";
 import Module from "./pages/modules/Module";
 import About from "./pages/About";
 import Layout from "./components/layouts/Layout";
-import Quizz from "./pages/modules/quiz/Quizz";
+import Quiz from "./pages/modules/quiz/Quiz";
 import { Suspense } from "react";
 import ScrollToUp from "./helpers/ScrollToUp";
 import Learning from "./pages/learning/Learning";
@@ -23,8 +23,8 @@ function App() {
         <Route path="/learning/:course" element={<Learning />} />
         <Route path="/modules" element={<About />} />
         <Route path="/modules/:modules" element={<Module />} />
-        <Route path="/modules/:modules/quizzes" element={<Quizz />} />
-        <Route path="/modules/:modules/quizzes/exam" element={<Exam />} />
+        <Route path="/modules/:modules/quiz" element={<Quiz />} />
+        <Route path="/modules/:modules/quiz/exam" element={<Exam />} />
       </Routes>
     </Suspense>
   );

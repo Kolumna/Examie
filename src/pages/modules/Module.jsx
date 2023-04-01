@@ -57,7 +57,7 @@ export default function Module(props) {
               textColor="text-zinc-900"
             />
             <div className="flex justify-center">
-              <Link to="/modules/inf03/quizzes" className="bg-zinc-900 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-full p-4 px-4 flex justify-center items-center text-5xl font-bold">
+              <Link to="/modules/inf03/quiz" className="bg-zinc-900 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-full p-4 px-4 flex justify-center items-center text-5xl font-bold">
                 <MdPlayArrow />
               </Link>
             </div>
@@ -70,7 +70,7 @@ export default function Module(props) {
               textColor="text-zinc-900"
             />
             <div className="flex justify-center">
-              <Link to="/modules/inf03/quizzes" className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center text-2xl">
+              <Link to="/modules/inf03/quiz" className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center text-2xl">
                 ZOBACZ
               </Link>
             </div>
