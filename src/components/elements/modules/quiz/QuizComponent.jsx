@@ -1,5 +1,3 @@
-import { MdCheckCircle, MdDescription } from "react-icons/md";
-import { Link, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function QuizComponent(props) {
