@@ -4,8 +4,7 @@ import { useState, useEffect } from "react";
 const quizy = [
   {
     _id: 0,
-    title:
-      "Czy Sebastian Puszakowski jest bambikiem?",
+    title: "Czy Sebastian Puszakowski jest bambikiem?",
     values: [
       {
         name: "Definitywnie",
@@ -136,9 +135,12 @@ function FetchQuiz(props) {
         <div>
           <button
             onClick={fetchQuiz}
-            className="bg-zinc-800 hover:bg-slate-500 btn-anim p-4 px-8 rounded-full text-slate-100 font-bold"
+            disabled={loading}
+            className={`${
+              !loading ? "bg-zinc-800 hover:bg-slate-500" : "bg-gray-500"
+            } btn-anim p-4 px-8 rounded-full text-slate-100 font-bold`}
           >
-            KOLEJNE
+            {!loading ? "KOLEJNE" : "ŁADOWANIE..."}
           </button>
         </div>
       )}

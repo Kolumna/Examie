@@ -9,12 +9,10 @@ import Title from "../../components/elements/modules/UI/Title";
 export default function Module(props) {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
+  const [color, setColor] = useState("");
+  const [text, setText] = useState("");
 
   const { modules } = useParams();
-
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // });
 
   useEffect(() => {
     setTimeout(() => {
@@ -29,7 +27,27 @@ export default function Module(props) {
       });
       setLoading(false);
     }, 1000);
+
+    switch (modules) {
+      case "inf02":
+        setColor("bg-zinc-400");
+        setText("text-zinc-700");
+        break;
+      case "inf03":
+        setColor("bg-gray-400");
+        setText("text-gray-700");
+        break;
+      case "inf04":
+        setColor("bg-slate-400");
+        setText("text-slate-700");
+        break;
+      default:
+        setColor("bg-slate-400");
+        setText("text-slate-700");
+    }
   }, []);
+      
+
 
   return (
     <section>
@@ -38,10 +56,12 @@ export default function Module(props) {
           <Banner
             title={`WITAJ W MODULE KWALIFIKACJI ${modules.toUpperCase()}`}
             {...data}
+            bgColor={color}
+            text={text}
           />
 
-          <Section bgColor="bg-slate-400" col>
-            <Title title="SEKCJE" size="text-5xl" textColor="text-slate-700" />
+          <Section bgColor={color} col>
+            <Title title="SEKCJE" size="text-5xl" textColor={text} />
             <div className="flex justify-between gap-12 w-full">
               <LanguageKafel language="JavaScript" />
               <LanguageKafel language="SQL" />

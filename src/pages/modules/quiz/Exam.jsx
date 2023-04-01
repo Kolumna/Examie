@@ -5,14 +5,14 @@ import moment from "moment/moment";
 
 function Exam(props) {
   const [start, setStart] = useState(false);
-  const [odliczanie, setOdliczanie] = useState("startowanie...");
+  const [odliczanie, setOdliczanie] = useState("Zaczynamy!");
 
   const endTime = moment().add(60, "minutes");
 
   const { modules } = useParams();
 
   useEffect(() => {
-    setOdliczanie("startowanie...");
+    setOdliczanie("Zaczynamy!");
     if (start) {
       const interval = setInterval(() => {
         const leftTime = -moment().diff(endTime) / 1000;
@@ -66,6 +66,35 @@ function Exam(props) {
       ) : (
         <>
           <FetchQuiz exam />
+          {/* <section className="px-12 w-full">
+            <section className="grid grid-cols-4 w-full gap-8 container mx-auto pt-24">
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 1
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 2
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 3
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 4
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 5
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 6
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 7
+              </button>
+              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
+                Zadanie 8
+              </button>
+            </section>
+          </section> */}
+
           <section className="p-24">
             <button
               onClick={(prev) => setStart(!prev)}

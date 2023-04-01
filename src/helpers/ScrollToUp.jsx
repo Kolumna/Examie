@@ -8,7 +8,7 @@ const ScrollToUp = (props) => {
       window.scrollTo(0, 0);
     }
   }, [location]);
-  return <div>{props.children}</div>;
+  return <>{props.children}</>;
 };
 
 export default ScrollToUp;

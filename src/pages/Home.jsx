@@ -5,7 +5,7 @@ const egzaminyZawodowe = [
   {
     nrKwalifikacji: "02",
     kwalifikacje: { name: ["INFORMATYK"] },
-    color: "bg-slate-400",
+    color: "bg-zinc-400",
   },
   {
     nrKwalifikacji: "03",
@@ -15,7 +15,7 @@ const egzaminyZawodowe = [
   {
     nrKwalifikacji: "04",
     kwalifikacje: { name: ["PROGRAMISTA"] },
-    color: "bg-zinc-400",
+    color: "bg-slate-400",
   },
   {
     nrKwalifikacji: "05",

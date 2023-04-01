@@ -6,7 +6,9 @@ const Banner = (props) => {
     <section>
       <section className="bg-slate-300 w-full flex items-center justify-between">
         <div className="container flex justify-between mx-auto w-full">
-          <div className="bg-slate-400 h-96 w-1/3 flex flex-col gap-8 items-start p-12">
+          <div
+            className={`${props.bgColor} h-96 w-1/3 flex flex-col gap-8 items-start p-12`}
+          >
             <span className="text-5xl font-black w-full">
               {props.loading ? (
                 <div className="flex flex-col gap-4">
@@ -16,7 +18,7 @@ const Banner = (props) => {
                   <div className="h-12 w-3/4 bg-zinc-700 animate-pulse"></div>
                 </div>
               ) : (
-                <div className="text-slate-700">
+                <div className={props.text}>
                   {props.title.slice(0, -2)}
                   <span className="text-slate-200">
                     {props.title.slice(-2)}
@@ -38,10 +40,14 @@ const Banner = (props) => {
             )}
           </div>
           <div className="h-96 w-2/3 flex flex-col gap-8 items-start py-12 pl-12">
-            {!props.loading ? <h1 className="text-4xl flex items-center gap-4 MdOutlineInfo font-bold">
-              <MdInfo />
-              KRÓTKIE INFO NA TEMAT KWALIFIKACJI
-            </h1> : <div className="w-full h-16 bg-zinc-600 animate-pulse"></div>}
+            {!props.loading ? (
+              <h1 className="text-4xl flex items-center gap-4 MdOutlineInfo font-bold">
+                <MdInfo />
+                KRÓTKIE INFO NA TEMAT KWALIFIKACJI
+              </h1>
+            ) : (
+              <div className="w-full h-16 bg-zinc-600 animate-pulse"></div>
+            )}
             <div className="flex justify-between gap-8 w-full">
               {!props.loading ? (
                 <div className="text-md font-bold p-4 bg-slate-200">
