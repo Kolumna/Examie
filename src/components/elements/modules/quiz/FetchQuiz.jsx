@@ -1,9 +1,24 @@
+import axios from "axios";
 import QuizComponent from "./QuizComponent";
 import { useState, useEffect } from "react";
+import { objectToArrayWithId } from "../../../../helpers/objects";
 
 const quizy = [
   {
     _id: 0,
+    title: "Czy egzamin zawodowy ma sens?",
+    values: [
+      {
+        name: "Definitywnie",
+        correct: false,
+      },
+      { name: "Nie, bo ma v-dolce", correct: true },
+      { name: "Jeszcze jak", correct: false },
+      { name: "Idiota to wymyślił", correct: false },
+    ],
+  },
+  {
+    _id: 1,
     title: "Czy Sebastian Puszakowski jest bambikiem?",
     values: [
       {
@@ -16,7 +31,7 @@ const quizy = [
     ],
   },
   {
-    _id: 1,
+    _id: 2,
     title: "Jaki jest najlepszy samolot na świecie?",
     values: [
       { name: "Boeing 737-800", correct: false },
@@ -26,7 +41,7 @@ const quizy = [
     ],
   },
   {
-    _id: 2,
+    _id: 3,
     title: "Jaki system jest prawidłowy?",
     values: [
       { name: "Linux", correct: false },
@@ -36,7 +51,7 @@ const quizy = [
     img: "https://i.ytimg.com/vi/4EhWaLwxSW8/maxresdefault.jpg",
   },
   {
-    _id: 3,
+    _id: 4,
     title: "Czy Sebuś jest kochany?❤️",
     values: [
       { name: "Oczywiście", correct: true },
@@ -46,7 +61,7 @@ const quizy = [
     ],
   },
   {
-    _id: 4,
+    _id: 5,
     title: "Kto jest najszybszym człowiekiem na świecie?",
     values: [
       { name: "Mikołaj Piwoński", correct: true },
@@ -79,8 +94,10 @@ function FetchQuiz(props) {
         let random = quizy[Math.floor(Math.random() * quizy.length)];
         if (single) {
           if (random._id === last) {
+            console.log("dupa", random._id);
             while (random._id === last) {
               random = quizy[Math.floor(Math.random() * quizy.length)];
+              console.log("nowy", random._id);
               resolve(random);
             }
           } else {
@@ -96,12 +113,16 @@ function FetchQuiz(props) {
 
   const fetchQuiz = async () => {
     setLoading(true);
-    const res = await fetch(true);
-    res.values.sort(() => Math.random() - 0.5);
-    res.values = res.values.map(
+    let res = await axios.get(
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/inf03.json`
+    );
+    res = objectToArrayWithId(res.data);
+    const randomRes = res[Math.floor(Math.random() * res.length)];
+    randomRes.values.sort(() => Math.random() - 0.5);
+    randomRes.values = randomRes.values.map(
       (answer) => (answer = { ...answer, id: Math.random() })
     );
-    setCurrentQuiz(res);
+    setCurrentQuiz(randomRes);
     setLoading(false);
   };
 
@@ -125,6 +146,13 @@ function FetchQuiz(props) {
       fetchQuiz();
     }
   }, []);
+
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     // behavior: "smooth",
+  //   });;
+  // }, [currentQuiz])
 
   return (
     <>

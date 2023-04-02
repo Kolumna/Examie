@@ -29,9 +29,9 @@ export default function Header() {
           </div>
         </div>
         <div className="items-center hidden md:flex">
-          <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 text-xl rounded-full text-zinc-90 font-extrabold">
+          <Link to="/profile" className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 text-xl rounded-full text-zinc-90 font-extrabold">
             <MdAccountCircle/>
-          </button>
+          </Link>
         </div>
       </div>
     </section>

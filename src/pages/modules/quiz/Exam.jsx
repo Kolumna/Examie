@@ -98,7 +98,7 @@ function Exam(props) {
           <section className="p-24">
             <button
               onClick={(prev) => setStart(!prev)}
-              className="bg-slate-500 p-4 px-6 text-2xl btn-anim hover:bg-slate-400 font-bold text-slate-100 rounded-xl"
+              className="bg-slate-500 p-4 px-6 text-xl btn-anim hover:bg-slate-400 font-bold text-slate-100 rounded-xl"
             >
               ZAKOŃCZ
             </button>

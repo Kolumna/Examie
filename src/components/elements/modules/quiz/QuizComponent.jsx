@@ -69,7 +69,7 @@ function QuizComponent(props) {
             </>
           ) : (
             currentQuiz.values &&
-            currentQuiz.values.map((answer) => (
+            currentQuiz.values.map((answer, key) => (
               <button
                 onClick={(e) => answerHanlder(e, answer.correct)}
                 key={answer.id}
@@ -83,7 +83,10 @@ function QuizComponent(props) {
                   !result && "hover:bg-yellow-400"
                 } btn-anim flex items-start`}
               >
-                <span className="bg-slate-100 p-2 px-4 rounded-lg">
+                <span className="bg-slate-500 p-2 px-4 rounded-l-lg text-slate-100">
+                  {key === 0 ? "A" : key === 1 ? "B" : key === 2 ? "C" : "D"}
+                </span>
+                <span className="bg-slate-100 p-2 px-4 rounded-r-lg">
                   {answer.name}
                 </span>
               </button>
