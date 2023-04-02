@@ -72,15 +72,17 @@ function FetchQuiz(props) {
   const [currentQuizes, setCurrentQuizes] = useState({});
   const [loading, setLoading] = useState(true);
   const [last, setLast] = useState(null);
-  console.log(JSON.stringify(quizy))
 
   const fetch = (single) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        const random = quizy[Math.floor(Math.random() * quizy.length)];
+        let random = quizy[Math.floor(Math.random() * quizy.length)];
         if (single) {
           if (random._id === last) {
-            return fetch(single);
+            while (random._id === last) {
+              random = quizy[Math.floor(Math.random() * quizy.length)];
+              resolve(random);
+            }
           } else {
             setLast(random._id);
             resolve(random);
@@ -127,14 +129,21 @@ function FetchQuiz(props) {
   return (
     <>
       {!props.exam ? (
-        <QuizComponent data={currentQuiz} loading={loading} title="Quiz" />
+        <QuizComponent
+          data={currentQuiz}
+          loading={loading}
+          title="Quiz"
+          module={props.module}
+        />
       ) : !loading ? (
         currentQuizes.map((quiz, number) => {
           return (
             <QuizComponent
+              exam
               data={quiz}
               key={quiz._id}
               title={`Pytanie ${number + 1}`}
+              module={props.module}
             />
           );
         })
@@ -149,7 +158,7 @@ function FetchQuiz(props) {
             disabled={loading}
             className={`${
               !loading ? "bg-zinc-800 hover:bg-slate-500" : "bg-gray-500"
-            } btn-anim p-4 px-8 rounded-full text-slate-100 font-bold`}
+            } btn-anim p-4 px-8 rounded-full text-slate-100 font-bold mb-12`}
           >
             {!loading ? "KOLEJNE" : "ŁADOWANIE..."}
           </button>

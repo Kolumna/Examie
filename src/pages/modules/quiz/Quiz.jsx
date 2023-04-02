@@ -8,16 +8,16 @@ function Quiz(props) {
   return (
     <>
       <section className="flex flex-col justify-center items-center gap-24">
-        <FetchQuiz title={props.title} />
+        <FetchQuiz title={props.title} module={modules.toUpperCase()} />
       </section>
-      <section>
+      <section className="">
         <div className="bg-slate-500 p-12 py-16 mt-24">
-          <div className="container mx-auto flex justify-between items-center">
-            <div className="flex flex-col items-start gap-8">
-              <h1 className="text-6xl font-black text-slate-100">
+          <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div className="flex flex-col items-center md:items-start gap-8">
+              <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-slate-100">
                 SPRAWDŹ SIĘ NA EGZAMINIE!
               </h1>
-              <p className="text-slate-100 text-2xl">
+              <p className="text-slate-100 text-2xl text-center md:text-left">
                 Egzamin składa się z <strong>20 pytań</strong>, na które musisz
                 odpowiedzieć w ciągu <strong>20 min</strong>.
               </p>
@@ -26,7 +26,7 @@ function Quiz(props) {
                 <MdDescription />
               </span>
             </div>
-            <div className="flex flex-col gap-4 ml-12">
+            <div className="flex flex-col gap-4 mt-24 md:mt-0 md:ml-12">
               <Link
                 to="/modules/inf03/quiz/exam"
                 className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
