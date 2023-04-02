@@ -90,7 +90,7 @@ export default function Module(props) {
               textColor="text-zinc-900"
             />
             <div className="flex justify-center">
-              <Link to="/modules/inf03/quiz" className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center text-2xl">
+              <Link to="/videos/inf03/" className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center text-2xl">
                 ZOBACZ
               </Link>
             </div>

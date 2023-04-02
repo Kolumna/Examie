@@ -33,6 +33,7 @@ const quizy = [
       { name: "MacOS", correct: false },
       { name: "Windows", correct: true },
     ],
+    img: "https://i.ytimg.com/vi/4EhWaLwxSW8/maxresdefault.jpg",
   },
   {
     _id: 3,
@@ -70,13 +71,21 @@ function FetchQuiz(props) {
   const [currentQuiz, setCurrentQuiz] = useState({});
   const [currentQuizes, setCurrentQuizes] = useState({});
   const [loading, setLoading] = useState(true);
+  const [last, setLast] = useState(null);
+  console.log(last)
 
   const fetch = (single) => {
     return new Promise((resolve) => {
       setTimeout(() => {
-        resolve(
-          single ? quizy[Math.floor(Math.random() * quizy.length)] : quizy
-        );
+        const random = quizy[Math.floor(Math.random() * quizy.length)];
+        if (single) {
+          if (random._id === last) {
+            return fetch(single);
+          } else {
+            setLast(random._id);
+            resolve(random);
+          }
+        }
       }, 500);
     });
   };
@@ -124,6 +133,7 @@ function FetchQuiz(props) {
               data={quiz}
               key={quiz._id}
               title={`Pytanie ${number + 1}`}
+              result={result}
             />
           );
         })

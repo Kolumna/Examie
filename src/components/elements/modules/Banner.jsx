@@ -50,7 +50,7 @@ const Banner = (props) => {
             )}
             <div className="flex justify-between gap-8 w-full">
               {!props.loading ? (
-                <div className="text-md font-bold p-4 bg-slate-200">
+                <div className="text-md font-bold p-4 bg-slate-200 rounded-lg">
                   <h2 className="text-2xl mb-4">KIERUNEK</h2>
 
                   {props.kwalifikacje.map((kwalifikacja) => (
@@ -64,7 +64,7 @@ const Banner = (props) => {
                 <div className="text-md font-bold w-full h-36 bg-slate-200 animate-pulse"></div>
               )}
               {!props.loading && (
-                <div className="text-md font-bold p-4 bg-slate-200">
+                <div className="text-md font-bold p-4 bg-slate-200 rounded-lg">
                   <h2 className="text-2xl mb-4">OPIS</h2>
                   {props.opisy.map((opis) => (
                     <p key={opis}>{opis}</p>

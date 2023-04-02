@@ -10,10 +10,12 @@ import { Suspense } from "react";
 import ScrollToUp from "./helpers/ScrollToUp";
 import Learning from "./pages/learning/Learning";
 import Exam from "./pages/modules/quiz/Exam";
+import Videos from "./pages/videos/Videos";
 
 function App() {
   const header = <Header />;
 
+  //Routing stron
   const content = (
     <Suspense fallback={<div>Loading...</div>}>
       <Routes>
@@ -25,6 +27,9 @@ function App() {
         <Route path="/modules/:modules" element={<Module />} />
         <Route path="/modules/:modules/quiz" element={<Quiz />} />
         <Route path="/modules/:modules/quiz/exam" element={<Exam />} />
+        <Route path="/videos/" element={<Videos />} />
+        <Route path="/videos/:what/" element={<Videos />} />
+        <Route path="/videos/:what/:video" element={<Videos />} />
       </Routes>
     </Suspense>
   );
