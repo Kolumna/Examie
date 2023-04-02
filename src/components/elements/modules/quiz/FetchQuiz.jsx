@@ -72,7 +72,7 @@ function FetchQuiz(props) {
   const [currentQuizes, setCurrentQuizes] = useState({});
   const [loading, setLoading] = useState(true);
   const [last, setLast] = useState(null);
-  console.log(last)
+  console.log(JSON.stringify(quizy))
 
   const fetch = (single) => {
     return new Promise((resolve) => {
