@@ -85,6 +85,8 @@ function FetchQuiz(props) {
             setLast(random._id);
             resolve(random);
           }
+        } else {
+          resolve(quizy);
         }
       }, 500);
     });
@@ -133,7 +135,6 @@ function FetchQuiz(props) {
               data={quiz}
               key={quiz._id}
               title={`Pytanie ${number + 1}`}
-              result={result}
             />
           );
         })
