@@ -11,14 +11,14 @@ function QuizComponent(props) {
 
   const answerHanlder = (e, correct) => {
     if (!result && !correct) {
-      e.target.style.backgroundColor = "#ef4444";
+      e.currentTarget.style.backgroundColor = "#ef4444";
     }
     setResult(true);
   };
 
   return (
     <section className="flex w-full justify-center flex-col gap-24 px-8 md:px-12 items-center">
-      <div className="text-6xl font-black gap-4 text-zinc-900 mt-12 md:mt-24 flex justify-center items-end">
+      <div className="text-6xl font-black gap-4 text-zinc-900 mt-12 flex justify-center items-end">
         <h1>{props.title}</h1>
         {!props.exam && (
           <span className="text-lg bg-slate-500 text-slate-100 p-2 rounded-lg">
@@ -26,16 +26,16 @@ function QuizComponent(props) {
           </span>
         )}
       </div>
-      <section className="w-full container mx-auto flex flex-col justify-center items-center gap-12 md:gap-24 bg-slate-200 p-4 md:p-8 rounded-xl">
+      <section className="w-full container mx-auto flex flex-col justify-center items-center gap-8 bg-slate-200 p-2 md:p-4 rounded-xl">
         <div
           className={`bg-yellow-500 ${
             props.loading && "animate-pulse bg-yellow-600"
-          } w-full p-4 md:p-12 rounded-lg text-center flex justify-center items-center flex-col gap-2`}
+          } w-full rounded-lg text-center flex justify-center items-center flex-col p-4`}
         >
           <span
             className={`font-bold text-3xl ${
               !props.loading && "bg-slate-100"
-            } p-2 rounded-lg text-lg md:text-2xl`}
+            } p-4 w-full md:w-auto rounded-lg text-lg md:text-2xl`}
           >
             {props.loading ? (
               <p className="opacity-0">loading</p>
@@ -47,10 +47,11 @@ function QuizComponent(props) {
             <img
               src={currentQuiz.img}
               alt="quizZdjęcie"
-              className="w-auto h-96 mt-8 rounded-lg bg-slate-100 p-2"
+              className="w-auto h-auto bg-cover mb-2 mt-4 rounded-lg border-8 border-slate-100"
             />
           )}
         </div>
+        <span className="font-black text-lg md:text-2xl">ODPOWIEDZI</span>
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 container w-full">
           {props.loading ? (
             <>
@@ -81,9 +82,9 @@ function QuizComponent(props) {
                     : "bg-yellow-500"
                 } p-4 rounded-lg font-bold text-left w-full ${
                   !result && "hover:bg-yellow-400"
-                } btn-anim flex items-start`}
+                } flex items-start`}
               >
-                <span className="bg-slate-500 p-2 px-4 rounded-l-lg text-slate-100">
+                <span className="bg-slate-500 h-full flex items-center justify-center p-2 px-4 rounded-l-lg text-slate-100">
                   {key === 0 ? "A" : key === 1 ? "B" : key === 2 ? "C" : "D"}
                 </span>
                 <span className="bg-slate-100 p-2 px-4 rounded-r-lg">

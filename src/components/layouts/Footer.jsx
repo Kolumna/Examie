@@ -19,16 +19,16 @@ export default function Footer(props) {
         <img className="h-12 md:h-24" src={logoFotter} />
       </Link>
       <div className="flex gap-4">
-        <div className="w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
+        <div className="hover:bg-zinc-800 btn-anim cursor-pointer w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
           FB
         </div>
-        <div className="w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
+        <div className="hover:bg-zinc-800 btn-anim cursor-pointer w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
           IN
         </div>
-        <div className="w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
+        <div className="hover:bg-zinc-800 btn-anim cursor-pointer w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
           GG
         </div>
-        <div className="w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
+        <div className="hover:bg-zinc-800 btn-anim cursor-pointer w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
           YT
         </div>
       </div>

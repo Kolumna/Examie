@@ -15,13 +15,18 @@ function Profile() {
     ],
   });
   const [loading, setLoading] = useState(false);
+  const [result, setResult] = useState(null);
 
   const navigate = useNavigate();
 
   const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    console.log('czyszczonko', form)
+    console.log("czyszczonko", form);
+    await axios.post(
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/${form.baza}.json`,
+      JSON.stringify(form)
+    );
     setForm({
       baza: "",
       title: "",
@@ -33,10 +38,7 @@ function Profile() {
         { name: "", correct: false },
       ],
     });
-    await axios.post(
-      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/${form.baza}.json`,
-      JSON.stringify(form)
-    );
+    setResult(true);
     setLoading(false);
   };
 
@@ -55,6 +57,11 @@ function Profile() {
   return (
     <section className="flex flex-col items-center justify-center">
       <h1 className="text-4xl m-12 font-bold">Dodaj quiz</h1>
+      {result && (
+        <div className="bg-green-500 text-white p-4 rounded-lg mb-4">
+          Quiz został dodany
+        </div>
+      )}
       <form onSubmit={submit} className="flex flex-col gap-2 mb-24 w-96">
         <label htmlFor="baza">Baza</label>
         <select

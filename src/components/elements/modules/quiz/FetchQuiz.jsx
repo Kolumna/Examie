@@ -147,12 +147,12 @@ function FetchQuiz(props) {
     }
   }, []);
 
-  // useEffect(() => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     // behavior: "smooth",
-  //   });;
-  // }, [currentQuiz])
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      // behavior: "smooth",
+    });;
+  }, [currentQuiz])
 
   return (
     <>
