@@ -11,7 +11,7 @@ export default function Kafel(props) {
         <div
           className={`p-6 h-64 w-96 hover:bg-yellow-500 transition-all duration-200 rounded-xl flex flex-col justify-end ${className}`}
         >
-          <div className="text-slate-100 font-black">
+          <div className="text-slate-50 font-black">
             {props.kwalifikacje.map((kwalifikacja) => (
               <p key={kwalifikacja}>
                 <span className="text-zinc-900">
@@ -21,7 +21,7 @@ export default function Kafel(props) {
               </p>
             ))}
           </div>
-          <p className="text-7xl text-slate-100 font-black">
+          <p className="text-7xl text-slate-50 font-black">
             <span className="text-zinc-900">{props.inf ? "INF" : "BRAK"}</span>
             {props.nrKwalifikacji}
           </p>

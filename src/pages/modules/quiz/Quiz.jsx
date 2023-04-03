@@ -11,7 +11,7 @@ function Quiz(props) {
         <FetchQuiz title={props.title} module={modules.toUpperCase()} />
       </section>
       <section className="">
-        <div className="bg-slate-500 p-12 py-16 mt-24">
+        <div className="bg-slate-500 p-12 py-20 mt-24">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col items-center md:items-start gap-8">
               <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-slate-100">

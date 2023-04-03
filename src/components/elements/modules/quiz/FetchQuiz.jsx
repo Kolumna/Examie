@@ -147,12 +147,12 @@ function FetchQuiz(props) {
     }
   }, []);
 
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      // behavior: "smooth",
-    });;
-  }, [currentQuiz])
+  // useEffect(() => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     // behavior: "smooth",
+  //   });;
+  // }, [currentQuiz])
 
   return (
     <>
@@ -186,7 +186,7 @@ function FetchQuiz(props) {
             disabled={loading}
             className={`${
               !loading ? "bg-zinc-800 hover:bg-slate-500" : "bg-gray-500"
-            } btn-anim p-4 px-8 rounded-full text-slate-100 font-bold mb-12`}
+            } btn-anim p-4 px-8 rounded-full text-slate-100 font-bold`}
           >
             {!loading ? "KOLEJNE" : "ŁADOWANIE..."}
           </button>
