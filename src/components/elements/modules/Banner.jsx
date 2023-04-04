@@ -7,9 +7,9 @@ const Banner = (props) => {
       <section className="bg-slate-300 w-full flex items-center justify-between">
         <div className="container flex justify-between mx-auto w-full">
           <div
-            className={`${props.bgColor} h-96 w-1/3 flex flex-col gap-8 items-start p-12`}
+            className={`${props.bgColor} h-96 w-1/3 flex flex-col gap-8 justify-between items-start px-12`}
           >
-            <span className="text-5xl font-black w-full">
+            <div className="text-8xl font-black w-full">
               {props.loading ? (
                 <div className="flex flex-col gap-4">
                   <div className="h-12 w-full bg-zinc-700 animate-pulse"></div>
@@ -18,25 +18,31 @@ const Banner = (props) => {
                   <div className="h-12 w-3/4 bg-zinc-700 animate-pulse"></div>
                 </div>
               ) : (
-                <div className={props.text}>
-                  {props.title.slice(0, -2)}
-                  <span className="text-slate-200">
-                    {props.title.slice(-2)}
-                  </span>
+                <div className={`flex flex-col pt-8 gap-2 ${props.text}`}>
+                  <div className={props.text}>
+                    {props.title.slice(0, -2)}
+                    <span className="text-slate-200">
+                      {props.title.slice(-2)}
+                    </span>
+                  </div>
+                  <span className="text-3xl">KWALIFIKACJA</span>
                 </div>
               )}
-            </span>
+            </div>
             {!props.loading && (
-              <Link
-                className="p-2 bg-slate-300 hover:bg-slate-200 transition-all duration-200"
-                to="https://cke.gov.pl/"
-                target="_blank"
-              >
-                <img
-                  className="w-48"
-                  src="https://upload.wikimedia.org/wikipedia/commons/7/71/Logo_CKE.png"
-                />
-              </Link>
+              <div className="flex flex-col gap-2">
+                <Link
+                  className="p-2 bg-slate-300 hover:bg-slate-200 transition-all duration-200"
+                  to="https://cke.gov.pl/"
+                  target="_blank"
+                >
+                  <img
+                    className="w-48"
+                    src="https://upload.wikimedia.org/wikipedia/commons/7/71/Logo_CKE.png"
+                  />
+                </Link>
+                <span className="text-slate-700 p-2 text-center bg-slate-300 font-bold">ORGAN CERTYFIKUJĄCY</span>
+              </div>
             )}
           </div>
           <div className="h-96 w-2/3 flex flex-col gap-8 items-start py-12 pl-12">

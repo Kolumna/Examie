@@ -26,7 +26,7 @@ export default function Module(props) {
         ],
       });
       setLoading(false);
-    }, 1000);
+    }, 300);
 
     switch (modules) {
       case "inf02":
@@ -52,7 +52,7 @@ export default function Module(props) {
       {!loading ? (
         <>
           <Banner
-            title={`WITAJ W MODULE KWALIFIKACJI ${modules.toUpperCase()}`}
+            title={`${modules.toUpperCase()}`}
             {...data}
             bgColor={color}
             text={text}
@@ -68,23 +68,23 @@ export default function Module(props) {
             </div>
           </Section>
 
-          <Section bgColor="bg-slate-200" color={color} left>
+          <Section bgColor="bg-slate-200" color="bg-slate-300" left>
             <Title
               title="ĆWICZENIA"
               size="text-5xl"
-              textColor="text-zinc-900"
+              textColor="text-zinc-800"
             />
             <div className="flex justify-center">
               <Link
                 to="/modules/inf03/quiz"
-                className="bg-zinc-900 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-full p-4 px-4 flex justify-center items-center text-5xl font-bold"
+                className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-full p-4 px-4 flex justify-center items-center text-5xl font-bold"
               >
                 <MdPlayArrow />
               </Link>
             </div>
           </Section>
 
-          <Section bgColor="bg-slate-100" color={color} right col>
+          <Section bgColor="bg-slate-100" color="bg-slate-300" right col>
             <Title
               title="NAGRANIA Z ROZWIĄZYWANIA"
               size="text-4xl"
