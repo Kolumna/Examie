@@ -23,7 +23,7 @@ export default function Section(props) {
             ))}
           {props.content && (
             <div className="text-4xl font-black flex justify-center w-full text-yellow-500 p-12 pt-20">
-              <h1>{props.content}</h1>
+              <h1 className="bg-slate-50 p-4 rounded-2xl">{props.content}</h1>
             </div>
           )}
         </div>

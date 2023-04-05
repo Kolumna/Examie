@@ -33,11 +33,11 @@ export default function Module(props) {
         setColor("bg-zinc-400");
         setText("text-zinc-700");
         break;
-      case "inf03":
+      case "inf04":
         setColor("bg-gray-400");
         setText("text-gray-700");
         break;
-      case "inf04":
+      case "inf03":
         setColor("bg-slate-400");
         setText("text-slate-700");
         break;
@@ -59,28 +59,37 @@ export default function Module(props) {
           />
 
           <Section bgColor={color} col>
-            <Title title="SEKCJE" size="text-5xl" textColor={text} />
+            <Title title="KURSY" size="text-5xl" textColor={text} />
             <div className="grid grid-cols-4 gap-12 w-full">
-              <LanguageKafel language="JavaScript" />
+              <LanguageKafel complete language="JavaScript" />
               <LanguageKafel language="SQL" />
               <LanguageKafel language="HTML&CSS" />
               <LanguageKafel language="PHP" />
             </div>
           </Section>
 
-          <Section bgColor="bg-slate-200" color="bg-slate-300" left>
-            <Title
-              title="ĆWICZENIA"
-              size="text-5xl"
-              textColor="text-zinc-800"
-            />
-            <div className="flex justify-center">
-              <Link
-                to="/modules/inf03/quiz"
-                className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-full p-4 px-4 flex justify-center items-center text-5xl font-bold"
-              >
-                <MdPlayArrow />
-              </Link>
+          <Section bgColor="bg-slate-200" color="bg-slate-300" col left>
+            <div className="flex gap-4 justify-center">
+              <div className="flex justify-center">
+                <Link
+                  to="/modules/inf03/quiz"
+                  className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-3xl p-4 px-4 flex justify-center items-center text-5xl font-bold"
+                >
+                  <MdPlayArrow />
+                </Link>
+              </div>
+              <div className="flex items-center bg-slate-100 px-8 rounded-2xl">
+                <Title
+                  title="ĆWICZENIA"
+                  size="text-5xl"
+                  textColor="text-zinc-800"
+                />
+              </div>
+            </div>
+            <div className="flex justify-center w-full">
+              <span className="bg-slate-300 p-4 px-8 rounded-2xl font-black text-xl">
+                UKOŃCZONO <span className="text-slate-500">5</span>/300
+              </span>
             </div>
           </Section>
 

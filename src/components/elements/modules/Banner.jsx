@@ -11,17 +11,18 @@ const Banner = (props) => {
           >
             <div className="text-8xl font-black w-full">
               {props.loading ? (
-                <div className="flex flex-col gap-4">
-                  <div className="h-12 w-full bg-zinc-700 animate-pulse"></div>
-                  <div className="h-12 w-2/3 bg-zinc-700 animate-pulse"></div>
-                  <div className="h-12 w-2/4 bg-zinc-700 animate-pulse"></div>
-                  <div className="h-12 w-3/4 bg-zinc-700 animate-pulse"></div>
-                </div>
+                // <div className="flex flex-col gap-4">
+                //   <div className="h-12 w-full bg-zinc-700 animate-pulse"></div>
+                //   <div className="h-12 w-2/3 bg-zinc-700 animate-pulse"></div>
+                //   <div className="h-12 w-2/4 bg-zinc-700 animate-pulse"></div>
+                //   <div className="h-12 w-3/4 bg-zinc-700 animate-pulse"></div>
+                // </div>
+                <span className="text-xl">Ładowanie...</span>
               ) : (
                 <div className={`flex flex-col pt-8 gap-2 ${props.text}`}>
                   <div className={props.text}>
                     {props.title.slice(0, -2)}
-                    <span className="text-slate-200">
+                    <span className="text-slate-100">
                       {props.title.slice(-2)}
                     </span>
                   </div>
@@ -45,9 +46,9 @@ const Banner = (props) => {
               </div>
             )}
           </div>
-          <div className="h-96 w-2/3 flex flex-col gap-8 items-start py-12 pl-12">
+          <div className="h-96 w-2/3 flex flex-col gap-12 items-start py-12 pl-12">
             {!props.loading ? (
-              <h1 className="text-4xl flex items-center gap-4 MdOutlineInfo font-bold">
+              <h1 className="text-4xl flex items-end gap-4 MdOutlineInfo font-black">
                 <MdInfo />
                 KRÓTKIE INFO NA TEMAT KWALIFIKACJI
               </h1>
