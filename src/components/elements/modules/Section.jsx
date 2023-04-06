@@ -40,7 +40,7 @@ const Section = (props) => {
         {props.left && (
           <div className={`container mx-auto`}>
             <div
-              className={`flex justify-center gap-12 ${
+              className={`flex justify-center items-center gap-12 ${
                 props.col ? "flex-col" : ""
               }`}
             >

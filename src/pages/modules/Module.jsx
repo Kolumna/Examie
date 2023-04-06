@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Banner from "../../components/elements/modules/Banner";
-import { MdPlayArrow } from "react-icons/md";
+import { MdDescription, MdPlayArrow } from "react-icons/md";
 import Section from "../../components/elements/modules/Section";
 import LanguageKafel from "../../components/elements/modules/UI/buttons/LanguageKafel";
 import Title from "../../components/elements/modules/UI/Title";
@@ -61,35 +61,41 @@ export default function Module(props) {
           <Section bgColor={color} col>
             <Title title="KURSY" size="text-5xl" textColor={text} />
             <div className="grid grid-cols-4 gap-12 w-full">
+              <LanguageKafel language="HTML&CSS" />
               <LanguageKafel complete language="JavaScript" />
               <LanguageKafel language="SQL" />
-              <LanguageKafel language="HTML&CSS" />
               <LanguageKafel language="PHP" />
             </div>
           </Section>
 
           <Section bgColor="bg-slate-200" color="bg-slate-300" col left>
-            <div className="flex gap-4 justify-center">
-              <div className="flex justify-center">
-                <Link
-                  to="/modules/inf03/quiz"
-                  className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-3xl p-4 px-4 flex justify-center items-center text-5xl font-bold"
-                >
-                  <MdPlayArrow />
-                </Link>
+            <div className="flex flex-col gap-4">
+              <div className="flex gap-4 justify-between">
+                <div className="flex justify-center">
+                  <Link
+                    to="/modules/inf03/quiz"
+                    className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-3xl p-4 px-4 flex justify-center items-center text-5xl font-bold"
+                  >
+                    <MdPlayArrow />
+                  </Link>
+                </div>
+                <div className="flex items-center bg-slate-100 px-8 rounded-2xl">
+                  <Title
+                    title="ĆWICZENIA"
+                    size="text-5xl"
+                    textColor="text-zinc-800"
+                  />
+                </div>
               </div>
-              <div className="flex items-center bg-slate-100 px-8 rounded-2xl">
-                <Title
-                  title="ĆWICZENIA"
-                  size="text-5xl"
-                  textColor="text-zinc-800"
-                />
+              <div className="flex justify-between text-center gap-4 w-full">
+                <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black text-xl">
+                  UKOŃCZONO <span className="text-slate-500">5</span>/300
+                </span>
+                <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-3xl">
+                  <MdDescription />
+                  <span className="text-xl">2</span>
+                </div>
               </div>
-            </div>
-            <div className="flex justify-center w-full">
-              <span className="bg-slate-300 p-4 px-8 rounded-2xl font-black text-xl">
-                UKOŃCZONO <span className="text-slate-500">5</span>/300
-              </span>
             </div>
           </Section>
 
