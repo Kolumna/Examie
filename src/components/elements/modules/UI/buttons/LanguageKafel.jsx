@@ -1,5 +1,6 @@
 import { MdDone } from "react-icons/md";
 import { Link } from "react-router-dom";
+import IconCorrect from "../../../../icons/IconCorrect";
 
 const LanguageKafel = (props) => {
   const param = props.language.toLowerCase();
@@ -21,9 +22,7 @@ const LanguageKafel = (props) => {
       )}
       {props.complete && (
         <div className="flex justify-end">
-          <div className="w-16 h-16 bg-green-500 flex justify-center items-center rounded-full border-4 border-zinc-800 text-3xl">
-            <MdDone />
-          </div>
+          <IconCorrect/>
         </div>
       )}
     </Link>

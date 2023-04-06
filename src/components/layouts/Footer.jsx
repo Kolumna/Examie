@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 export default function Footer(props) {
   return (
-    <footer className="bg-yellow-500 flex flex-col gap-12 p-12 items-center">
+    <section className="bg-yellow-500 flex flex-col gap-12 p-12 items-center">
       <div className="font-black text-xl md:text-2xl flex items-center gap-2">
         MADE WITH{" "}
         <span className="text-red-600 text-3xl">
@@ -33,6 +33,6 @@ export default function Footer(props) {
         </div>
       </div>
       <div className="font-black text-sm md:text-lg">&#169;2023</div>
-    </footer>
+    </section>
   );
 }

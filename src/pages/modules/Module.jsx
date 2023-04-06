@@ -15,18 +15,16 @@ export default function Module(props) {
   const { modules } = useParams();
 
   useEffect(() => {
-    setTimeout(() => {
-      setData({
-        nrKwalifikacji: modules,
-        typ: "TECHNIK",
-        kwalifikacje: ["INFORMATYK", "PROGRAMISTA"],
-        opisy: [
-          "TWORZENIE I ADMINISTROWANIE STRONAMI I APLIKACJAMI INTERNETOWYMI",
-          "TWORZENIE I ADMINISTROWANIE BAZAMI DANYCH",
-        ],
-      });
-      setLoading(false);
-    }, 300);
+    setData({
+      nrKwalifikacji: modules,
+      typ: "TECHNIK",
+      kwalifikacje: ["INFORMATYK", "PROGRAMISTA"],
+      opisy: [
+        "TWORZENIE I ADMINISTROWANIE STRONAMI I APLIKACJAMI INTERNETOWYMI",
+        "TWORZENIE I ADMINISTROWANIE BAZAMI DANYCH",
+      ],
+    });
+    setLoading(false);
 
     switch (modules) {
       case "inf02":

@@ -12,6 +12,7 @@ import Learning from "./pages/learning/Learning";
 import Exam from "./pages/modules/quiz/Exam";
 import Videos from "./pages/videos/Videos";
 import Profile from "./pages/auth/Profile";
+import Course from "./pages/learning/Course";
 
 function App() {
   const header = <Header />;
@@ -23,8 +24,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/learning" element={<Learning />} />
-        <Route path="/learning/:course" element={<Learning />} />
-        <Route path="/learning/:course/:lesson" element={<Learning />} />
+        <Route path="/learning/:course" element={<Course />} />
+        <Route path="/learning/:course/:lesson" element={<Course />} />
         <Route path="/modules" element={<About />} />
         <Route path="/modules/:modules" element={<Module />} />
         <Route path="/modules/:modules/quiz" element={<Quiz />} />

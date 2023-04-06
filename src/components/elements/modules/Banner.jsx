@@ -1,4 +1,4 @@
-import { MdInfo } from "react-icons/md";
+import { MdHelp, MdInfo } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 const Banner = (props) => {
@@ -42,14 +42,16 @@ const Banner = (props) => {
                     src="https://upload.wikimedia.org/wikipedia/commons/7/71/Logo_CKE.png"
                   />
                 </Link>
-                <span className="text-slate-700 p-2 text-center bg-slate-300 font-bold">ORGAN CERTYFIKUJĄCY</span>
+                <span className="text-slate-700 p-2 text-center bg-slate-300 font-bold">
+                  ORGAN CERTYFIKUJĄCY
+                </span>
               </div>
             )}
           </div>
           <div className="h-96 w-2/3 flex flex-col gap-12 items-start py-12 pl-12">
             {!props.loading ? (
               <h1 className="text-4xl flex items-end gap-4 MdOutlineInfo font-black">
-                <MdInfo />
+                <MdHelp />
                 KRÓTKIE INFO NA TEMAT KWALIFIKACJI
               </h1>
             ) : (

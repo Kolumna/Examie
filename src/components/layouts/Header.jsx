@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import examieLogo from "../../assets/svgs/logo.svg";
 import { MdAccountCircle } from "react-icons/md";
+import arenaLogo from "../../assets/svgs/arenaLogo.svg";
 
 export default function Header() {
   return (
@@ -18,11 +19,6 @@ export default function Header() {
             </Link>
             <Link to="/about">
               <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-extrabold">
-                ARENA
-              </button>
-            </Link>
-            <Link to="/about">
-              <button className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-extrabold">
                 ARKUSZE
               </button>
             </Link>
@@ -33,9 +29,18 @@ export default function Header() {
             </Link>
           </div>
         </div>
-        <div className="items-center hidden md:flex">
-          <Link to="/profile" className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 text-xl rounded-full text-zinc-90 font-extrabold">
-            <MdAccountCircle/>
+        <div className="items-center gap-4 hidden md:flex">
+          <Link to="https://examie-arena.vercel.app/" target="_blank">
+            <button className="bg-red-500 hover:bg-red-400 flex gap-2 transition-all duration-300 p-2 px-4 text-xs rounded-full text-slate-50 font-extrabold">
+              ARENA
+              <img className="h-4" src={arenaLogo}/>
+            </button>
+          </Link>
+          <Link
+            to="/profile"
+            className="bg-yellow-500 hover:bg-yellow-400 transition-all duration-300 p-2 text-xl rounded-full text-zinc-90 font-extrabold"
+          >
+            <MdAccountCircle />
           </Link>
         </div>
       </div>
