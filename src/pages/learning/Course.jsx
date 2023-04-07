@@ -145,7 +145,9 @@ function Course(props) {
                 case "title":
                   return (
                     <div key={item.value} className="flex items-center gap-8">
-                      {item.img && <img className="w-16" src={item.img} />}
+                      {item.img && (
+                        <img width={64} height={"100%"} src={item.img} />
+                      )}
                       <h1 className="text-5xl font-bold">{item.value}</h1>
                     </div>
                   );

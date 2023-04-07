@@ -16,7 +16,7 @@ export default function Footer() {
         target="_blank"
         className="font-black text-2xl"
       >
-        <img className="h-12 md:h-24" src={logoFotter} />
+        <img width={360} height={"100%"} src={logoFotter} alt="logo Examie" />
       </Link>
       <div className="flex gap-4">
         <div className="hover:bg-zinc-800 btn-anim cursor-pointer w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
@@ -32,7 +32,9 @@ export default function Footer() {
           YT
         </div>
       </div>
-      <div className="font-black text-sm md:text-lg">&#169;2023</div>
+      <div className="font-black text-sm md:text-lg">
+        &#169;2023 JaniecParadaise
+      </div>
     </section>
   );
 }

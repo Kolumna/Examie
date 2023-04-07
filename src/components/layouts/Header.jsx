@@ -9,7 +9,13 @@ export default function Header() {
       <div className="flex justify-between w-full">
         <div className="flex gap-12 items-center">
           <Link to="/">
-            <img className="h-8 md:h-12" src={examieLogo} alt="Examie logo" />
+            <img
+              height={"100%"}
+              width={"100%"}
+              className="h-8 md:h-12"
+              src={examieLogo}
+              alt="Examie logo"
+            />
           </Link>
           <div className="gap-4 hidden md:flex">
             <Link to="/learning">
@@ -33,7 +39,7 @@ export default function Header() {
           <Link to="https://examie-arena.vercel.app/" target="_blank">
             <button className="bg-red-500 hover:bg-red-400 flex gap-2 transition-all duration-300 p-2 px-4 text-xs rounded-full text-slate-50 font-extrabold">
               ARENA
-              <img className="h-4" src={arenaLogo}/>
+              <img height={"100%"} width={16} src={arenaLogo} />
             </button>
           </Link>
           <Link

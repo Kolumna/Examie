@@ -23,12 +23,12 @@ function Learning() {
   return (
     <section className="py-12 flex flex-col gap-24">
       <section className="container mx-auto flex flex-col items-start gap-12 flex-wrap">
-        <h1 className="text-4xl font-black bg-slate-200 p-2 px-4 rounded-lg">KURSY</h1>
+        <h1 className="text-4xl font-black">KURSY</h1>
         <div className="flex items-center gap-8">
           {!loading &&
             data.map((el) => (
               <Link
-                className="bg-slate-500 hover:bg-yellow-500 btn-anim p-8 w-60 flex justify-center items-center text-2xl rounded-xl text-slate-50 font-bold"
+                className="bg-slate-200 hover:bg-yellow-500 btn-anim p-8 w-60 flex justify-center items-center text-2xl rounded-xl text-zinc-800 font-bold"
                 key={el.name}
                 to={`${pathname}/${el.name.toLowerCase()}`}
               >
@@ -38,7 +38,7 @@ function Learning() {
         </div>
       </section>
       <section className="container mx-auto flex flex-col items-start gap-12 flex-wrap">
-        <h1 className="text-4xl font-black bg-slate-200 p-2 px-4 rounded-lg">KWALIFIKACJE</h1>
+        <h1 className="text-4xl font-black">KWALIFIKACJE</h1>
         <div className="flex items-center gap-8 flex-wrap">
           {egzaminyZawodowe.map(
             (kafel) =>
