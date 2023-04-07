@@ -2,9 +2,9 @@ import { MdFavorite } from "react-icons/md";
 import logoFotter from "../../assets/svgs/logoFooter.svg";
 import { Link } from "react-router-dom";
 
-export default function Footer(props) {
+export default function Footer() {
   return (
-    <section className="bg-yellow-500 flex flex-col gap-12 p-12 items-center">
+    <section className="bg-amber-400 flex flex-col gap-12 p-12 items-center">
       <div className="font-black text-xl md:text-2xl flex items-center gap-2">
         MADE WITH{" "}
         <span className="text-red-600 text-3xl">

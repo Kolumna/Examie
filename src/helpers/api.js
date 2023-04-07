@@ -1,3 +1,30 @@
+export const egzaminyZawodowe = [
+  {
+    nrKwalifikacji: "02",
+    kwalifikacje: { name: ["INFORMATYK"] },
+    color: "bg-zinc-400",
+    active: false,
+  },
+  {
+    nrKwalifikacji: "03",
+    kwalifikacje: { name: ["INFORMATYK", "PROGRAMISTA"] },
+    color: "bg-slate-400",
+    active: true,
+  },
+  {
+    nrKwalifikacji: "04",
+    kwalifikacje: { name: ["PROGRAMISTA"] },
+    color: "bg-gray-400",
+    active: false,
+  },
+  {
+    nrKwalifikacji: "05",
+    kwalifikacje: { name: ["TEST"] },
+    color: "bg-green-400",
+    active: false,
+  },
+];
+
 export const kursy = [
   {
     id: 0,
@@ -44,7 +71,7 @@ export const kursy = [
           {
             type: "code",
             language: "javascript",
-            value: `const name = "Bambo łobuzie";\nconsole.log(name);`,
+            value: 'const name = "Bambo łobuzie";\nconsole.log(name);',
           },
         ],
       },
@@ -96,22 +123,77 @@ export const kursy = [
       {
         id: 4,
         nazwa: "Funkcje",
+        content: [
+          {
+            type: "title",
+            value: "Funkcje",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
       },
       {
         id: 5,
         nazwa: "Obiekty",
+        content: [
+          {
+            type: "title",
+            value: "Obiekty",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
       },
       {
         id: 6,
         nazwa: "Tablice",
+        content: [
+          {
+            type: "title",
+            value: "Tablice",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
       },
       {
         id: 7,
         nazwa: "Pętle",
+        content: [
+          {
+            type: "title",
+            value: "Pętle",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
       },
       {
         id: 8,
         nazwa: "Warunki",
+        content: [
+          {
+            type: "title",
+            value: "Warunki",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
       },
     ],
   },
@@ -141,7 +223,7 @@ export const kursy = [
           {
             type: "code",
             language: "css",
-            value: `<h1>Hello world!</h1>`,
+            value: "<h1>Lubię placki</h1>",
           },
         ],
       },
@@ -151,7 +233,7 @@ export const kursy = [
         content: [
           {
             type: "title",
-            value: "Zmienne",
+            value: "Znaczniki",
           },
           {
             type: "text",
@@ -163,10 +245,90 @@ export const kursy = [
       {
         id: 2,
         nazwa: "Atrybuty",
+        content: [
+          {
+            type: "title",
+            value: "Atrybuty",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
       },
       {
-        id: 2,
+        id: 3,
         nazwa: "Formularze",
+        content: [
+          {
+            type: "title",
+            value: "Formularze",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
+      },
+      {
+        id: 4,
+        nazwa: "Wstęp do CSS",
+        content: [
+          {
+            type: "title",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
+            value: "Wstęp do HTML",
+          },
+          {
+            type: "text",
+            value:
+              "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
+          },
+          {
+            type: "lista",
+            label: "Kurs obejmuje następujące tematy:",
+            value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
+          },
+          {
+            type: "code",
+            language: "css",
+            value: "h1 { color: red; }",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 1,
+    name: "PHP",
+    modules: [
+      {
+        id: 0,
+        nazwa: "Wstęp do PHP",
+        content: [
+          {
+            type: "title",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg",
+            value: "Wstęp do HTML",
+          },
+          {
+            type: "text",
+            value:
+              "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
+          },
+          {
+            type: "lista",
+            label: "Kurs obejmuje następujące tematy:",
+            value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
+          },
+          {
+            type: "code",
+            language: "php",
+            value: '<?php echo="Siemano!" ?>',
+          },
+        ],
       },
     ],
   },

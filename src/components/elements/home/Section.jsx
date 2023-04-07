@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import Kafel from "../../Kafel";
 
 export default function Section(props) {
@@ -19,18 +20,22 @@ export default function Section(props) {
                 inf={props.inf}
                 technik={props.technik}
                 className={kafel.color}
+                active={kafel.active}
               />
             ))}
           {props.content && (
-            <div className="text-4xl font-black flex justify-center w-full text-yellow-500 p-12 pt-20">
+            <div className="text-4xl font-black flex justify-center w-full text-slate-500 p-12 pt-20">
               <h1 className="bg-slate-50 p-4 rounded-2xl">{props.content}</h1>
             </div>
           )}
         </div>
         <div className="p-12">
-          <button className="bg-slate-300 text-slate-800 hover:bg-slate-400 transition-all duration-300 p-4 px-12 rounded-full font-black">
+          <Link
+            to="/learning"
+            className="bg-slate-300 text-slate-800 hover:bg-slate-400 transition-all duration-300 p-4 px-12 rounded-full font-black"
+          >
             WIĘCEJ
-          </button>
+          </Link>
         </div>
       </section>
     </section>

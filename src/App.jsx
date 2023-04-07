@@ -13,6 +13,8 @@ import Exam from "./pages/modules/quiz/Exam";
 import Videos from "./pages/videos/Videos";
 import Profile from "./pages/auth/Profile";
 import Course from "./pages/learning/Course";
+import Arkusze from "./pages/Arkusze";
+import Forum from "./pages/Forum";
 
 function App() {
   const header = <Header />;
@@ -23,6 +25,8 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/sheets" element={<Arkusze />} />
+        <Route path="/forum" element={<Forum />} />
         <Route path="/learning" element={<Learning />} />
         <Route path="/learning/:course" element={<Course />} />
         <Route path="/learning/:course/:lesson" element={<Course />} />
@@ -41,7 +45,7 @@ function App() {
   const footer = <Footer />;
 
   return (
-    <main className="bg-yellow-500 min-h-screen">
+    <main className="bg-amber-400 min-h-screen">
       <Router>
         <ScrollToUp>
           <Layout header={header} content={content} footer={footer} />

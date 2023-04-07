@@ -32,8 +32,6 @@ function Course(props) {
     fetchCourse();
   }, []);
 
-  console.log(data);
-
   useEffect(() => {
     if (data?.modules) {
       data.modules.map((item) => {
@@ -53,6 +51,40 @@ function Course(props) {
       }
     }
   }, [names, lesson, loading]);
+
+  useEffect(() => {
+    if (copied) {
+      setCopied(false);
+    }
+  }, [lesson]);
+
+  const nextLesson = () => {
+    if (lesson) {
+      const index = names.indexOf(lesson);
+      if (index < names.length - 1) {
+        navigate(`/learning/${course}/${names[index + 1]}`);
+      } else {
+        navigate(`/learning/${course}`);
+      }
+    } else {
+      navigate(`/learning/${course}/${names[1]}`);
+    }
+  };
+
+  const prevLesson = () => {
+    if (lesson) {
+      const index = names.indexOf(lesson);
+      if (index > 0) {
+        navigate(
+          `/learning/${course}/${
+            names[index - 1] === "start" ? "" : names[index - 1]
+          }`
+        );
+      } else {
+        navigate(`/learning/${course}`);
+      }
+    }
+  };
 
   if (notfound) {
     return (
@@ -112,17 +144,19 @@ function Course(props) {
               switch (item.type) {
                 case "title":
                   return (
-                    <div key={item.value} className="flex items-end gap-8">
+                    <div key={item.value} className="flex items-center gap-8">
                       {item.img && <img className="w-16" src={item.img} />}
                       <h1 className="text-5xl font-bold">{item.value}</h1>
                     </div>
                   );
+
                 case "text":
                   return (
                     <p key={item.value} className="text-2xl font-semibold">
                       {item.value}
                     </p>
                   );
+
                 case "important":
                   return (
                     <p
@@ -135,11 +169,12 @@ function Course(props) {
                       {item.value}
                     </p>
                   );
+
                 case "lista":
                   return (
                     <div key={item.value}>
                       <h2 className="text-2xl mb-8 font-bold">{item.label}</h2>
-                      <ul className="text-2xl font-semibold list-disc ml-16">
+                      <ul className="text-2xl font-semibold list-disc ml-14">
                         {item.value.map((item) => {
                           return (
                             <li className="text-2xl" key={item}>
@@ -150,6 +185,7 @@ function Course(props) {
                       </ul>
                     </div>
                   );
+
                 case "code":
                   return (
                     <div key={item.value} className="flex flex-col gap-2">
@@ -180,6 +216,7 @@ function Course(props) {
                       </div>
                     </div>
                   );
+
                 case "video":
                   return (
                     <video
@@ -189,6 +226,7 @@ function Course(props) {
                       src={item.value}
                     />
                   );
+
                 default:
                   return <p>{item.value}</p>;
               }
@@ -196,13 +234,23 @@ function Course(props) {
         </section>
         <footer className="flex justify-end gap-4">
           {lesson && (
-            <button className="btn-anim hover:bg-slate-200 p-2 px-6 bg-slate-300 rounded-lg font-bold">
-              Wstecz
+            <button
+              onClick={prevLesson}
+              className="btn-anim hover:bg-slate-300 p-2 px-6 bg-slate-200 rounded-lg font-bold"
+            >
+              Cofnij do{" "}
+              {names[names.indexOf(lesson) - 1 ? names.indexOf(lesson) - 1 : 0]}
             </button>
           )}
-          <button className="btn-anim hover:bg-slate-200 p-2 px-6 bg-slate-300 rounded-lg font-bold">
-            Dalej
-          </button>
+          {names[names.length - 1]?.toLowerCase() !== lesson && (
+            <button
+              onClick={nextLesson}
+              className="btn-anim hover:bg-slate-300 p-2 px-6 bg-slate-200 rounded-lg font-bold"
+            >
+              Przejdź do{" "}
+              {names[names.indexOf(lesson) + 1 ? names.indexOf(lesson) + 1 : 1]}
+            </button>
+          )}
         </footer>
       </section>
 

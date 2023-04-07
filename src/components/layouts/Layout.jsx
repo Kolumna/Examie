@@ -6,7 +6,7 @@ export default function Layout(props) {
   return (
     <>
       {location.pathname === "/" && (
-        <div className="w-full bg-yellow-500 px-12">
+        <div className="w-full bg-amber-400 px-8">
           <div className="flex justify-start items-center gap-2 h-full">
             <Link to="https://www.paypal.com/donate/?hosted_button_id=JVGB4VNZXTWWU" target="_blank" className="font-black text-sm py-2">
               Wesprzyj projekt <span className="text-slate-50">TUTAJ</span>!

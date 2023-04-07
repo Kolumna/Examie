@@ -1,8 +1,6 @@
 import { MdPhoto } from "react-icons/md";
 
 const Section = (props) => {
-  console.log(props.bgColor);
-
   return (
     <section className={`${props.bgColor ?? "bg-slate-100"}`}>
       <section className="container mx-auto flex items-center justify-between gap-24 py-24">
