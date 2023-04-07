@@ -11,13 +11,9 @@ export default function Footer() {
           <MdFavorite />
         </span>
       </div>
-      <Link
-        to="https://www.janiectheme.site/"
-        target="_blank"
-        className="font-black text-2xl"
-      >
+      <div className="font-black text-2xl">
         <img width={320} height={"100%"} src={logoFotter} alt="logo Examie" />
-      </Link>
+      </div>
       {/* <div className="flex gap-4">
         <div className="hover:bg-zinc-800 btn-anim cursor-pointer w-8 h-8 text-sm md:text-lg md:w-12 md:h-12 bg-zinc-900 rounded-full flex justify-center items-center text-yellow-500 font-bold">
           FB
@@ -32,9 +28,14 @@ export default function Footer() {
           YT
         </div>
       </div> */}
-      <div className="font-black text-sm md:text-lg">
-        &#169;2023 JaniecParadaise
-      </div>
+      <span className="font-black text-sm md:text-lg">&#169;2023</span>
+      <Link
+        to="https://www.janiectheme.site/"
+        target="_blank"
+        className="font-black text-sm md:text-lg bg-amber-200 hover:bg-amber-100 btn-anim p-2 px-4 rounded-xl"
+      >
+        JANIEC<span className="text-purple-700">PARADAISE</span>&#8482;
+      </Link>
     </section>
   );
 }

@@ -27,7 +27,7 @@ function Exam(props) {
   return (
     <section className="flex flex-col justify-center items-center">
       {start && (
-        <div className="fixed top-0 border-b-4 border-zinc-900 bg-red-500 px-20 py-2 rounded-b-2xl">
+        <div className="fixed top-[88px] z-20 border-b-4 border-zinc-900 bg-red-500 px-20 py-2 rounded-b-2xl">
           <span className="text-xl font-bold text-slate-50">{odliczanie}</span>
         </div>
       )}

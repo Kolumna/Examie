@@ -104,7 +104,7 @@ function Course(props) {
   return (
     <section className="flex justify-between p-8 gap-12 pb-24">
       <section className="flex flex-col font-bold text-md w-72">
-        <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2">
+        <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2 sticky top-[120px]">
           {data.modules?.map((module) => {
             return (
               <div key={module.id} className="flex items-center gap-2">
@@ -262,18 +262,20 @@ function Course(props) {
       </section>
 
       <section className="">
-        <h2 className="mb-6 font-bold">Na tej stronie</h2>
-        <ul className="text-sm w-48 flex flex-col gap-2">
-          <li className="p-2 px-4 bg-slate-200 hover:bg-slate-100 cursor-pointer rounded-lg font-bold">
-            Opis
-          </li>
-          <li className="p-2 px-4 rounded-lg hover:bg-slate-100 cursor-pointer font-semibold">
-            Ważne informacje
-          </li>
-          <li className="p-2 px-4 rounded-lg hover:bg-slate-100 cursor-pointer font-semibold">
-            Etapy kursu
-          </li>
-        </ul>
+        <div className="sticky top-[120px]">
+          <h2 className="mb-6 font-bold">Na tej stronie</h2>
+          <ul className="text-sm w-48 flex flex-col gap-2">
+            <li className="p-2 px-4 bg-slate-200 hover:bg-slate-100 cursor-pointer rounded-lg font-bold">
+              Opis
+            </li>
+            <li className="p-2 px-4 rounded-lg hover:bg-slate-100 cursor-pointer font-semibold">
+              Ważne informacje
+            </li>
+            <li className="p-2 px-4 rounded-lg hover:bg-slate-100 cursor-pointer font-semibold">
+              Etapy kursu
+            </li>
+          </ul>
+        </div>
       </section>
     </section>
   );

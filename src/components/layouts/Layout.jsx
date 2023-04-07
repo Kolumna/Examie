@@ -15,7 +15,7 @@ export default function Layout(props) {
         </div>
       )}
 
-      <header>{props.header}</header>
+      <header className="sticky top-0 z-10">{props.header}</header>
       <main className="bg-slate-50">{props.content}</main>
       <footer>{props.footer}</footer>
     </>

@@ -12,7 +12,7 @@ export default function Kafel(props) {
         <div
           className={`p-6 ${
             !props.active ? "justify-between" : "justify-end"
-          } h-64 w-96 hover:bg-yellow-500 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
+          } h-64 w-96 hover:bg-amber-400 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
         >
           {!props.active && (
             <span className="font-black flex items-center gap-2 text-slate-50 bg-orange-500 p-1 px-2 rounded-lg">

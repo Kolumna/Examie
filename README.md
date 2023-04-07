@@ -2,7 +2,8 @@
 
 # Examie | learning
 
-## Aktualnie dostępne możliwości:
-* INF03(Quizy)
+Aktualnie dostępne możliwości:
+* INF03
+* kursy(javascript)
 
 Planowana wersja stabilna będzie na **wrzesień 2023**.
