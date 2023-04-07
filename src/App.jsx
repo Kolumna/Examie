@@ -11,7 +11,6 @@ import ScrollToUp from "./hoc/ScrollToUp";
 import Learning from "./pages/learning/Learning";
 import Exam from "./pages/modules/quiz/Exam";
 import Videos from "./pages/videos/Videos";
-import Profile from "./pages/auth/AddQuiz";
 import Course from "./pages/learning/Course";
 import Arkusze from "./pages/Arkusze";
 import Forum from "./pages/Forum";

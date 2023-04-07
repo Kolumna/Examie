@@ -32,7 +32,7 @@ export default function Section(props) {
         <div className="p-12">
           <Link
             to="/learning"
-            className="bg-gray-300 text-slate-800 hover:bg-amber-400 transition-all duration-300 p-4 px-12 rounded-full font-black"
+            className="bg-slate-300 text-slate-800 hover:bg-amber-400 transition-all duration-300 p-4 px-12 rounded-full font-black"
           >
             WIĘCEJ
           </Link>
