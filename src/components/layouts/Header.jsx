@@ -43,7 +43,7 @@ export default function Header() {
             </button>
           </Link>
           <Link
-            to="/profile"
+            to="/login"
             className="bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 text-xl rounded-full text-zinc-90 font-extrabold"
           >
             <MdAccountCircle />

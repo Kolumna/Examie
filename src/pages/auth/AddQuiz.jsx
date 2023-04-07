@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Profile() {
+function AddQuiz() {
   const [form, setForm] = useState({
     baza: "",
     title: "",
@@ -180,4 +180,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default AddQuiz;

@@ -33,7 +33,7 @@ function Course(props) {
   }, []);
 
   useEffect(() => {
-    if (data?.modules) {
+    if (data?.modules && names.length === 0) {
       data.modules.map((item) => {
         setNames((names) =>
           item.id === 0
@@ -244,15 +244,20 @@ function Course(props) {
               {names[names.indexOf(lesson) - 1 ? names.indexOf(lesson) - 1 : 0]}
             </button>
           )}
-          {names[names.length - 1]?.toLowerCase() !== lesson && (
-            <button
-              onClick={nextLesson}
-              className="btn-anim hover:bg-slate-300 p-2 px-6 bg-slate-200 rounded-lg font-bold"
-            >
-              Przejdź do{" "}
-              {names[names.indexOf(lesson) + 1 ? names.indexOf(lesson) + 1 : 1]}
-            </button>
-          )}
+          {names.length > 1 &&
+            names[names.length - 1]?.toLowerCase() !== lesson && (
+              <button
+                onClick={nextLesson}
+                className="btn-anim hover:bg-slate-300 p-2 px-6 bg-slate-200 rounded-lg font-bold"
+              >
+                Przejdź do{" "}
+                {
+                  names[
+                    names.indexOf(lesson) + 1 ? names.indexOf(lesson) + 1 : 1
+                  ]
+                }
+              </button>
+            )}
         </footer>
       </section>
 

@@ -11,10 +11,11 @@ import ScrollToUp from "./hoc/ScrollToUp";
 import Learning from "./pages/learning/Learning";
 import Exam from "./pages/modules/quiz/Exam";
 import Videos from "./pages/videos/Videos";
-import Profile from "./pages/auth/Profile";
+import Profile from "./pages/auth/AddQuiz";
 import Course from "./pages/learning/Course";
 import Arkusze from "./pages/Arkusze";
 import Forum from "./pages/Forum";
+import Login from "./pages/auth/Login";
 
 function App() {
   const header = <Header />;
@@ -37,7 +38,7 @@ function App() {
         <Route path="/videos/" element={<Videos />} />
         <Route path="/videos/:what/" element={<Videos />} />
         <Route path="/videos/:what/:video" element={<Videos />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Suspense>
   );

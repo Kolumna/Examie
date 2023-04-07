@@ -1,3 +1,5 @@
+![Examie logo](https://examie.netlify.app/assets/logo2-b3d7ecf2.svg)
+
 # Examie | learning
 
 ## Aktualnie dostępne możliwości:

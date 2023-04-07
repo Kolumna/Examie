@@ -28,6 +28,109 @@ export const egzaminyZawodowe = [
 export const kursy = [
   {
     id: 0,
+    name: "HTML&CSS",
+    modules: [
+      {
+        id: 0,
+        nazwa: "Wstęp do HTML",
+        content: [
+          {
+            type: "title",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
+            value: "Wstęp do HTML",
+          },
+          {
+            type: "text",
+            value:
+              "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
+          },
+          {
+            type: "lista",
+            label: "Kurs obejmuje następujące tematy:",
+            value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
+          },
+          {
+            type: "code",
+            language: "css",
+            value: "<h1>Lubię placki</h1>",
+          },
+        ],
+      },
+      {
+        id: 1,
+        nazwa: "Znaczniki",
+        content: [
+          {
+            type: "title",
+            value: "Znaczniki",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
+      },
+      {
+        id: 2,
+        nazwa: "Atrybuty",
+        content: [
+          {
+            type: "title",
+            value: "Atrybuty",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
+      },
+      {
+        id: 3,
+        nazwa: "Formularze",
+        content: [
+          {
+            type: "title",
+            value: "Formularze",
+          },
+          {
+            type: "text",
+            value:
+              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
+          },
+        ],
+      },
+      {
+        id: 4,
+        nazwa: "Wstęp do CSS",
+        content: [
+          {
+            type: "title",
+            img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
+            value: "Wstęp do CSS",
+          },
+          {
+            type: "text",
+            value:
+              "W tym kursie dowiesz się jak działa CSS, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
+          },
+          {
+            type: "lista",
+            label: "Kurs obejmuje następujące tematy:",
+            value: ["Selektory", "Właściwości", "Projekt"],
+          },
+          {
+            type: "code",
+            language: "css",
+            value: "h1 { color: red; }",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    id: 1,
     name: "JavaScript",
     modules: [
       {
@@ -199,109 +302,6 @@ export const kursy = [
   },
   {
     id: 1,
-    name: "HTML&CSS",
-    modules: [
-      {
-        id: 0,
-        nazwa: "Wstęp do HTML",
-        content: [
-          {
-            type: "title",
-            img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
-            value: "Wstęp do HTML",
-          },
-          {
-            type: "text",
-            value:
-              "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
-          },
-          {
-            type: "lista",
-            label: "Kurs obejmuje następujące tematy:",
-            value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
-          },
-          {
-            type: "code",
-            language: "css",
-            value: "<h1>Lubię placki</h1>",
-          },
-        ],
-      },
-      {
-        id: 1,
-        nazwa: "Znaczniki",
-        content: [
-          {
-            type: "title",
-            value: "Znaczniki",
-          },
-          {
-            type: "text",
-            value:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
-          },
-        ],
-      },
-      {
-        id: 2,
-        nazwa: "Atrybuty",
-        content: [
-          {
-            type: "title",
-            value: "Atrybuty",
-          },
-          {
-            type: "text",
-            value:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
-          },
-        ],
-      },
-      {
-        id: 3,
-        nazwa: "Formularze",
-        content: [
-          {
-            type: "title",
-            value: "Formularze",
-          },
-          {
-            type: "text",
-            value:
-              "Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia magni, harum id deleniti assumenda minus, quaerat at laborum illo unde ratione dicta pariatur, veritatis itaque molestiae delectus doloremque tenetur! Iure!",
-          },
-        ],
-      },
-      {
-        id: 4,
-        nazwa: "Wstęp do CSS",
-        content: [
-          {
-            type: "title",
-            img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
-            value: "Wstęp do HTML",
-          },
-          {
-            type: "text",
-            value:
-              "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
-          },
-          {
-            type: "lista",
-            label: "Kurs obejmuje następujące tematy:",
-            value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
-          },
-          {
-            type: "code",
-            language: "css",
-            value: "h1 { color: red; }",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    id: 1,
     name: "PHP",
     modules: [
       {
@@ -311,17 +311,17 @@ export const kursy = [
           {
             type: "title",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg",
-            value: "Wstęp do HTML",
+            value: "Wstęp do PHP",
           },
           {
             type: "text",
             value:
-              "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
+              "W tym kursie dowiesz się jak działa PHP, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
           },
           {
             type: "lista",
             label: "Kurs obejmuje następujące tematy:",
-            value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
+            value: ["Zmienne", "Tablice", "Pętle", "Warunki", "Projekt"],
           },
           {
             type: "code",
