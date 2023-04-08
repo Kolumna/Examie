@@ -1,4 +1,4 @@
-![Examie logo](http://localhost:5173/src/assets/svgs/logo.svg)
+![Examie logo](https://examie.netlify.app/assets/logo-4fdf79d6.svg)
 
 # Examie learning
 

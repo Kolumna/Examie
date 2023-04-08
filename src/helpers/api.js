@@ -45,7 +45,7 @@ export const kursy = [
               "W tym kursie dowiesz się jak działa HTML, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
           },
           {
-            type: "lista",
+            type: "list",
             label: "Kurs obejmuje następujące tematy:",
             value: ["Znaczniki", "Atrybuty", "Formularze", "Projekt"],
           },
@@ -53,6 +53,14 @@ export const kursy = [
             type: "code",
             language: "css",
             value: "<h1>Lubię placki</h1>",
+          },
+          {
+            type: "title",
+            value: "Czym jest HTML?",
+          },
+          {
+            type: "text",
+            value: "HTML to skrót od HyperText Markup Language.",
           },
         ],
       },
@@ -116,7 +124,7 @@ export const kursy = [
               "W tym kursie dowiesz się jak działa CSS, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
           },
           {
-            type: "lista",
+            type: "list",
             label: "Kurs obejmuje następujące tematy:",
             value: ["Selektory", "Właściwości", "Projekt"],
           },
