@@ -109,6 +109,7 @@ function Course() {
 
   return (
     <section className="flex justify-between p-8 gap-12 pb-24">
+      
       <section className="flex flex-col font-bold text-md w-72">
         <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2 sticky top-[120px]">
           {data.modules?.map((module) => {
@@ -248,7 +249,7 @@ function Course() {
                       }
                       className={`${
                         step === hash.split("#")[1]
-                          ? "bg-slate-200"
+                          ? "bg-slate-200 border-slate-300"
                           : "hover:bg-slate-100"
                       } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}
                       to={`#${step.split(" ").join("-")}`}
@@ -265,7 +266,7 @@ function Course() {
                       }
                       className={`${
                         step === hash.split("#")[1]
-                          ? "bg-slate-200"
+                          ? "bg-slate-200 border-slate-300"
                           : "hover:bg-slate-100"
                       } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}
                       to={`#${step}`}

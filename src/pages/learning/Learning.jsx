@@ -27,7 +27,7 @@ function Learning() {
           {!loading &&
             data.map((el) => (
               <Link
-                className="bg-slate-200 hover:bg-amber-400 btn-anim p-8 w-60 flex justify-center items-center text-2xl rounded-xl text-zinc-800 font-bold"
+                className="bg-slate-200 border-4 border-slate-300 hover:bg-amber-400 hover:border-amber-400 btn-anim p-8 w-60 flex justify-center items-center text-2xl rounded-xl text-zinc-800 font-bold"
                 key={el.name}
                 to={`${pathname}/${el.name.toLowerCase()}`}
               >
@@ -49,7 +49,7 @@ function Learning() {
                     kwalifikacje={[...kafel.kwalifikacje.name]}
                     inf
                     technik
-                    className={kafel.color}
+                    className={`${kafel.color} ${kafel.border}`}
                     active
                   />
                 )

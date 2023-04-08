@@ -21,7 +21,7 @@ const CodeField = (props) => {
           borderRadius: 10,
           fontSize: 24,
           padding: 20,
-          border: "2px solid #e2e8f0",
+          border: "4px solid #e2e8f0",
         }}
       >
         {props.value}

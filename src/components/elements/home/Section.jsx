@@ -19,13 +19,13 @@ export default function Section(props) {
                 kwalifikacje={[...kafel.kwalifikacje.name]}
                 inf={props.inf}
                 technik={props.technik}
-                className={kafel.color}
+                className={`${kafel.color} ${kafel.border}`}
                 active={kafel.active}
               />
             ))}
           {props.content && (
             <div className="text-4xl font-black flex justify-center w-full text-slate-500 p-12 pt-20">
-              <h1 className="bg-slate-50 p-4 rounded-2xl">{props.content}</h1>
+              <h1 className="bg-slate-400 p-4 px-8 text-slate-50 rounded-2xl">{props.content}</h1>
             </div>
           )}
         </div>
