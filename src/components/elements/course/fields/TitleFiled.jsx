@@ -7,6 +7,7 @@ const TitleField = (props) => {
 
   return (
     <div className="flex flex-col">
+      <span className="text-gray-300 font-bold">TEMAT</span>
       <hr className="border-2 mb-12"></hr>
       <div
         id={props.value.split(" ").join("-")}

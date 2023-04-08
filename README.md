@@ -1,4 +1,4 @@
-![Examie logo](https://pics.paypal.com/00/s/YjYwMDY3NTUtM2U4Ny00NGFkLWEwZmUtZDMzZTI0YTU4MmIw/file.PNG)
+![Examie logo](http://localhost:5173/src/assets/svgs/logo.svg)
 
 # Examie learning
 

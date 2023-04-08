@@ -5,7 +5,7 @@ import CodeField from "../../components/elements/course/fields/CodeField";
 import TextField from "../../components/elements/course/fields/TextField";
 import TitleField from "../../components/elements/course/fields/TitleFiled";
 import ImportantField from "../../components/elements/course/fields/ImportantField";
-import ListaField from "../../components/elements/course/fields/ListaField";
+import ListaField from "../../components/elements/course/fields/ListField";
 import { HashLink } from "react-router-hash-link";
 
 function Course() {
@@ -88,7 +88,6 @@ function Course() {
   };
 
   const stepsHandler = (step) => {
-    console.log("dzialam", step);
     if (steps.includes(step)) return;
     setSteps((steps) => [...steps, step]);
   };
@@ -194,7 +193,11 @@ function Course() {
                   );
 
                 default:
-                  return <p>{item.value}</p>;
+                  return (
+                    <p className="text-red-500 font-bold">
+                      Błędny typ paragrafu ({item.value})
+                    </p>
+                  );
               }
             })}
         </section>
@@ -250,7 +253,7 @@ function Course() {
                       } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}
                       to={`#${step.split(" ").join("-")}`}
                     >
-                      {step.split("-").join(" ")}
+                     {step.split("-").join(" ")}
                     </HashLink>
                   ) : (
                     <HashLink

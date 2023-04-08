@@ -342,7 +342,7 @@ export const kursy = [
               "W tym kursie dowiesz się jak działa PHP, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
           },
           {
-            type: "lista",
+            type: "list",
             label: "Kurs obejmuje następujące tematy:",
             value: ["Zmienne", "Tablice", "Pętle", "Warunki", "Projekt"],
           },
