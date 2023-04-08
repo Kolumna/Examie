@@ -1,4 +1,3 @@
-import { MdDone } from "react-icons/md";
 import { Link } from "react-router-dom";
 import IconCorrect from "../../../../icons/IconCorrect";
 

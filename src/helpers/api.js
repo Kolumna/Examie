@@ -153,7 +153,7 @@ export const kursy = [
               "Polecam ukończyć najpierw kurs HTML i CSS, aby móc lepiej zrozumieć podstawy JavaScript.",
           },
           {
-            type: "lista",
+            type: "list",
             label: "Kurs obejmuje następujące tematy:",
             value: [
               "Zmienne",
@@ -175,6 +175,29 @@ export const kursy = [
             type: "code",
             language: "javascript",
             value: 'const name = "Bambo łobuzie";\nconsole.log(name);',
+          },
+          {
+            type: "title",
+            value: "Czym jest JavaScript?",
+          },
+          {
+            type: "text",
+            value:
+              "JavaScript jest językiem programowania, który pozwala na tworzenie interaktywnych stron internetowych. Jest to język skryptowy, który jest interpretowany przez przeglądarkę. Jest to język wysokiego poziomu, który jest łatwy do nauki i stosowania.",
+          },
+          {
+            type: "important",
+            value:
+              "JavaScript jest jednym z najpopularniejszych języków programowania na świecie. Jest to język, który jest używany do tworzenia aplikacji webowych, aplikacji mobilnych, aplikacji desktopowych, gier, a nawet aplikacji do robotyki.",
+          },
+          {
+            type: "title",
+            value: "Historia JavaScript",
+          },
+          {
+            type: "text",
+            value:
+              "JavaScript został stworzony w 1995 roku przez Brendana Eicha. Pierwsza wersja języka nosiła nazwę Mocha, a następnie LiveScript. W 1996 roku nazwa została zmieniona na JavaScript. W 1997 roku JavaScript został wprowadzony do przeglądarek Netscape Navigator 2.0.",
           },
         ],
       },

@@ -1,26 +1,33 @@
 import { useEffect, useState } from "react";
-import { MdContentCopy, MdInfo } from "react-icons/md";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { kursy } from "../../helpers/api";
-import SyntaxHighlighter from "react-syntax-highlighter/dist/esm/default-highlight";
-import { docco } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import CodeField from "../../components/elements/course/fields/CodeField";
+import TextField from "../../components/elements/course/fields/TextField";
+import TitleField from "../../components/elements/course/fields/TitleFiled";
+import ImportantField from "../../components/elements/course/fields/ImportantField";
+import ListaField from "../../components/elements/course/fields/ListaField";
+import { HashLink } from "react-router-hash-link";
 
-function Course(props) {
+function Course() {
   const [names, setNames] = useState([]);
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState({});
   const [copied, setCopied] = useState(false);
   const [notfound, setNotFound] = useState(false);
+  const [steps, setSteps] = useState([]);
 
   const { course } = useParams();
   const { lesson } = useParams();
+  const { hash } = useLocation();
 
   const navigate = useNavigate();
 
-  const copyToClipboard = (str) => {
-    navigator.clipboard.writeText(str);
-    setCopied(true);
-  };
+  useEffect(() => {
+    if (copied) {
+      setCopied(false);
+    }
+    return () => setSteps([]);
+  }, [lesson]);
 
   useEffect(() => {
     const fetchCourse = async () => {
@@ -52,12 +59,6 @@ function Course(props) {
     }
   }, [names, lesson, loading]);
 
-  useEffect(() => {
-    if (copied) {
-      setCopied(false);
-    }
-  }, [lesson]);
-
   const nextLesson = () => {
     if (lesson) {
       const index = names.indexOf(lesson);
@@ -84,6 +85,12 @@ function Course(props) {
         navigate(`/learning/${course}`);
       }
     }
+  };
+
+  const stepsHandler = (step) => {
+    console.log("dzialam", step);
+    if (steps.includes(step)) return;
+    setSteps((steps) => [...steps, step]);
   };
 
   if (notfound) {
@@ -132,7 +139,7 @@ function Course(props) {
       </section>
 
       <section className="max-w-5xl px-4 flex flex-col gap-12">
-        <section id="opis" className="flex flex-col gap-16">
+        <section className="flex flex-col gap-16">
           {!loading &&
             data.modules[
               lesson
@@ -144,79 +151,36 @@ function Course(props) {
               switch (item.type) {
                 case "title":
                   return (
-                    <div key={item.value} className="flex items-center gap-8">
-                      {item.img && (
-                        <img width={64} height={"100%"} src={item.img} />
-                      )}
-                      <h1 className="text-5xl font-bold">{item.value}</h1>
-                    </div>
+                    <TitleField
+                      key={item.value}
+                      value={item.value}
+                      img={item.img}
+                      stepsHandler={stepsHandler}
+                    />
                   );
 
                 case "text":
-                  return (
-                    <p key={item.value} className="text-2xl font-semibold">
-                      {item.value}
-                    </p>
-                  );
+                  return <TextField key={item.value} value={item.value} />;
 
                 case "important":
-                  return (
-                    <p
-                      key={item.value}
-                      className="text-2xl flex gap-6 items-center p-6 bg-slate-200 rounded-xl font-bold"
-                    >
-                      <span className="text-3xl">
-                        <MdInfo />
-                      </span>
-                      {item.value}
-                    </p>
-                  );
+                  return <ImportantField key={item.value} value={item.value} />;
 
-                case "lista":
+                case "list":
                   return (
-                    <div key={item.value}>
-                      <h2 className="text-2xl mb-8 font-bold">{item.label}</h2>
-                      <ul className="text-2xl font-semibold list-disc ml-14">
-                        {item.value.map((item) => {
-                          return (
-                            <li className="text-2xl" key={item}>
-                              {item}
-                            </li>
-                          );
-                        })}
-                      </ul>
-                    </div>
+                    <ListaField
+                      key={item.value}
+                      value={item.value}
+                      label={item.label}
+                    />
                   );
 
                 case "code":
                   return (
-                    <div key={item.value} className="flex flex-col gap-2">
-                      <SyntaxHighlighter
-                        language={item.language}
-                        style={docco}
-                        customStyle={{
-                          backgroundColor: "#f1f5f9",
-                          borderRadius: 10,
-                          fontSize: 24,
-                          padding: 20,
-                        }}
-                      >
-                        {item.value}
-                      </SyntaxHighlighter>
-                      <div className="flex w-full justify-end">
-                        <button
-                          onClick={() => copyToClipboard(item.value)}
-                          className={`${
-                            copied
-                              ? "bg-green-300"
-                              : "bg-slate-100 hover:bg-slate-200"
-                          } p-2 rounded-lg btn-anim font-bold flex items-center gap-2`}
-                        >
-                          <MdContentCopy />
-                          {copied ? "skopiowano!" : "skopiuj kod"}
-                        </button>
-                      </div>
-                    </div>
+                    <CodeField
+                      key={item.value}
+                      language={item.language}
+                      value={item.value}
+                    />
                   );
 
                 case "video":
@@ -265,15 +229,50 @@ function Course(props) {
         <div className="sticky top-[120px]">
           <h2 className="mb-6 font-bold">Na tej stronie</h2>
           <ul className="text-sm w-48 flex flex-col gap-2">
-            <li className="p-2 px-4 bg-slate-200 hover:bg-slate-100 cursor-pointer rounded-lg font-bold">
-              Opis
-            </li>
-            <li className="p-2 px-4 rounded-lg hover:bg-slate-100 cursor-pointer font-semibold">
-              Ważne informacje
-            </li>
-            <li className="p-2 px-4 rounded-lg hover:bg-slate-100 cursor-pointer font-semibold">
-              Etapy kursu
-            </li>
+            {steps.map((step) => {
+              return (
+                <li
+                  key={step}
+                  className="flex items-center gap-2 cursor-pointer w-full"
+                >
+                  {step.split("-").length > 1 ? (
+                    <HashLink
+                      scroll={(el) =>
+                        el.scrollIntoView({
+                          behavior: "smooth",
+                          block: "center",
+                        })
+                      }
+                      className={`${
+                        step === hash.split("#")[1]
+                          ? "bg-slate-200"
+                          : "hover:bg-slate-100"
+                      } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}
+                      to={`#${step.split(" ").join("-")}`}
+                    >
+                      {step.split("-").join(" ")}
+                    </HashLink>
+                  ) : (
+                    <HashLink
+                      scroll={(el) =>
+                        el.scrollIntoView({
+                          behavior: "smooth",
+                          block: "center",
+                        })
+                      }
+                      className={`${
+                        step === hash.split("#")[1]
+                          ? "bg-slate-200"
+                          : "hover:bg-slate-100"
+                      } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}
+                      to={`#${step}`}
+                    >
+                      {step}
+                    </HashLink>
+                  )}
+                </li>
+              );
+            })}
           </ul>
         </div>
       </section>
