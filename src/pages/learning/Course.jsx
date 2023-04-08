@@ -92,6 +92,8 @@ function Course() {
     setSteps((steps) => [...steps, step]);
   };
 
+  console.log(steps);
+
   if (notfound) {
     return (
       <section className="h-screen flex flex-col gap-8 justify-center items-center text-7xl font-black">
@@ -109,7 +111,6 @@ function Course() {
 
   return (
     <section className="flex justify-between p-8 gap-12 pb-24">
-      
       <section className="flex flex-col font-bold text-md w-72">
         <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2 sticky top-[120px]">
           {data.modules?.map((module) => {
@@ -248,13 +249,14 @@ function Course() {
                         })
                       }
                       className={`${
-                        step === hash.split("#")[1]
+                        step === hash.split("#")[1] ||
+                        (!hash.split("#")[1] && step === steps[0])
                           ? "bg-slate-200 border-slate-300"
                           : "hover:bg-slate-100"
                       } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}
                       to={`#${step.split(" ").join("-")}`}
                     >
-                     {step.split("-").join(" ")}
+                      {step.split("-").join(" ")}
                     </HashLink>
                   ) : (
                     <HashLink
@@ -265,7 +267,8 @@ function Course() {
                         })
                       }
                       className={`${
-                        step === hash.split("#")[1]
+                        step === hash.split("#")[1] ||
+                        (!hash.split("#")[1] && step === steps[0])
                           ? "bg-slate-200 border-slate-300"
                           : "hover:bg-slate-100"
                       } p-2 px-4 cursor-pointer rounded-lg font-bold w-full`}

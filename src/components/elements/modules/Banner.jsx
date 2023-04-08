@@ -9,7 +9,7 @@ const Banner = (props) => {
           <div
             className={`${props.bgColor} h-96 w-1/3 flex flex-col gap-8 justify-between items-start px-12`}
           >
-            <div className="text-7xl font-black w-full">
+            <div className="text-8xl font-black w-full">
               {props.loading ? (
                 // <div className="flex flex-col gap-4">
                 //   <div className="h-12 w-full bg-zinc-700 animate-pulse"></div>
@@ -26,7 +26,7 @@ const Banner = (props) => {
                       {props.title.slice(-2)}
                     </span>
                   </div>
-                  <span className="text-2xl">KWALIFIKACJA</span>
+                  <span className="text-3xl">KWALIFIKACJA</span>
                 </div>
               )}
             </div>
@@ -51,7 +51,7 @@ const Banner = (props) => {
           <div className="h-96 w-2/3 flex flex-col gap-12 items-start py-12 pl-12">
             {!props.loading ? (
               <h1 className="text-4xl flex items-end gap-4 MdOutlineInfo font-black">
-                <MdHelp />
+                <MdInfo />
                 KRÓTKIE INFO NA TEMAT KWALIFIKACJI
               </h1>
             ) : (

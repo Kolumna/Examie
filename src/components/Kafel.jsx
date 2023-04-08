@@ -1,10 +1,8 @@
-import { MdBuild, MdConstruction } from "react-icons/md";
+import { MdBuild } from "react-icons/md";
 import { Link } from "react-router-dom";
 
 export default function Kafel(props) {
-  const className = props.className
-    ? props.className
-    : "bg-slate-400 p-6 h-64 w-96 rounded-xl flex flex-col justify-end border-slate-500";
+  const className = props.className ? props.className : "";
 
   return (
     <>
@@ -12,11 +10,11 @@ export default function Kafel(props) {
         <div
           className={`p-6 ${
             !props.active ? "justify-between" : "justify-end"
-          } h-64 w-96 hover:bg-amber-400 border-4 hover:border-amber-400 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
+          } h-64 w-96 hover:bg-amber-400 border-[6px] hover:border-amber-400 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
         >
           {!props.active && (
             <span className="font-black flex items-center gap-2 text-slate-50 bg-orange-500 p-1 px-2 rounded-lg">
-              <MdBuild/> W TRAKTCIE TWORZENIA
+              <MdBuild /> W TRAKTCIE TWORZENIA
             </span>
           )}
           <div>

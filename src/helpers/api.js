@@ -36,12 +36,12 @@ export const kursy = [
     modules: [
       {
         id: 0,
-        nazwa: "Wstęp do HTML",
+        nazwa: "Wprowadzenie do HTML",
         content: [
           {
             type: "title",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg",
-            value: "Wstęp do HTML",
+            value: "Wprowadzenie do HTML",
           },
           {
             type: "text",
@@ -115,12 +115,12 @@ export const kursy = [
       },
       {
         id: 4,
-        nazwa: "Wstęp do CSS",
+        nazwa: "Wprowadzenie do CSS",
         content: [
           {
             type: "title",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-plain.svg",
-            value: "Wstęp do CSS",
+            value: "Wprowadzenie do CSS",
           },
           {
             type: "text",
@@ -147,12 +147,12 @@ export const kursy = [
     modules: [
       {
         id: 0,
-        nazwa: "Wstęp do JavaScript",
+        nazwa: "Wprowadzenie do JavaScript",
         content: [
           {
             type: "title",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-            value: "Wstęp do JavaScript",
+            value: "Wprowadzenie do JavaScript",
           },
           {
             type: "text",
@@ -341,12 +341,12 @@ export const kursy = [
     modules: [
       {
         id: 0,
-        nazwa: "Wstęp do PHP",
+        nazwa: "Wprowadzenie do PHP",
         content: [
           {
             type: "title",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-plain.svg",
-            value: "Wstęp do PHP",
+            value: "Wprowadzenie do PHP",
           },
           {
             type: "text",
