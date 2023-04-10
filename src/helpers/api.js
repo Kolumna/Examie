@@ -148,23 +148,27 @@ export const kursy = [
       {
         id: 0,
         nazwa: "Wprowadzenie do JavaScript",
-        content: [
+        paragraphs: [
           {
+            id: 0,
             type: "title",
             img: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
             value: "Wprowadzenie do JavaScript",
           },
           {
+            id: 1,
             type: "text",
             value:
               "W tym kursie dowiesz się jak działa JavaScript, jakie są jego podstawowe cechy i jakie są jego zastosowania.",
           },
           {
+            id: 2,
             type: "important",
             value:
               "Polecam ukończyć najpierw kurs HTML i CSS, aby móc lepiej zrozumieć podstawy JavaScript.",
           },
           {
+            id: 3,
             type: "list",
             label: "Kurs obejmuje następujące tematy:",
             value: [
@@ -184,29 +188,35 @@ export const kursy = [
             ],
           },
           {
+            id: 4,
             type: "code",
             language: "javascript",
             value: 'const name = "Bambo łobuzie";\nconsole.log(name);',
           },
           {
+            id: 5,
             type: "title",
             value: "Czym jest JavaScript?",
           },
           {
+            id: 6,
             type: "text",
             value:
               "JavaScript jest językiem programowania, który pozwala na tworzenie interaktywnych stron internetowych. Jest to język skryptowy, który jest interpretowany przez przeglądarkę. Jest to język wysokiego poziomu, który jest łatwy do nauki i stosowania.",
           },
           {
+            id: 7,
             type: "important",
             value:
               "JavaScript jest jednym z najpopularniejszych języków programowania na świecie. Jest to język, który jest używany do tworzenia aplikacji webowych, aplikacji mobilnych, aplikacji desktopowych, gier, a nawet aplikacji do robotyki.",
           },
           {
+            id: 8,
             type: "title",
             value: "Historia JavaScript",
           },
           {
+            id: 9,
             type: "text",
             value:
               "JavaScript został stworzony w 1995 roku przez Brendana Eicha. Pierwsza wersja języka nosiła nazwę Mocha, a następnie LiveScript. W 1996 roku nazwa została zmieniona na JavaScript. W 1997 roku JavaScript został wprowadzony do przeglądarek Netscape Navigator 2.0.",

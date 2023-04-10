@@ -7,6 +7,7 @@ import TitleField from "../../components/elements/course/fields/TitleFiled";
 import ImportantField from "../../components/elements/course/fields/ImportantField";
 import ListaField from "../../components/elements/course/fields/ListField";
 import { HashLink } from "react-router-hash-link";
+import axios from "axios";
 
 function Course() {
   const [names, setNames] = useState([]);
@@ -31,8 +32,8 @@ function Course() {
 
   useEffect(() => {
     const fetchCourse = async () => {
-      const res = kursy.filter((item) => item.name.toLowerCase() === course)[0];
-      setData(res ? res : setNotFound(true));
+      const res = await axios.get(`https://examie-default-rtdb.europe-west1.firebasedatabase.app/courses/${course}.json`);
+      setData(res.data[Object.keys(res.data)[0]] ?? setNotFound(true));
       setLoading(false);
     };
 
@@ -92,8 +93,6 @@ function Course() {
     setSteps((steps) => [...steps, step]);
   };
 
-  console.log(steps);
-
   if (notfound) {
     return (
       <section className="h-screen flex flex-col gap-8 justify-center items-center text-7xl font-black">
@@ -124,7 +123,7 @@ function Course() {
                     module.id === 0 ? "" : module.nazwa.toLowerCase()
                   }`}
                   className={`p-3 ${
-                    lesson === module.nazwa.toLowerCase()
+                    lesson === module.nazwa?.toLowerCase()
                       ? "bg-slate-50"
                       : !lesson && module.id === 0
                       ? "bg-slate-50"
@@ -148,7 +147,7 @@ function Course() {
                     (item) => item.nazwa.toLowerCase() === lesson
                   )
                 : 0
-            ]?.content?.map((item) => {
+            ]?.paragraphs?.map((item) => {
               switch (item.type) {
                 case "title":
                   return (

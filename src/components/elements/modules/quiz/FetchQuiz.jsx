@@ -114,7 +114,7 @@ function FetchQuiz(props) {
   const fetchQuiz = async () => {
     setLoading(true);
     let res = await axios.get(
-      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/inf03.json`
+      `${import.meta.env.VITE_API_LINK}/quizes/inf03.json`
     );
     res = objectToArrayWithId(res.data);
     const randomRes = res[Math.floor(Math.random() * res.length)];

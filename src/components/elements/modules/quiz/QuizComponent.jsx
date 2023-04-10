@@ -28,8 +28,8 @@ function QuizComponent(props) {
       </div>
       <section className="w-full container mx-auto flex flex-col justify-center items-center gap-8 bg-slate-200 p-2 md:p-4 rounded-xl">
         <div
-          className={`bg-yellow-500 ${
-            props.loading && "animate-pulse bg-yellow-600"
+          className={`bg-amber-400 ${
+            props.loading && "animate-pulse bg-amber-500"
           } w-full rounded-lg text-center flex ${
             currentQuiz.img ? "justify-between" : "justify-center"
           } items-center`}
@@ -59,16 +59,16 @@ function QuizComponent(props) {
         <div className="grid md:grid-cols-2 gap-4 md:gap-8 container w-full">
           {props.loading ? (
             <>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
+              <div className="animate-pulse w-full bg-amber-500 p-4 rounded-lg font-bold text-left transition-all duration-200">
                 <p className="opacity-0 p-2">loading</p>
               </div>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
+              <div className="animate-pulse w-full bg-amber-500 p-4 rounded-lg font-bold text-left transition-all duration-200">
                 <p className="opacity-0 p-2">loading</p>
               </div>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
+              <div className="animate-pulse w-full bg-amber-500 p-4 rounded-lg font-bold text-left transition-all duration-200">
                 <p className="opacity-0 p-2">loading</p>
               </div>
-              <div className="animate-pulse w-full bg-yellow-600 p-4 rounded-lg font-bold text-left transition-all duration-200">
+              <div className="animate-pulse w-full bg-amber-500 p-4 rounded-lg font-bold text-left transition-all duration-200">
                 <p className="opacity-0 p-2">loading</p>
               </div>
             </>
@@ -82,10 +82,10 @@ function QuizComponent(props) {
                   result
                     ? answer.correct
                       ? "bg-green-500"
-                      : "bg-yellow-500"
-                    : "bg-yellow-500"
+                      : "bg-amber-400"
+                    : "bg-amber-400"
                 } p-4 rounded-lg font-bold text-left w-full ${
-                  !result && "hover:bg-yellow-400"
+                  !result && "hover:bg-amber-300"
                 } flex items-start`}
               >
                 <span className="bg-slate-500 h-full flex items-center justify-center p-2 px-4 rounded-l-lg text-slate-100">
