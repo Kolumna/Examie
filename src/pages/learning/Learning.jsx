@@ -3,7 +3,6 @@ import { Link, useLocation } from "react-router-dom";
 import { egzaminyZawodowe } from "../../helpers/api";
 import Kafel from "../../components/Kafel";
 import axios from "axios";
-import { objectToArrayWithId } from "../../helpers/objects";
 import { nestedObjectToArray } from "../../helpers/nestejObjects";
 
 function Learning() {
