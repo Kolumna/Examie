@@ -3,11 +3,11 @@ export default function App() {
     <section className="bg-slate-300 ">
       <section className="w-full h-96 flex items-center justify-between">
         <div className="max-w-7xl mx-auto flex flex-col items-start gap-2">
-          <div className="bg-slate-50 p-2 text-5xl font-black">ZDAJ</div>
-          <div className="bg-slate-50 p-2 text-5xl font-black">EGZAMIN</div>
-          <div className="bg-slate-50 p-2 text-5xl font-black">NA</div>
+          <div className="bg-white p-2 text-5xl font-black">ZDAJ</div>
+          <div className="bg-white p-2 text-5xl font-black">EGZAMIN</div>
+          <div className="bg-white p-2 text-5xl font-black">NA</div>
           <div className="flex h-full">
-            <div className="bg-slate-50 p-2 text-5xl font-black">STÓWKĘ!</div>
+            <div className="bg-white p-2 text-5xl font-black">STÓWKĘ!</div>
             <div className="bg-zinc-900 w-4 animate-pulse"></div>
           </div>
         </div>

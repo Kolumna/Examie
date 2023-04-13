@@ -14,7 +14,7 @@ export default function Home(props) {
         technik
       />
       <Section
-        className="bg-slate-100"
+        className="bg-white"
         label="MATURKA Z INFY"
         content="JUŻ WKRÓTCE!"
       />

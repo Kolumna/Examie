@@ -17,7 +17,7 @@ const CodeField = (props) => {
         language={props.language}
         style={docco}
         customStyle={{
-          backgroundColor: "#f1f5f9",
+          backgroundColor: "#f8fafc",
           borderRadius: 10,
           fontSize: 24,
           padding: 20,

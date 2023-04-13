@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { egzaminyZawodowe } from "../../helpers/api";
 import Kafel from "../../components/Kafel";
 import axios from "axios";
-import { nestedObjectToArray } from "../../helpers/nestejObjects";
+import { nestedObjectToArray } from "../../helpers/nestedObjects";
 
 function Learning() {
   const [data, setData] = useState([{}]);
@@ -25,9 +25,13 @@ function Learning() {
 
   return (
     <section className="pt-12 flex flex-col gap-24">
-      <section className="container mx-auto flex flex-col items-center gap-12 flex-wrap bg-slate-50">
+      <section className="container mx-auto flex flex-col items-center gap-12 flex-wrap">
         <h1 className="text-4xl font-black">KURSY</h1>
-        <div className={`${!loading ? 'grid grid-cols-3' : 'flex justify-center'} gap-8`}>
+        <div
+          className={`${
+            !loading ? "grid grid-cols-3" : "flex justify-center"
+          } gap-8`}
+        >
           {!loading ? (
             data.map((el) => (
               <Link

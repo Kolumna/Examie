@@ -9,6 +9,7 @@ import ListaField from "../../components/elements/course/fields/ListField";
 import { HashLink } from "react-router-hash-link";
 import axios from "axios";
 import CourseLoading from "../../components/loadingScreens/CourseLoading";
+import { MdCode, MdMovie, MdQuiz } from "react-icons/md";
 
 function Course() {
   const [names, setNames] = useState([]);
@@ -106,7 +107,9 @@ function Course() {
     return (
       <section className="h-screen flex flex-col gap-8 justify-center items-center text-7xl font-black">
         <h1>Nie znaleziono kursu</h1>
-        <span className="text-2xl font-bold">Sory ale niestety nie ma takiego kursu :(</span>
+        <span className="text-2xl font-bold">
+          Sory ale niestety nie ma takiego kursu :(
+        </span>
         <Link
           className="text-lg btn-anim bg-slate-500 hover:bg-slate-400 text-slate-50 p-4 px-6 rounded-full"
           to="/learning"
@@ -123,7 +126,7 @@ function Course() {
         <CourseLoading />
       ) : (
         <>
-          <section className="flex flex-col font-bold text-md w-72">
+          <section className="flex flex-col font-bold text-md">
             <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2 sticky top-[120px]">
               {data.modules?.map((module) => {
                 return (
@@ -141,7 +144,7 @@ function Course() {
                           : !lesson && module.id === 0
                           ? "bg-slate-50"
                           : "hover:bg-slate-100"
-                      } cursor-pointer rounded-lg w-full`}
+                      } cursor-pointer rounded-lg w-64`}
                     >
                       {module.nazwa}
                     </Link>
@@ -151,7 +154,7 @@ function Course() {
             </ul>
           </section>
 
-          <section className="max-w-5xl px-4 flex flex-col gap-12">
+          <section className="px-4 w-[1200px] flex flex-col gap-12">
             <section className="flex flex-col gap-16">
               {!loading &&
                 data.modules[
@@ -206,6 +209,51 @@ function Course() {
                           controls
                           src={item.value}
                         />
+                      );
+
+                    case "summary":
+                      return (
+                        <div className="bg-slate-300 rounded-xl flex justify-between gap-8 p-4">
+                          <div className="w-full flex flex-col gap-2">
+                            <div className="bg-slate-500 hover:bg-slate-600 btn-anim rounded-xl flex flex-col items-center gap-2 p-4">
+                              <span className="text-5xl text-slate-50">
+                                <MdQuiz />
+                              </span>
+                              <span className="text-2xl font-black text-slate-50">
+                                QUIZ
+                              </span>
+                            </div>
+                            <div className="w-full flex justify-center items-center p-2 bg-gray-500 font-bold text-slate-50 rounded-xl">
+                              NIE UKOŃCZONO
+                            </div>
+                          </div>
+                          <div className="w-full flex flex-col gap-2">
+                            <div className="bg-slate-500 hover:bg-slate-600 btn-anim rounded-xl flex flex-col items-center gap-2 p-4">
+                              <span className="text-5xl text-slate-50">
+                                <MdMovie />
+                              </span>
+                              <span className="text-2xl font-black text-slate-50">
+                                FILM
+                              </span>
+                            </div>
+                            <div className="w-full flex justify-center items-center p-2 bg-green-500 font-bold text-slate-50 rounded-xl">
+                              UKOŃCZONO
+                            </div>
+                          </div>
+                          <div className="w-full flex flex-col gap-2">
+                            <div className="bg-slate-500 hover:bg-slate-600 btn-anim rounded-xl flex flex-col items-center gap-2 p-4">
+                              <span className="text-5xl text-slate-50">
+                                <MdCode />
+                              </span>
+                              <span className="text-2xl font-black text-slate-50">
+                                ZADANIE
+                              </span>
+                            </div>
+                            <div className="w-full flex justify-center items-center p-2 bg-gray-500 font-bold text-slate-50 rounded-xl">
+                              NIE UKOŃCZONO
+                            </div>
+                          </div>
+                        </div>
                       );
 
                     default:

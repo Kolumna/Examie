@@ -66,7 +66,7 @@ export default function Module(props) {
             </div>
           </Section>
 
-          <Section bgColor="bg-slate-200" color="bg-slate-300" col left>
+          <Section bgColor="bg-slate-100" color="bg-slate-300" col left>
             <div className="flex flex-col gap-4">
               <div className="flex gap-4 justify-between">
                 <div className="flex justify-center">
@@ -77,7 +77,7 @@ export default function Module(props) {
                     <MdPlayArrow />
                   </Link>
                 </div>
-                <div className="flex items-center bg-slate-100 px-8 rounded-2xl">
+                <div className="flex items-center bg-slate-200 px-8 rounded-2xl">
                   <Title
                     title="ĆWICZENIA"
                     size="text-5xl"

@@ -13,12 +13,12 @@ export default function Kafel(props) {
           } h-64 w-96 hover:bg-amber-400 border-[6px] hover:border-amber-400 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
         >
           {!props.active && (
-            <span className="font-black flex items-center gap-2 text-slate-50 bg-orange-500 p-1 px-2 rounded-lg">
+            <span className="font-black flex items-center gap-2 text-white bg-orange-500 p-1 px-2 rounded-lg">
               <MdBuild /> W TRAKTCIE TWORZENIA
             </span>
           )}
           <div>
-            <div className="text-slate-50 font-black">
+            <div className="text-white font-black">
               {props.kwalifikacje.map((kwalifikacja) => (
                 <p key={kwalifikacja}>
                   <span className="text-zinc-900">
@@ -28,7 +28,7 @@ export default function Kafel(props) {
                 </p>
               ))}
             </div>
-            <p className="text-7xl text-slate-50 font-black">
+            <p className="text-7xl text-white font-black">
               <span className="text-zinc-900">
                 {props.inf ? "INF" : "BRAK"}
               </span>

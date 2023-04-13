@@ -11,7 +11,7 @@ import arenaLogo from "../../assets/svgs/arenaLogo.svg";
 
 export default function Header() {
   return (
-    <section className="px-8 bg-slate-50 py-5 w-full flex items-center shadow-md">
+    <section className="px-4 md:px-8 bg-white py-5 w-full flex items-center shadow-md">
       <div className="flex justify-between w-full">
         <div className="flex gap-12 items-center">
           <Link title="Wróć do strony głównej" to="/">

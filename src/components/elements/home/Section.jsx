@@ -24,8 +24,8 @@ export default function Section(props) {
               />
             ))}
           {props.content && (
-            <div className="text-4xl font-black flex justify-center w-full text-slate-500 p-12 pt-20">
-              <h1 className="bg-slate-400 p-4 px-8 text-slate-50 rounded-2xl">{props.content}</h1>
+            <div className="text-4xl font-black flex justify-center w-full text-white p-12 pt-20">
+              <h1 className="bg-slate-400 p-4 px-8 rounded-2xl">{props.content}</h1>
             </div>
           )}
         </div>

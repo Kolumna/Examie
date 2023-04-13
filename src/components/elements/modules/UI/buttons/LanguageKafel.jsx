@@ -7,7 +7,7 @@ const LanguageKafel = (props) => {
   return (
     <Link
       to={`/learning/${param}`}
-      className="bg-slate-300 gap-8 transition-all duration-200 hover:bg-yellow-500 border-[8px] border-zinc-900 p-8 flex justify-between items-center text-4xl font-bold"
+      className="bg-slate-200 gap-8 transition-all duration-200 hover:bg-yellow-500 border-[8px] border-zinc-900 p-8 flex justify-between items-center text-4xl font-bold"
     >
       <div className="w-full flex justify-center">
         <span className="text-2xl font-black">{props.language}</span>

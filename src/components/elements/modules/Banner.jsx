@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Banner = (props) => {
   return (
     <section>
-      <section className="bg-slate-300 w-full flex items-center justify-between">
+      <section className="bg-slate-200 w-full flex items-center justify-between">
         <div className="container flex justify-between mx-auto w-full">
           <div
             className={`${props.bgColor} h-96 w-1/3 flex flex-col gap-8 justify-between items-start px-12`}
@@ -59,7 +59,7 @@ const Banner = (props) => {
             )}
             <div className="flex justify-between gap-8 w-full">
               {!props.loading ? (
-                <div className="text-md font-bold p-4 bg-slate-200 rounded-lg">
+                <div className="text-md font-bold p-4 bg-slate-50 rounded-lg">
                   <h2 className="text-2xl mb-4">KIERUNEK</h2>
 
                   {props.kwalifikacje.map((kwalifikacja) => (
@@ -70,10 +70,10 @@ const Banner = (props) => {
                   ))}
                 </div>
               ) : (
-                <div className="text-md font-bold w-full h-36 bg-slate-200 animate-pulse"></div>
+                <div className="text-md font-bold w-full h-36 bg-slate-50 animate-pulse"></div>
               )}
               {!props.loading && (
-                <div className="text-md font-bold p-4 bg-slate-200 rounded-lg">
+                <div className="text-md font-bold p-4 bg-slate-50 rounded-lg">
                   <h2 className="text-2xl mb-4">OPIS</h2>
                   {props.opisy.map((opis) => (
                     <p key={opis}>{opis}</p>
