@@ -28,11 +28,11 @@ function Exam(props) {
     <section className="flex flex-col justify-center items-center">
       {start && (
         <div className="fixed top-[88px] z-20 border-b-4 border-zinc-900 bg-red-500 px-20 py-2 rounded-b-2xl">
-          <span className="text-xl font-bold text-slate-50">{odliczanie}</span>
+          <span className="text-xl font-bold text-white">{odliczanie}</span>
         </div>
       )}
       <section className="bg-slate-500 w-full px-12">
-        <div className="container mx-auto flex justify-between items-center text-slate-50">
+        <div className="container mx-auto flex justify-between items-center text-white">
           <div className="flex items-start flex-col gap-4">
             <h1 className="font-bold text-6xl">
               EGZAMIN {modules.toUpperCase()}
@@ -42,20 +42,20 @@ function Exam(props) {
             </span>
           </div>
           <div className="flex flex-col gap-8 py-12 items-end">
-            <p className="font-bold text-2xl bg-slate-50 text-slate-500 p-4 rounded-xl">
+            <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
               <strong>40</strong> PYTAŃ
             </p>
-            <p className="font-bold text-2xl bg-slate-50 text-slate-500 p-4 rounded-xl">
+            <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
               <strong>60</strong> MINUT
             </p>
-            <p className="font-bold text-2xl bg-slate-50 text-slate-500 p-4 rounded-xl">
+            <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
               BAZA <strong>300</strong> PYTAŃ
             </p>
           </div>
         </div>
       </section>
       {!start ? (
-        <section className="bg-slate-50 p-24">
+        <section className="bg-white p-24">
           <button
             onClick={() => setStart(!start)}
             className="container mx-auto bg-slate-500 hover:bg-yellow-500 btn-anim p-8 text-2xl font-black rounded-xl text-slate-50"

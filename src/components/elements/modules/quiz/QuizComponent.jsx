@@ -26,7 +26,7 @@ function QuizComponent(props) {
           </span>
         )}
       </div>
-      <section className="w-full container mx-auto flex flex-col justify-center items-center gap-8 bg-slate-200 p-2 md:p-4 rounded-xl">
+      <section className="w-full container mx-auto flex flex-col justify-center items-center gap-8 bg-slate-100 p-2 md:p-4 rounded-xl">
         <div
           className={`bg-amber-400 ${
             props.loading && "animate-pulse bg-amber-500"
@@ -44,7 +44,7 @@ function QuizComponent(props) {
           <div className="flex justify-center w-full p-8">
             <span
               className={`font-bold text-3xl ${
-                !props.loading && "bg-slate-100"
+                !props.loading && "bg-white"
               } p-4 w-full md:w-auto rounded-lg text-lg md:text-2xl`}
             >
               {props.loading ? (
@@ -88,10 +88,10 @@ function QuizComponent(props) {
                   !result && "hover:bg-amber-300"
                 } flex items-start`}
               >
-                <span className="bg-slate-500 h-full flex items-center justify-center p-2 px-4 rounded-l-lg text-slate-100">
+                <span className="bg-slate-500 h-full flex items-center justify-center p-2 px-4 rounded-l-lg text-white">
                   {key === 0 ? "A" : key === 1 ? "B" : key === 2 ? "C" : "D"}
                 </span>
-                <span className="bg-slate-100 p-2 px-4 rounded-r-lg">
+                <span className="bg-white p-2 px-4 rounded-r-lg">
                   {answer.name}
                 </span>
               </button>

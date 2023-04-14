@@ -14,8 +14,18 @@ import Course from "./pages/learning/Course";
 import Arkusze from "./pages/Arkusze";
 import Forum from "./pages/Forum";
 import Login from "./pages/auth/Login";
+import AuthContext from "./context/authContext";
+import { useState } from "react";
+import Register from "./pages/auth/Register";
 
 function App() {
+  const [auth, setAuth] = useState({
+    isAuth: false,
+    user: null,
+  });
+
+  console.log(auth)
+
   const header = <Header />;
 
   //Routing stron
@@ -36,6 +46,7 @@ function App() {
       <Route path="/videos/:what/" element={<Videos />} />
       <Route path="/videos/:what/:video" element={<Videos />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
     </Routes>
   );
 
@@ -44,9 +55,17 @@ function App() {
   return (
     <main className="bg-amber-400 min-h-screen">
       <Router>
-        <ScrollToUp>
-          <Layout header={header} content={content} footer={footer} />
-        </ScrollToUp>
+        <AuthContext.Provider
+          value={{
+            user: auth.user,
+            login: (user) => setAuth({ isAuth: true, user }),
+            logout: () => setAuth({ isAuth: false, user: null }),
+          }}
+        >
+          <ScrollToUp>
+            <Layout header={header} content={content} footer={footer} />
+          </ScrollToUp>
+        </AuthContext.Provider>
       </Router>
     </main>
   );

@@ -8,8 +8,11 @@ import {
   MdTextIncrease,
 } from "react-icons/md";
 import arenaLogo from "../../assets/svgs/arenaLogo.svg";
+import useAuth from "../../hooks/useAuth";
 
 export default function Header() {
+  const [auth, setAuth] = useAuth();
+
   return (
     <section className="px-4 md:px-8 bg-white py-5 w-full flex items-center shadow-md">
       <div className="flex justify-between w-full">
@@ -75,13 +78,26 @@ export default function Header() {
               <img height={"100%"} width={16} src={arenaLogo} />
             </button>
           </Link>
-          <Link
-            title="Twoje konto"
-            to="/login"
-            className="bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 text-md rounded-full text-zinc-90 font-extrabold"
-          >
-            <MdAccountCircle />
-          </Link>
+          {auth ? (
+            <button
+              onClick={() => {
+                setAuth(null);
+              }}
+              className={`bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-extrabold`}
+            >
+              <span className="text-xs">WYLOGUJ</span>
+            </button>
+          ) : (
+            <Link title="Konto" to="/login">
+              <button
+                className={`bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 text-xs rounded-full text-zinc-900 font-extrabold`}
+              >
+                <span className="text-lg">
+                  <MdAccountCircle />
+                </span>
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </section>

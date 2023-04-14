@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
-import { kursy } from "../../helpers/api";
 import CodeField from "../../components/elements/course/fields/CodeField";
 import TextField from "../../components/elements/course/fields/TextField";
 import TitleField from "../../components/elements/course/fields/TitleFiled";
@@ -9,7 +8,7 @@ import ListaField from "../../components/elements/course/fields/ListField";
 import { HashLink } from "react-router-hash-link";
 import axios from "axios";
 import CourseLoading from "../../components/loadingScreens/CourseLoading";
-import { MdCode, MdMovie, MdQuiz } from "react-icons/md";
+import Summary from "../../components/elements/course/Summary";
 
 function Course() {
   const [names, setNames] = useState([]);
@@ -219,50 +218,7 @@ function Course() {
                       );
                   }
                 })}
-                <div className="bg-slate-300 rounded-xl flex flex-col justify-between gap-4 p-4">
-                          <span className="text-center font-bold text-xl">PODSUMOWANIE</span>
-                          <section className="flex gap-8">
-                            <div className="w-full flex flex-col gap-2">
-                              <div className="bg-slate-500 hover:bg-slate-600 btn-anim rounded-xl flex flex-col items-center gap-2 p-4">
-                                <span className="text-5xl text-slate-50">
-                                  <MdQuiz />
-                                </span>
-                                <span className="text-2xl font-black text-slate-50">
-                                  QUIZ
-                                </span>
-                              </div>
-                              <div className="w-full flex justify-center items-center p-2 bg-gray-500 font-bold text-slate-50 rounded-xl">
-                                NIE UKOŃCZONO
-                              </div>
-                            </div>
-                            <div className="w-full flex flex-col gap-2">
-                              <div className="bg-slate-500 hover:bg-slate-600 btn-anim rounded-xl flex flex-col items-center gap-2 p-4">
-                                <span className="text-5xl text-slate-50">
-                                  <MdMovie />
-                                </span>
-                                <span className="text-2xl font-black text-slate-50">
-                                  FILM
-                                </span>
-                              </div>
-                              <div className="w-full flex justify-center items-center p-2 bg-green-500 font-bold text-slate-50 rounded-xl">
-                                UKOŃCZONO
-                              </div>
-                            </div>
-                            <div className="w-full flex flex-col gap-2">
-                              <div className="bg-slate-500 hover:bg-slate-600 btn-anim rounded-xl flex flex-col items-center gap-2 p-4">
-                                <span className="text-5xl text-slate-50">
-                                  <MdCode />
-                                </span>
-                                <span className="text-2xl font-black text-slate-50">
-                                  ZADANIE
-                                </span>
-                              </div>
-                              <div className="w-full flex justify-center items-center p-2 bg-gray-500 font-bold text-slate-50 rounded-xl">
-                                NIE UKOŃCZONO
-                              </div>
-                            </div>
-                          </section>
-                        </div>
+                <Summary/>
             </section>
             <footer className="flex justify-end gap-4">
               {lesson && (

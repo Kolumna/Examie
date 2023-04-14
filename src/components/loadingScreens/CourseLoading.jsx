@@ -3,35 +3,35 @@ import TitleField from "../elements/course/fields/TitleFiled";
 const CourseLoading = () => {
   return (
     <>
-      <section className="flex flex-col font-bold text-md w-72">
+      <section className="flex flex-col font-bold text-md">
         <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2 sticky top-[120px]">
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lg"></div>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lg"></div>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lg"></div>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lg"></div>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lgl"></div>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lg"></div>
           </div>
           <div className="flex items-center gap-2">
             <span className="h-full px-5 flex items-center bg-slate-500 text-slate-50 rounded-r-lg"></span>
-            <div className="p-6 bg-slate-50 animate-pulse cursor-pointer rounded-lg w-full"></div>
+            <div className="p-6 w-64 bg-slate-50 animate-pulse cursor-pointer rounded-lg"></div>
           </div>
         </ul>
       </section>
