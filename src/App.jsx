@@ -20,11 +20,11 @@ import Register from "./pages/auth/Register";
 
 function App() {
   const [auth, setAuth] = useState({
-    isAuth: false,
-    user: null,
+    isAuth: localStorage.getItem("user") ? true : false,
+    user: localStorage.getItem("user")
+      ? JSON.parse(localStorage.getItem("user"))
+      : null,
   });
-
-  console.log(auth)
 
   const header = <Header />;
 
@@ -58,8 +58,14 @@ function App() {
         <AuthContext.Provider
           value={{
             user: auth.user,
-            login: (user) => setAuth({ isAuth: true, user }),
-            logout: () => setAuth({ isAuth: false, user: null }),
+            login: (user) => {
+              setAuth({ isAuth: true, user });
+              localStorage.setItem("user", JSON.stringify(user));
+            },
+            logout: () => {
+              setAuth({ isAuth: false, user: null });
+              localStorage.removeItem("user");
+            },
           }}
         >
           <ScrollToUp>
