@@ -51,7 +51,14 @@ function Login() {
           className="flex flex-col items-center gap-8 mb-24 bg-slate-100 p-12 rounded-xl"
         >
           <h1 className="text-6xl font-bold p-4 rounded-xl">Logowanie</h1>
-          {error && <p className="text-red-500">{error}</p>}
+          {error && (
+            <div className="bg-white text-lg p-4 w-full rounded-xl flex items-center gap-2 text-red-500">
+              <span>
+                <MdInfo />
+              </span>
+              <p className="font-bold">{error}</p>
+            </div>
+          )}
           <input
             className="border-4 mt-12 border-zinc-800 p-2 w-full focus:border-amber-500 placeholder:font-bold placeholder:text-zinc-400"
             type="text"
@@ -91,7 +98,8 @@ function Login() {
                 STWÓRZ KONTO I ĆWICZ!
               </h1>
               <p className="text-slate-100 text-2xl w-3/4 text-center md:text-left">
-                Posiadając konto masz dostęp do obserwacji swoich postępów w nauce widząc swoje wyniki w quizach oraz postęp w kursie.
+                Posiadając konto masz dostęp do obserwacji swoich postępów w
+                nauce widząc swoje wyniki w quizach oraz postęp w kursie.
               </p>
             </div>
             <div className="flex flex-col gap-2 mt-24 md:mt-0 md:ml-12">
