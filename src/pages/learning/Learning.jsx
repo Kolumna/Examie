@@ -46,7 +46,7 @@ function Learning() {
             <div className="flex justify-center" role="status">
               <svg
                 aria-hidden="true"
-                class="w-12 h-12 text-slate-200 animate-spin fill-amber-400"
+                className="w-12 h-12 text-slate-200 animate-spin fill-amber-400"
                 viewBox="0 0 100 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -60,7 +60,7 @@ function Learning() {
                   fill="currentFill"
                 />
               </svg>
-              <span class="sr-only">Loading...</span>
+              <span className="sr-only">Loading...</span>
             </div>
           )}
         </div>
@@ -69,7 +69,7 @@ function Learning() {
         <section className="container mx-auto flex flex-col items-center gap-12 flex-wrap ">
           <h1 className="text-4xl font-black">KWALIFIKACJE</h1>
           <div className="flex items-center gap-8 flex-wrap">
-            <ModulesView/>
+            <ModulesView />
           </div>
         </section>
       </section>

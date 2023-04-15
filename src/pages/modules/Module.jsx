@@ -7,12 +7,15 @@ import LanguageKafel from "../../components/elements/modules/UI/buttons/Language
 import Title from "../../components/elements/modules/UI/Title";
 import axios from "axios";
 import { objectToArrayWithId } from "../../helpers/objects";
+import useAuth from "../../hooks/useAuth";
 
 export default function Module(props) {
   const [module, setModule] = useState({});
+  const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState("");
   const [text, setText] = useState("");
+  const [auth] = useAuth();
 
   const { modules } = useParams();
 
@@ -26,14 +29,23 @@ export default function Module(props) {
 
   const fetchUser = async () => {
     const res = await axios.get(
-      `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users.json`
+      `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}.json`
     );
-    console.log(res.data);
+    setUser(objectToArrayWithId(res.data)[0]);
   };
 
+  // const patchUser = async (data) => {
+  //   const res = await axios.patch(
+  //     `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}/-NT4VjiRRMb22TMyVN59.json`,
+  //     { kursy: [{ javascript: 25 }, { sql: 50 }] }
+  //   );
+  // };
+
   useEffect(() => {
+    if (auth) {
+      fetchUser();
+    }
     fetchModule();
-    fetchUser();
 
     switch (modules) {
       case "inf02":
@@ -58,6 +70,8 @@ export default function Module(props) {
     return <h1>NI MA</h1>;
   }
 
+  console.log(user, module[0].kursy);
+
   return (
     <section>
       {!loading ? (
@@ -74,7 +88,16 @@ export default function Module(props) {
             <div className="grid grid-cols-4 gap-12 w-full">
               {module[0].kursy &&
                 module[0].kursy.map((kurs) => (
-                  <LanguageKafel key={kurs} language={kurs} />
+                  <LanguageKafel
+                    key={kurs}
+                    language={kurs}
+                    progress={
+                      user.kursy &&
+                      auth &&
+                      (user.kursy[kurs.toLowerCase()] ?? null)
+                    }
+                    auth={auth}
+                  />
                 ))}
             </div>
           </Section>

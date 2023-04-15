@@ -19,8 +19,6 @@ function ModulesView(props) {
     fetchModules();
   }, []);
 
-  console.log(modules);
-
   return (
     <section className="flex justify-between w-full gap-8">
       {!loading &&
