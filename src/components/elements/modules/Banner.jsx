@@ -75,7 +75,7 @@ const Banner = (props) => {
               {!props.loading && (
                 <div className="text-md font-bold p-4 bg-slate-50 rounded-lg">
                   <h2 className="text-2xl mb-4">OPIS</h2>
-                  {props.opis.map((opis) => (
+                  {props.opis && props.opis.map((opis) => (
                     <p key={opis}>{opis}</p>
                   ))}
                 </div>

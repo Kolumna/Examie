@@ -42,10 +42,16 @@ function Register() {
         userId: res.data.localId,
         email: res.data.email,
       });
-      navigate("/");
+      await axios.post(
+        `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${res.data.localId}.json?auth=${res.data.idToken}`,
+        {
+          uid: res.data.localId,
+        }
+      );
+      navigate(-1);
     } catch (err) {
       console.log(err);
-      setError(err.response.data.error.message);
+      setError(err);
       setLoading(false);
     }
   };

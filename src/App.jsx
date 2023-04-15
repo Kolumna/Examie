@@ -40,8 +40,8 @@ function App() {
       <Route path="/learning/:course/:lesson" element={<Course />} />
       <Route path="/modules" element={<About />} />
       <Route path="/modules/:modules" element={<Module />} />
-      <Route path="/modules/:modules/quiz" element={<Quiz />} />
-      <Route path="/modules/:modules/quiz/exam" element={<Exam />} />
+      <Route path="/quizes/:modules" element={<Quiz />} />
+      <Route path="/exams/:modules" element={<Exam />} />
       <Route path="/videos/" element={<Videos />} />
       <Route path="/videos/:what/" element={<Videos />} />
       <Route path="/videos/:what/:video" element={<Videos />} />

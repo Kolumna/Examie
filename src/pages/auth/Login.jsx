@@ -36,7 +36,7 @@ function Login() {
         userId: res.data.localId,
         email: res.data.email,
       });
-      navigate("/");
+      navigate(-1);
     } catch (err) {
       console.log(err);
       setError(err.response.data.error.message);
@@ -95,10 +95,10 @@ function Login() {
         <div className="bg-slate-500 p-12 py-20 mt-24">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col items-center md:items-start gap-8">
-              <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-slate-100">
+              <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-white">
                 STWÓRZ KONTO I ĆWICZ!
               </h1>
-              <p className="text-slate-100 text-2xl w-3/4 text-center md:text-left">
+              <p className="text-white text-2xl w-3/4 text-center md:text-left">
                 Posiadając konto masz dostęp do obserwacji swoich postępów w
                 nauce widząc swoje wyniki w quizach oraz postęp w kursie.
               </p>
@@ -106,7 +106,7 @@ function Login() {
             <div className="flex flex-col gap-2 mt-24 md:mt-0 md:ml-12">
               <Link
                 to="/register"
-                className="bg-slate-100 whitespace-nowrap text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
+                className="bg-white whitespace-nowrap text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
               >
                 ZAREJESTRUJ SIĘ
               </Link>

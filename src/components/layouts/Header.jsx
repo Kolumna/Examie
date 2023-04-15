@@ -37,11 +37,6 @@ export default function Header() {
                 ARKUSZE
               </button>
             </Link>
-            <Link title="Forum" to="/forum">
-              <button className="bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-extrabold">
-                FORUM
-              </button>
-            </Link>
             <Link title="O nas" to="/about">
               <button className="bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 text-md rounded-full text-zinc-90 font-extrabold">
                 <MdHelp />

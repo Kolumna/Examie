@@ -17,11 +17,11 @@ function Quiz(props) {
               <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-slate-100">
                 SPRAWDŹ SIĘ NA EGZAMINIE!
               </h1>
-              <p className="text-slate-100 text-2xl text-center md:text-left">
+              <p className="text-white text-2xl text-center md:text-left">
                 Egzamin składa się z <strong>20 pytań</strong>, na które musisz
                 odpowiedzieć w ciągu <strong>20 min</strong>.
               </p>
-              <span className="text-2xl bg-slate-200 p-4 items-center rounded-lg flex text-slate-500 gap-2 font-black">
+              <span className="text-2xl bg-white p-4 items-center rounded-lg flex text-slate-500 gap-2 font-black">
                 {modules.toUpperCase()}
                 <MdDescription />
               </span>
@@ -29,7 +29,7 @@ function Quiz(props) {
             <div className="flex flex-col gap-2 mt-24 md:mt-0 md:ml-12">
               <Link
                 to="/modules/inf03/quiz/exam"
-                className="bg-slate-100 text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
+                className="bg-white text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
               >
                 ROZPOCZNIJ
               </Link>

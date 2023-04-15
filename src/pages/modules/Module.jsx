@@ -24,10 +24,17 @@ export default function Module(props) {
     setLoading(false);
   };
 
-  console.log(module);
+  const fetchUser = async () => {
+    const res = await axios.get(
+      `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users.json`
+    );
+    console.log(res.data);
+  };
 
   useEffect(() => {
     fetchModule();
+    fetchUser();
+
     switch (modules) {
       case "inf02":
         setColor("bg-zinc-400");
@@ -47,8 +54,8 @@ export default function Module(props) {
     }
   }, []);
 
-  if(!module[0]?.active) {
-    return(<h1>NI MA</h1>)
+  if (!module[0]?.active) {
+    return <h1>NI MA</h1>;
   }
 
   return (
@@ -65,10 +72,10 @@ export default function Module(props) {
           <Section bgColor={color} col>
             <Title title="KURSY" size="text-5xl" textColor={text} />
             <div className="grid grid-cols-4 gap-12 w-full">
-              <LanguageKafel language="HTML&CSS" />
-              <LanguageKafel complete language="JavaScript" />
-              <LanguageKafel language="SQL" />
-              <LanguageKafel language="PHP" />
+              {module[0].kursy &&
+                module[0].kursy.map((kurs) => (
+                  <LanguageKafel key={kurs} language={kurs} />
+                ))}
             </div>
           </Section>
 
@@ -77,7 +84,7 @@ export default function Module(props) {
               <div className="flex gap-4 justify-between">
                 <div className="flex justify-center">
                   <Link
-                    to="/modules/inf03/quiz"
+                    to="/quizes/inf03"
                     className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-3xl p-4 px-4 flex justify-center items-center text-5xl font-bold"
                   >
                     <MdPlayArrow />
