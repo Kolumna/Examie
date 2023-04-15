@@ -92,7 +92,7 @@ export default function Module(props) {
                     key={kurs}
                     language={kurs}
                     progress={
-                      user.kursy &&
+                      user?.kursy &&
                       auth &&
                       (user.kursy[kurs.toLowerCase()] ?? null)
                     }
