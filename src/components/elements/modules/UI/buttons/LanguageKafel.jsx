@@ -6,8 +6,6 @@ const LanguageKafel = (props) => {
   const param = props.language.toLowerCase();
   const auth = props.auth;
 
-  console.log(props.progress);
-
   return (
     <Link
       to={`/learning/${param}`}
@@ -19,8 +17,8 @@ const LanguageKafel = (props) => {
           <div className="flex gap-2 bg-slate-500 rounded-full pr-2">
             <div className="h-5 flex justify-start items-center w-full bg-zinc-900 rounded-full">
               <div
-                style={{ width: `${props.progress}%` }}
-                className={`h-full bg-amber-400 border-4 border-black rounded-full`}
+                style={{ width: `${props.progress ?? 0}%` }}
+                className={`h-full bg-amber-400 border-4 border-black rounded-full transition-all duration-200`}
               ></div>
             </div>
             <span className="text-sm text-white">{props.progress}%</span>

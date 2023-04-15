@@ -9,7 +9,7 @@ import axios from "axios";
 import { objectToArrayWithId } from "../../helpers/objects";
 import useAuth from "../../hooks/useAuth";
 
-export default function Module(props) {
+export default function Module() {
   const [module, setModule] = useState({});
   const [user, setUser] = useState({});
   const [loading, setLoading] = useState(true);
@@ -24,7 +24,9 @@ export default function Module(props) {
       `https://examie-default-rtdb.europe-west1.firebasedatabase.app/modules/${modules}.json`
     );
     setModule(objectToArrayWithId(res.data));
-    setLoading(false);
+    if (!auth) {
+      setLoading(false);
+    }
   };
 
   const fetchUser = async () => {
@@ -32,14 +34,8 @@ export default function Module(props) {
       `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}.json`
     );
     setUser(objectToArrayWithId(res.data)[0]);
+    setLoading(false);
   };
-
-  // const patchUser = async (data) => {
-  //   const res = await axios.patch(
-  //     `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}/-NT4VjiRRMb22TMyVN59.json`,
-  //     { kursy: [{ javascript: 25 }, { sql: 50 }] }
-  //   );
-  // };
 
   useEffect(() => {
     if (auth) {
@@ -66,18 +62,16 @@ export default function Module(props) {
     }
   }, []);
 
-  if (!module[0]?.active) {
-    return <h1>NI MA</h1>;
-  }
-
-  console.log(user, module[0].kursy);
+  // if (!module[0]?.active) {
+  //   return <h1>NI MA</h1>;
+  // }
 
   return (
     <section>
       {!loading ? (
         <>
           <Banner
-            title={`${module[0].typKwalifikacji}${module[0].nrKwalifikacji}`}
+            title={`${module[0]?.typKwalifikacji}${module[0]?.nrKwalifikacji}`}
             {...module[0]}
             bgColor={color}
             text={text}
@@ -86,8 +80,8 @@ export default function Module(props) {
           <Section bgColor={color} col>
             <Title title="KURSY" size="text-5xl" textColor={text} />
             <div className="grid grid-cols-4 gap-12 w-full">
-              {module[0].kursy &&
-                module[0].kursy.map((kurs) => (
+              {module[0]?.kursy &&
+                module[0]?.kursy.map((kurs) => (
                   <LanguageKafel
                     key={kurs}
                     language={kurs}
