@@ -1,33 +1,33 @@
-export const egzaminyZawodowe = [
-  {
-    nrKwalifikacji: "02",
-    kwalifikacje: { name: ["INFORMATYK"] },
-    color: "bg-zinc-400",
-    border: "border-zinc-500",
-    active: false,
-  },
-  {
-    nrKwalifikacji: "03",
-    kwalifikacje: { name: ["INFORMATYK", "PROGRAMISTA"] },
-    color: "bg-slate-400",
-    border: "border-slate-500",
-    active: true,
-  },
-  {
-    nrKwalifikacji: "04",
-    kwalifikacje: { name: ["PROGRAMISTA"] },
-    color: "bg-gray-400",
-    border: "border-gray-500",
-    active: false,
-  },
-  {
-    nrKwalifikacji: "05",
-    kwalifikacje: { name: ["TEST"] },
-    color: "bg-green-400",
-    border: "border-green-500",
-    active: false,
-  },
-];
+// export const egzaminyZawodowe = [
+//   {
+//     nrKwalifikacji: "02",
+//     kwalifikacje: { name: ["INFORMATYK"] },
+//     color: "bg-zinc-400",
+//     border: "border-zinc-500",
+//     active: false,
+//   },
+//   {
+//     nrKwalifikacji: "03",
+//     kwalifikacje: { name: ["INFORMATYK", "PROGRAMISTA"] },
+//     color: "bg-slate-400",
+//     border: "border-slate-500",
+//     active: true,
+//   },
+//   {
+//     nrKwalifikacji: "04",
+//     kwalifikacje: { name: ["PROGRAMISTA"] },
+//     color: "bg-gray-400",
+//     border: "border-gray-500",
+//     active: false,
+//   },
+//   {
+//     nrKwalifikacji: "05",
+//     kwalifikacje: { name: ["TEST"] },
+//     color: "bg-green-400",
+//     border: "border-green-500",
+//     active: false,
+//   },
+// ];
 
 export const kursy = [
   {

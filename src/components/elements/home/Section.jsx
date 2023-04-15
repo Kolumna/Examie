@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Kafel from "../../Kafel";
+import ModulesView from "../../views/ModulesView";
 
 export default function Section(props) {
   const className = props.className ? props.className : "px-12";
@@ -11,21 +12,12 @@ export default function Section(props) {
           <h1>{props.label}</h1>
         </div>
         <div className="flex justify-between w-full py-12">
-          {props.kafle &&
-            props.kafle.map((kafel) => (
-              <Kafel
-                key={kafel.nrKwalifikacji}
-                nrKwalifikacji={kafel.nrKwalifikacji}
-                kwalifikacje={[...kafel.kwalifikacje.name]}
-                inf={props.inf}
-                technik={props.technik}
-                className={`${kafel.color} ${kafel.border}`}
-                active={kafel.active}
-              />
-            ))}
+          {props.kafle && <ModulesView all />}
           {props.content && (
             <div className="text-4xl font-black flex justify-center w-full text-white p-12 pt-20">
-              <h1 className="bg-slate-400 p-4 px-8 rounded-2xl">{props.content}</h1>
+              <h1 className="bg-slate-400 p-4 px-8 rounded-2xl">
+                {props.content}
+              </h1>
             </div>
           )}
         </div>

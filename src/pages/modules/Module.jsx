@@ -5,27 +5,29 @@ import { MdDescription, MdPlayArrow } from "react-icons/md";
 import Section from "../../components/elements/modules/Section";
 import LanguageKafel from "../../components/elements/modules/UI/buttons/LanguageKafel";
 import Title from "../../components/elements/modules/UI/Title";
+import axios from "axios";
+import { objectToArrayWithId } from "../../helpers/objects";
 
 export default function Module(props) {
-  const [data, setData] = useState({});
+  const [module, setModule] = useState({});
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState("");
   const [text, setText] = useState("");
 
   const { modules } = useParams();
 
-  useEffect(() => {
-    setData({
-      nrKwalifikacji: modules,
-      typ: "TECHNIK",
-      kwalifikacje: ["INFORMATYK", "PROGRAMISTA"],
-      opisy: [
-        "TWORZENIE I ADMINISTROWANIE STRONAMI I APLIKACJAMI INTERNETOWYMI",
-        "TWORZENIE I ADMINISTROWANIE BAZAMI DANYCH",
-      ],
-    });
+  const fetchModule = async () => {
+    const res = await axios.get(
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/modules/${modules}.json`
+    );
+    setModule(objectToArrayWithId(res.data));
     setLoading(false);
+  };
 
+  console.log(module);
+
+  useEffect(() => {
+    fetchModule();
     switch (modules) {
       case "inf02":
         setColor("bg-zinc-400");
@@ -45,13 +47,17 @@ export default function Module(props) {
     }
   }, []);
 
+  if(!module[0]?.active) {
+    return(<h1>NI MA</h1>)
+  }
+
   return (
     <section>
       {!loading ? (
         <>
           <Banner
-            title={`${modules.toUpperCase()}`}
-            {...data}
+            title={`${module[0].typKwalifikacji}${module[0].nrKwalifikacji}`}
+            {...module[0]}
             bgColor={color}
             text={text}
           />

@@ -62,9 +62,9 @@ const Banner = (props) => {
                 <div className="text-md font-bold p-4 bg-slate-50 rounded-lg">
                   <h2 className="text-2xl mb-4">KIERUNEK</h2>
 
-                  {props.kwalifikacje.map((kwalifikacja) => (
+                  {props.kwalifikacje.name.map((kwalifikacja) => (
                     <p key={kwalifikacja}>
-                      {props.typ}{" "}
+                      {props.zawod.toUpperCase()}{" "}
                       <span className="text-slate-500">{kwalifikacja}</span>
                     </p>
                   ))}
@@ -75,7 +75,7 @@ const Banner = (props) => {
               {!props.loading && (
                 <div className="text-md font-bold p-4 bg-slate-50 rounded-lg">
                   <h2 className="text-2xl mb-4">OPIS</h2>
-                  {props.opisy.map((opis) => (
+                  {props.opis.map((opis) => (
                     <p key={opis}>{opis}</p>
                   ))}
                 </div>

@@ -1,15 +1,14 @@
 import Banner from "../components/elements/home/Banner";
 import Section from "../components/elements/home/Section";
-import { egzaminyZawodowe } from "../helpers/api";
 
-export default function Home(props) {
+export default function Home() {
   return (
     <>
       <Banner />
       <Section
         className="bg-slate-200"
         label="EGZAMINY ZAWODOWE"
-        kafle={egzaminyZawodowe.slice(0, 3).map((kafel) => kafel)}
+        kafle
         inf
         technik
       />

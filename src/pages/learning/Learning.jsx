@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { egzaminyZawodowe } from "../../helpers/api";
 import Kafel from "../../components/Kafel";
 import axios from "axios";
 import { nestedObjectToArray } from "../../helpers/nestedObjects";
+import ModulesView from "../../components/views/ModulesView";
 
 function Learning() {
   const [data, setData] = useState([{}]);
@@ -69,20 +69,7 @@ function Learning() {
         <section className="container mx-auto flex flex-col items-center gap-12 flex-wrap ">
           <h1 className="text-4xl font-black">KWALIFIKACJE</h1>
           <div className="flex items-center gap-8 flex-wrap">
-            {egzaminyZawodowe.map(
-              (kafel) =>
-                kafel.active && (
-                  <Kafel
-                    key={kafel.nrKwalifikacji}
-                    nrKwalifikacji={kafel.nrKwalifikacji}
-                    kwalifikacje={[...kafel.kwalifikacje.name]}
-                    inf
-                    technik
-                    className={`${kafel.color} ${kafel.border}`}
-                    active
-                  />
-                )
-            )}
+            <ModulesView/>
           </div>
         </section>
       </section>
