@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { MdInfo } from "react-icons/md";
 
 function Login() {
-  const [setAuth] = useAuth();
+  const [auth, setAuth] = useAuth();
   const [login, setLogin] = useState({
     email: "",
     password: "",
