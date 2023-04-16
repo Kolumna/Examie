@@ -18,6 +18,7 @@ const customStyles = {
     flexDirection: "column",
     alignItems: "center",
     gap: "8px",
+    overflow: "hidden",
   },
 };
 

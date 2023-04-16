@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { MdInfo } from "react-icons/md";
 
 function Login() {
-  const [auth, setAuth] = useAuth();
+  const [setAuth] = useAuth();
   const [login, setLogin] = useState({
     email: "",
     password: "",
@@ -94,7 +94,7 @@ function Login() {
       <section className="">
         <div className="bg-slate-500 p-12 py-20 mt-24">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div className="flex flex-col items-center md:items-start gap-8">
+            <div className="flex flex-col items-center md:items-start gap-12">
               <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-white">
                 STWÓRZ KONTO I ĆWICZ!
               </h1>

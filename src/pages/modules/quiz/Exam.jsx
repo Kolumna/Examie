@@ -3,11 +3,11 @@ import FetchQuiz from "../../../components/elements/modules/quiz/FetchQuiz";
 import { useState, useEffect } from "react";
 import moment from "moment/moment";
 
-function Exam(props) {
+function Exam() {
   const [start, setStart] = useState(false);
   const [odliczanie, setOdliczanie] = useState("Zaczynamy!");
 
-  const endTime = moment().add(60, "minutes");
+  const endTime = moment().add(30, "minutes");
 
   const { modules } = useParams();
 
@@ -46,7 +46,7 @@ function Exam(props) {
               <strong>40</strong> PYTAŃ
             </p>
             <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
-              <strong>60</strong> MINUT
+              <strong>30</strong> MINUT
             </p>
             <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
               BAZA <strong>300</strong> PYTAŃ

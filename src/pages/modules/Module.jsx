@@ -40,7 +40,7 @@ export default function Module() {
 
   const fetchQuizesLength = async () => {
     const res = await axios.get(
-      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/inf03.json?shallow=true`
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/${module[0].typKwalifikacji.toLowerCase()}${module[0].nrKwalifikacji.toLowerCase()}.json?shallow=true`
     );
     setQuizesLength(Object.keys(res.data).length);
   };
@@ -48,7 +48,6 @@ export default function Module() {
   useEffect(() => {
     if (auth) {
       fetchUser();
-      fetchQuizesLength();
     }
     fetchModule();
 
@@ -70,6 +69,12 @@ export default function Module() {
         setText("text-slate-700");
     }
   }, []);
+
+  useEffect(() => {
+    if (module[0]) {
+      fetchQuizesLength();
+    }
+  }, [module]);
 
   // if (!module[0]?.active) {
   //   return <h1>NI MA</h1>;
@@ -133,8 +138,8 @@ export default function Module() {
                 <div className="flex justify-between text-center gap-4 w-full">
                   <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black text-xl">
                     UKOŃCZONO{" "}
-                    <span className="text-slate-500">{user.quizy.ilosc}</span>
-                    /{quizesLength}
+                    <span className="text-slate-500">{user.quizy.ilosc}</span>/
+                    {quizesLength ?? "0"}
                   </span>
                   <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-3xl">
                     <MdDescription />
