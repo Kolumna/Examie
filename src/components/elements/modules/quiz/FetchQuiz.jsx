@@ -94,10 +94,8 @@ function FetchQuiz(props) {
         let random = quizy[Math.floor(Math.random() * quizy.length)];
         if (single) {
           if (random._id === last) {
-            console.log("dupa", random._id);
             while (random._id === last) {
               random = quizy[Math.floor(Math.random() * quizy.length)];
-              console.log("nowy", random._id);
               resolve(random);
             }
           } else {

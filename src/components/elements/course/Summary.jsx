@@ -157,7 +157,7 @@ const Summary = (props) => {
         ariaHideApp={false}
         onRequestClose={() => setQuizModal(false)}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Quiz modal"
       >
         <div className="flex flex-col gap-8 w-full p-8">
           <h2 className="text-4xl font-bold text-center">QUIZ</h2>
@@ -202,7 +202,7 @@ const Summary = (props) => {
         ariaHideApp={false}
         onRequestClose={() => setFilmModal(false)}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Film modal"
       >
         <div className="flex flex-col gap-8 w-full p-8">
           <h2 className="text-4xl font-bold text-center">FILM</h2>
@@ -240,7 +240,7 @@ const Summary = (props) => {
         ariaHideApp={false}
         onRequestClose={() => setTaskModal(false)}
         style={customStyles}
-        contentLabel="Example Modal"
+        contentLabel="Task modal"
       >
         <div className="flex flex-col gap-8 w-full p-8">
           <h2 className="text-4xl font-bold text-center">ZADANIE</h2>

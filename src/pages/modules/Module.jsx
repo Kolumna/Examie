@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import Banner from "../../components/elements/modules/Banner";
-import { MdDescription, MdPlayArrow } from "react-icons/md";
+import { MdDescription, MdMovie, MdPlayArrow } from "react-icons/md";
 import Section from "../../components/elements/modules/Section";
 import LanguageKafel from "../../components/elements/modules/UI/buttons/LanguageKafel";
 import Title from "../../components/elements/modules/UI/Title";
@@ -15,6 +15,7 @@ export default function Module() {
   const [loading, setLoading] = useState(true);
   const [color, setColor] = useState("");
   const [text, setText] = useState("");
+  const [quizesLength, setQuizesLength] = useState(null);
   const [auth] = useAuth();
 
   const { modules } = useParams();
@@ -37,9 +38,17 @@ export default function Module() {
     setLoading(false);
   };
 
+  const fetchQuizesLength = async () => {
+    const res = await axios.get(
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/inf03.json?shallow=true`
+    );
+    setQuizesLength(Object.keys(res.data).length);
+  };
+
   useEffect(() => {
     if (auth) {
       fetchUser();
+      fetchQuizesLength();
     }
     fetchModule();
 
@@ -120,15 +129,23 @@ export default function Module() {
                   />
                 </div>
               </div>
-              <div className="flex justify-between text-center gap-4 w-full">
-                <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black text-xl">
-                  UKOŃCZONO <span className="text-slate-500">5</span>/300
-                </span>
-                <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-3xl">
-                  <MdDescription />
-                  <span className="text-xl">2</span>
+              {auth ? (
+                <div className="flex justify-between text-center gap-4 w-full">
+                  <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black text-xl">
+                    UKOŃCZONO{" "}
+                    <span className="text-slate-500">{user.quizy.ilosc}</span>
+                    /{quizesLength}
+                  </span>
+                  <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-3xl">
+                    <MdDescription />
+                    <span className="text-xl">{user.exams.ilosc}</span>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <span className="bg-slate-300 font-black text-xl p-4 px-8 w-full rounded-2xl">
+                  ZALOGUJ SIĘ PO WIĘCEJ INFORMACJI
+                </span>
+              )}
             </div>
           </Section>
 
@@ -141,9 +158,9 @@ export default function Module() {
             <div className="flex justify-center">
               <Link
                 to="/videos/inf03/"
-                className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center text-2xl"
+                className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center gap-2 text-2xl"
               >
-                ZOBACZ
+                <MdMovie /> ZOBACZ
               </Link>
             </div>
           </Section>

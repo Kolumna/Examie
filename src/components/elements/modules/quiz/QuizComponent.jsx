@@ -1,7 +1,29 @@
 import { useState, useEffect } from "react";
+import { MdPhoto } from "react-icons/md";
+import Modal from "react-modal";
+
+const customStyles = {
+  content: {
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    border: "8px solid #64748b",
+    padding: "0",
+    borderRadius: 10,
+    backgroundColor: "#fbbf24",
+    transform: "translate(-50%, -50%)",
+    color: "#fff",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    gap: "8px",
+  },
+};
 
 function QuizComponent(props) {
   const [result, setResult] = useState(null);
+  const [modal, setModal] = useState(false);
 
   const currentQuiz = props.data;
 
@@ -18,6 +40,17 @@ function QuizComponent(props) {
 
   return (
     <section className="flex w-full justify-center flex-col gap-24 px-8 md:px-12 items-center">
+      {currentQuiz.img && (
+        <Modal
+          isOpen={modal}
+          ariaHideApp={false}
+          onRequestClose={() => setModal(false)}
+          style={customStyles}
+          contentLabel="Quiz zdjęcie"
+        >
+          <img src={currentQuiz.img} />
+        </Modal>
+      )}
       <div className="text-6xl font-black gap-4 text-zinc-900 mt-12 flex justify-center items-end">
         <h1>{props.title}</h1>
         {!props.exam && (
@@ -34,15 +67,8 @@ function QuizComponent(props) {
             currentQuiz.img ? "justify-between" : "justify-center"
           } items-center`}
         >
-          {currentQuiz.img && !props.loading && (
-            <img
-              src={currentQuiz.img}
-              alt="quizZdjęcie"
-              className="w-auto h-96 bg-cover rounded-l-lg"
-            />
-          )}
           <div className="flex justify-center w-full p-8">
-            <span
+            <div
               className={`font-bold text-3xl ${
                 !props.loading && "bg-white"
               } p-4 w-full md:w-auto rounded-lg text-lg md:text-2xl`}
@@ -52,7 +78,12 @@ function QuizComponent(props) {
               ) : (
                 currentQuiz.title
               )}
-            </span>
+            </div>
+            {currentQuiz.img && !props.loading && (
+              <button onClick={() => setModal(true)} className="bg-white hover:bg-slate-100 btn-anim ml-2 px-4 rounded-lg text-4xl">
+                <MdPhoto />
+              </button>
+            )}
           </div>
         </div>
         <span className="font-black text-lg md:text-2xl">ODPOWIEDZI</span>
