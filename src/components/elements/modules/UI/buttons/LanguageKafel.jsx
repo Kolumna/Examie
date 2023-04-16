@@ -2,16 +2,34 @@ import { Link } from "react-router-dom";
 import IconCorrect from "../../../../icons/IconCorrect";
 import useAuth from "../../../../../hooks/useAuth";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 const LanguageKafel = (props) => {
   const param = props.language.toLowerCase();
   const auth = props.auth;
+  const [length, setLength] = useState(null);
+  const [progress, setProgress] = useState(null);
 
   const getLength = async () => {
-    const res = await axios.get(
-      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/courses/${props.language.toLowerCase()}/-NSfWdM8rl_o2NdybVHQ/modules.json?shallow=true`
-    );
+    if (props.progressId) {
+      const res = await axios.get(
+        `https://examie-default-rtdb.europe-west1.firebasedatabase.app/courses/${props.language.toLowerCase()}/${
+          props.progressId
+        }/modules.json?shallow=true`
+      );
+      setLength(Object.keys(res.data).length);
+    }
   };
+
+  useEffect(() => {
+    if (props.progress && length) {
+      setProgress((props.progress.length / length) * 100);
+    }
+  }, [length, props.progress]);
+
+  useEffect(() => {
+    getLength();
+  }, []);
 
   return (
     <Link
@@ -24,11 +42,11 @@ const LanguageKafel = (props) => {
           <div className="flex gap-2 bg-slate-500 rounded-full pr-2">
             <div className="h-5 flex justify-start items-center w-full bg-zinc-900 rounded-full">
               <div
-                style={{ width: `${props.progress ?? 0}%` }}
+                style={{ width: `${progress ?? 0}%` }}
                 className={`h-full bg-amber-400 border-4 border-black rounded-full transition-all duration-200`}
               ></div>
             </div>
-            <span className="text-sm text-white">{props.progress}%</span>
+            <span className="text-sm text-white">{progress}%</span>
           </div>
         )}
         {!props.progress && (
