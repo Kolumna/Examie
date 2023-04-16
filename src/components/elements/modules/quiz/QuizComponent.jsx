@@ -64,8 +64,10 @@ function QuizComponent(props) {
     if (!result && !correct) {
       e.currentTarget.style.backgroundColor = "#ef4444";
     }
-    if (correct && (!user.quizy || !user.quizy.includes(currentQuiz._id))) {
-      addQuiz();
+    if (auth) {
+      if (correct && (!user.quizy || !user.quizy.includes(currentQuiz._id))) {
+        addQuiz();
+      }
     }
     setResult(true);
   };
