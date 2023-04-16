@@ -23,7 +23,7 @@ const LanguageKafel = (props) => {
 
   useEffect(() => {
     if (props.progress && length) {
-      setProgress((props.progress.length / length) * 100);
+      setProgress(Math.floor((props.progress.length / length) * 100));
     }
   }, [length, props.progress]);
 

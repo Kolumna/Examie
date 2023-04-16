@@ -9,6 +9,7 @@ import { HashLink } from "react-router-hash-link";
 import axios from "axios";
 import CourseLoading from "../../components/loadingScreens/CourseLoading";
 import Summary from "../../components/elements/course/Summary";
+import { objectToArrayWithId } from "../../helpers/objects";
 
 function Course() {
   const [names, setNames] = useState([]);
@@ -36,13 +37,12 @@ function Course() {
       const res = await axios.get(
         `https://examie-default-rtdb.europe-west1.firebasedatabase.app/courses/${course}.json`
       );
-      console.log(res);
       if (!res.data) {
         setLoading(false);
         setNotFound(true);
         return;
       }
-      setData(res.data[Object.keys(res.data)[0]]);
+      setData(objectToArrayWithId(res.data)[0]);
       setLoading(false);
     };
 
@@ -218,7 +218,19 @@ function Course() {
                       );
                   }
                 })}
-                <Summary/>
+              <Summary
+                lesson={
+                  data.modules[
+                    lesson
+                      ? data.modules.findIndex(
+                          (item) => item.nazwa.toLowerCase() === lesson
+                        )
+                      : 0
+                  ]
+                }
+                course={course}
+                courseId={data._id}
+              />
             </section>
             <footer className="flex justify-end gap-4">
               {lesson && (
