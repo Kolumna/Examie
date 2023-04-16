@@ -138,12 +138,14 @@ export default function Module() {
                 <div className="flex justify-between text-center gap-4 w-full">
                   <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black text-xl">
                     UKOŃCZONO{" "}
-                    <span className="text-slate-500">{user.quizy.ilosc}</span>/
-                    {quizesLength ?? "0"}
+                    <span className="text-slate-500">
+                      {user?.quizy?.length ?? "0"}
+                    </span>
+                    /{quizesLength ?? "0"}
                   </span>
                   <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-3xl">
                     <MdDescription />
-                    <span className="text-xl">{user.exams.ilosc}</span>
+                    <span className="text-xl">{user?.exams?.ilosc ?? 0}</span>
                   </div>
                 </div>
               ) : (

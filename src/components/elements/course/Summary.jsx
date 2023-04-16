@@ -45,7 +45,7 @@ const Summary = (props) => {
     const res = await axios.get(
       `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}.json`
     );
-    if (objectToArrayWithId(res.data)[0].kursy) {
+    if (objectToArrayWithId(res.data)[0].kursy !== undefined) {
       setCompleted({
         quiz:
           objectToArrayWithId(res.data)[0].kursy[

@@ -1,6 +1,9 @@
+import axios from "axios";
 import { useState, useEffect } from "react";
 import { MdPhoto } from "react-icons/md";
 import Modal from "react-modal";
+import useAuth from "../../../../hooks/useAuth";
+import { objectToArrayWithId } from "../../../../helpers/objects";
 
 const customStyles = {
   content: {
@@ -25,16 +28,44 @@ const customStyles = {
 function QuizComponent(props) {
   const [result, setResult] = useState(null);
   const [modal, setModal] = useState(false);
+  const [user, setUser] = useState(null);
+  const [auth] = useAuth();
 
   const currentQuiz = props.data;
+
+  const fetchUser = async () => {
+    const res = await axios.get(
+      `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}.json`
+    );
+    setUser(objectToArrayWithId(res.data)[0]);
+  };
+
+  const addQuiz = async () => {
+    console.log("add quiz");
+    try {
+      await axios.patch(
+        `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}/${user._id}.json`,
+        { quizy: [...user?.quizy, `${currentQuiz._id}`] }
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     setResult(null);
   }, [currentQuiz]);
 
+  useEffect(() => {
+    fetchUser();
+  }, []);
+
   const answerHanlder = (e, correct) => {
     if (!result && !correct) {
       e.currentTarget.style.backgroundColor = "#ef4444";
+    }
+    if (correct && (!user.quizy || !user.quizy.includes(currentQuiz._id))) {
+      addQuiz();
     }
     setResult(true);
   };
@@ -81,7 +112,10 @@ function QuizComponent(props) {
               )}
             </div>
             {currentQuiz.img && !props.loading && (
-              <button onClick={() => setModal(true)} className="bg-white hover:bg-slate-100 btn-anim ml-2 px-4 rounded-lg text-4xl">
+              <button
+                onClick={() => setModal(true)}
+                className="bg-white hover:bg-slate-100 btn-anim ml-2 px-4 rounded-lg text-4xl"
+              >
                 <MdPhoto />
               </button>
             )}

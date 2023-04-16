@@ -43,7 +43,9 @@ const LanguageKafel = (props) => {
             <div className="h-5 flex justify-start items-center w-full bg-zinc-900 rounded-full">
               <div
                 style={{ width: `${progress ?? 0}%` }}
-                className={`h-full bg-amber-400 border-4 border-black rounded-full transition-all duration-300`}
+                className={`h-full ${
+                  progress == 100 ? "bg-green-400" : "bg-amber-400"
+                } border-4 border-black rounded-full transition-all duration-300`}
               ></div>
             </div>
             <span className="text-sm text-white">{progress}%</span>
