@@ -1,10 +1,17 @@
 import { Link } from "react-router-dom";
 import IconCorrect from "../../../../icons/IconCorrect";
 import useAuth from "../../../../../hooks/useAuth";
+import axios from "axios";
 
 const LanguageKafel = (props) => {
   const param = props.language.toLowerCase();
   const auth = props.auth;
+
+  const getLength = async () => {
+    const res = await axios.get(
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/courses/${props.language.toLowerCase()}/-NSfWdM8rl_o2NdybVHQ/modules.json?shallow=true`
+    );
+  };
 
   return (
     <Link

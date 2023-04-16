@@ -28,7 +28,7 @@ function Quiz(props) {
             </div>
             <div className="flex flex-col gap-2 mt-24 md:mt-0 md:ml-12">
               <Link
-                to="/modules/inf03/quiz/exam"
+                to="/exams/inf03"
                 className="bg-white text-3xl hover:bg-slate-200 btn-anim p-8 rounded-lg font-black text-zinc-900"
               >
                 ROZPOCZNIJ

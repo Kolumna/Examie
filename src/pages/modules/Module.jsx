@@ -37,6 +37,11 @@ export default function Module() {
     setLoading(false);
   };
 
+  console.log(user);
+  if (user.kursy) {
+    console.log(user.kursy["javascript"].progress);
+  }
+
   useEffect(() => {
     if (auth) {
       fetchUser();
@@ -88,7 +93,7 @@ export default function Module() {
                     progress={
                       user?.kursy &&
                       auth &&
-                      (user.kursy[kurs.toLowerCase()] ?? null)
+                      (user.kursy[kurs.toLowerCase()]?.progress ?? null)
                     }
                     auth={auth}
                   />
