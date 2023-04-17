@@ -45,7 +45,12 @@ function QuizComponent(props) {
     try {
       await axios.patch(
         `https://janieccms-default-rtdb.europe-west1.firebasedatabase.app/users/${auth.userId}/${user._id}.json`,
-        { quizy: [...user?.quizy, `${currentQuiz._id}`] }
+        {
+          quizy:
+            user.quizy?.length > 0
+              ? [...user.quizy, `${currentQuiz._id}`]
+              : [`${currentQuiz._id}`],
+        }
       );
     } catch (error) {
       console.log(error);
@@ -58,14 +63,14 @@ function QuizComponent(props) {
 
   useEffect(() => {
     fetchUser();
-  }, []);
+  }, [result]);
 
   const answerHanlder = (e, correct) => {
     if (!result && !correct) {
       e.currentTarget.style.backgroundColor = "#ef4444";
     }
     if (auth) {
-      if (correct && (!user.quizy || !user.quizy.includes(currentQuiz._id))) {
+      if (correct && (!user.quizy || !user.quizy?.includes(currentQuiz._id))) {
         addQuiz();
       }
     }
@@ -148,7 +153,7 @@ function QuizComponent(props) {
                 key={answer.id}
                 className={`${
                   result
-                    ? answer.correct
+                    ? answer.correct && props.finished
                       ? "bg-green-500"
                       : "bg-amber-400"
                     : "bg-amber-400"

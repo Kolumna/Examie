@@ -64,8 +64,8 @@ function Exam() {
           </button>
         </section>
       ) : (
-        <>
-          <FetchQuiz exam />
+        <div className="flex flex-col w-full gap-8 mt-8 items-center">
+          <FetchQuiz finished={false} exam />
           {/* <section className="px-12 w-full">
             <section className="grid grid-cols-4 w-full gap-8 container mx-auto pt-24">
               <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
@@ -103,7 +103,7 @@ function Exam() {
               ZAKOŃCZ
             </button>
           </section>
-        </>
+        </div>
       )}
     </section>
   );

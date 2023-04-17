@@ -8,7 +8,11 @@ function Quiz(props) {
   return (
     <>
       <section className="flex flex-col justify-center items-center gap-24">
-        <FetchQuiz title={props.title} module={modules.toUpperCase()} />
+        <FetchQuiz
+          finished={true}
+          title={props.title}
+          module={modules.toUpperCase()}
+        />
       </section>
       <section className="">
         <div className="bg-slate-500 p-12 py-20 mt-24">
@@ -33,7 +37,9 @@ function Quiz(props) {
               >
                 ROZPOCZNIJ
               </Link>
-              <span className="text-xl text-center font-bold bg-orange-500 p-1 px-2 rounded-lg text-slate-100">BETA</span>
+              <span className="text-xl text-center font-bold bg-orange-500 p-1 px-2 rounded-lg text-slate-100">
+                BETA
+              </span>
             </div>
           </div>
         </div>

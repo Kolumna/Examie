@@ -78,6 +78,7 @@ function FetchQuiz(props) {
         <QuizComponent
           data={currentQuiz}
           loading={loading}
+          finished={props.finished}
           title="Quiz"
           module={props.module}
         />
@@ -86,6 +87,7 @@ function FetchQuiz(props) {
           return (
             <QuizComponent
               exam
+              finished={props.finished}
               data={quiz}
               key={quiz._id}
               title={`Pytanie ${number + 1}`}
