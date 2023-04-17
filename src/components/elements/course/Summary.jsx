@@ -39,6 +39,17 @@ const Summary = (props) => {
   });
   const [courses, setCourses] = useState(null);
   const [rawCourses, setRawCourses] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(
+    props.lesson.summary?.quiz.odpowiedzi.map((answer) => ({
+      value: answer.value,
+      answer: answer.correct,
+      selected: false,
+    }))
+  );
+  const [lastTarget, setLastTarget] = useState(null);
+  const [answer, setAnswer] = useState(null);
+
+  console.log(selectedAnswer);
 
   const fetchUser = async () => {
     setLoading(true);
@@ -82,8 +93,28 @@ const Summary = (props) => {
   const answerHandler = (type) => {
     switch (type) {
       case "quiz":
-        setQuizModal(false);
-        setCompleted({ ...completed, quiz: true });
+        if (
+          selectedAnswer.filter((answer) => answer.selected === true).length ===
+          0
+        ) {
+          setAnswer("Wybierz odpowiedź");
+          return;
+        }
+        if (
+          selectedAnswer.filter(
+            (answer) => answer.selected === true && answer.answer === true
+          ).length === 0
+        ) {
+          setAnswer("Źle");
+        }
+        if (
+          selectedAnswer.filter(
+            (answer) => answer.selected === true && answer.answer === true
+          ).length > 0
+        ) {
+          setAnswer("Dobrze");
+          setCompleted({ ...completed, quiz: true });
+        }
         break;
       case "film":
         setFilmModal(false);
@@ -96,6 +127,20 @@ const Summary = (props) => {
       default:
         break;
     }
+  };
+
+  const selectAnswer = (value, e) => {
+    if (lastTarget !== null)
+      lastTarget.target.style.backgroundColor = "#f59e0b";
+    setSelectedAnswer(
+      selectedAnswer.map((answer) =>
+        answer.value === value
+          ? { ...answer, selected: true }
+          : { ...answer, selected: false }
+      )
+    );
+    e.target.style.backgroundColor = "#94a3b8";
+    setLastTarget(e);
   };
 
   useEffect(() => {
@@ -140,6 +185,19 @@ const Summary = (props) => {
   }, [auth, navigation]);
 
   useEffect(() => {
+    setAnswer(null);
+    setSelectedAnswer(
+      props.lesson.summary?.quiz.odpowiedzi
+        .sort(() => Math.random() - 0.5)
+        .map((answer) => ({
+          value: answer.value,
+          answer: answer.correct,
+          selected: false,
+        }))
+    );
+  }, [quizModal]);
+
+  useEffect(() => {
     if (
       completed.quiz &&
       completed.film &&
@@ -162,22 +220,34 @@ const Summary = (props) => {
         <div className="flex flex-col gap-8 w-full p-8">
           <h2 className="text-4xl font-bold text-center">QUIZ</h2>
           <div className="flex flex-col gap-4">
-            <h3 className="text-3xl text-center">LUBISZ PLACKI?</h3>
-            <div className="grid grid-cols-2 gap-2">
-              <button className="bg-amber-500 p-2 rounded-full hover:bg-amber-600 font-bold btn-anim">
-                TAK
-              </button>
-              <button className="bg-amber-500 p-2 rounded-full hover:bg-amber-600 font-bold btn-anim">
-                TAK
-              </button>
-              <button className="bg-amber-500 p-2 rounded-full hover:bg-amber-600 font-bold btn-anim">
-                TAK
-              </button>
-              <button className="bg-amber-500 p-2 rounded-full hover:bg-amber-600 font-bold btn-anim">
-                TAK
-              </button>
+            <h3 className="text-3xl text-center">
+              {props.lesson.summary?.quiz.pytanie ?? "Brak pytania"}
+            </h3>
+            <div className="grid grid-cols-2 gap-2 mt-4">
+              {props.lesson.summary?.quiz.odpowiedzi &&
+                props.lesson.summary?.quiz.odpowiedzi.map((answer) => (
+                  <button
+                    className="bg-amber-500 p-2 rounded-full hover:bg-amber-600 font-bold btn-anim"
+                    onClick={(e) => selectAnswer(answer.value, e)}
+                  >
+                    {answer.value}
+                  </button>
+                ))}
             </div>
           </div>
+          {answer && (
+            <div
+              className={`flex flex-col gap-2 px-8 w-full font-bold rounded-full p-2 ${
+                answer === "Źle"
+                  ? "bg-red-400"
+                  : answer === "Dobrze"
+                  ? "bg-green-500"
+                  : "bg-amber-500"
+              }`}
+            >
+              <h3 className="text-2xl text-center">{answer}</h3>
+            </div>
+          )}
         </div>
         <div className="flex gap-2 w-full justify-center mb-4">
           <button
@@ -207,14 +277,22 @@ const Summary = (props) => {
         <div className="flex flex-col gap-8 w-full p-8">
           <h2 className="text-4xl font-bold text-center">FILM</h2>
           <div className="flex justify-center">
-            <video
-              width={1000}
-              className="rounded-xl"
-              controls
-              src="https://firebasestorage.googleapis.com/v0/b/examie.appspot.com/o/vecteezy_funny-corgi-dog-near-the-sea_4192384.mp4?alt=media&token=f127acef-f7d1-44bd-9e1f-0d1ee1241bba"
-            >
-              film
-            </video>
+            {props.lesson.summary?.film ? (
+              <video
+                width={1000}
+                className="rounded-xl"
+                controls
+                src={props.lesson.summary?.film}
+              >
+                film
+              </video>
+            ) : (
+              <div className="flex flex-col gap-4">
+                <h3 className="text-3xl text-center">
+                  Brak filmu do obejrzenia
+                </h3>
+              </div>
+            )}
           </div>
         </div>
         <div className="flex gap-2 w-full justify-center mb-4">
