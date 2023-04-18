@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import examieLogo from "../../assets/svgs/logo2.svg";
 import {
   MdAccountCircle,
@@ -10,7 +10,7 @@ import {
 } from "react-icons/md";
 import arenaLogo from "../../assets/svgs/arenaLogo.svg";
 import useAuth from "../../hooks/useAuth";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import BurgerMenu from "./mobile/BurgerMenu";
 
 export default function Header() {
@@ -18,13 +18,23 @@ export default function Header() {
   const [isMobile, setIsMobile] = useState(false);
   console.log(isMobile);
 
-  const burgerHandler = (value) => {
-    setIsMobile(value);
-  };
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isMobile) {
+      document.body.style.overflow = "hidden";
+    }
+  }, [isMobile]);
+
+  useEffect(() => {
+    setIsMobile(false);
+  }, [navigate]);
 
   return (
     <section className="px-4 md:px-8 bg-white py-5 w-full flex items-center shadow-md">
       <BurgerMenu
+        auth={auth}
+        setAuth={setAuth}
         isMobile={isMobile}
         setIsMobile={(value) => setIsMobile(value)}
       />
