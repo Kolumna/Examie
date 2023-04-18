@@ -7,7 +7,7 @@ const BurgerMenu = (props) => {
     <section
       className={`absolute ${
         !props.isMobile ? "translate-x-full" : "translate-x-0"
-      } w-full transition-all flex flex-col overflow-hidden justify-start items-end p-4 ease-in-out duration-500 h-screen top-0 left-0 z-50 bg-amber-400`}
+      } w-full transition-all flex flex-col justify-start items-end p-4 ease-in-out duration-500 h-screen top-0 left-0 z-50 bg-amber-400`}
     >
       <button
         onClick={() => {

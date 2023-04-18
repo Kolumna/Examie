@@ -16,13 +16,15 @@ import BurgerMenu from "./mobile/BurgerMenu";
 export default function Header() {
   const [auth, setAuth] = useAuth();
   const [isMobile, setIsMobile] = useState(false);
-  console.log(isMobile);
 
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isMobile) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflowY= "hidden";
+    }
+    else {
+      document.body.style.overflowY= "auto";
     }
   }, [isMobile]);
 
