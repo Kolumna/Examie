@@ -2,13 +2,13 @@ export default function App() {
   return (
     <section className="bg-slate-300 ">
       <section className="w-full h-96 flex items-center justify-between">
-        <div className="max-w-7xl mx-auto flex flex-col items-start gap-2">
-          <div className="bg-white p-2 text-5xl font-black">ZDAJ</div>
-          <div className="bg-white p-2 text-5xl font-black">EGZAMIN</div>
-          <div className="bg-white p-2 text-5xl font-black">NA</div>
+        <div className="max-w-7xl mx-auto text-3xl md:text-5xl flex flex-col items-start gap-2">
+          <div className="bg-white p-2 font-black">ZDAJ</div>
+          <div className="bg-white p-2 font-black">EGZAMIN</div>
+          <div className="bg-white p-2 font-black">NA</div>
           <div className="flex h-full">
-            <div className="bg-white p-2 text-5xl font-black">STÓWKĘ!</div>
-            <div className="bg-zinc-900 w-4 animate-pulse"></div>
+            <div className="bg-white p-2 font-black">STÓWKĘ!</div>
+            <div className="bg-zinc-900 w-3 md:w-4 animate-pulse"></div>
           </div>
         </div>
         {/* <div className="bg-slate-600 max-w-7xl mx-auto w-2/3 h-full flex items-center justify-end gap-12">
