@@ -6,9 +6,9 @@ const Banner = (props) => {
     <section className="bg-slate-200 w-full flex items-center justify-between">
       <div className="lg:container flex flex-col md:flex-row justify-between mx-auto w-full">
         <div
-          className={`${props.bgColor} flex py-8 md:py-0 md:flex-col gap-8 justify-between items-center md:items-start px-4 md:px-12`}
+          className={`${props.bgColor} flex py-8 md:py-0 md:w-1/3 md:flex-col gap-8 justify-between items-center md:items-start px-4 md:px-12`}
         >
-          <div className="text-4xl md:text-6xl xl:text-8xl font-black w-full">
+          <div className="text-5xl md:text-6xl xl:text-8xl font-black w-full">
             {props.loading ? (
               // <div className="flex flex-col gap-4">
               //   <div className="h-12 w-full bg-zinc-700 animate-pulse"></div>
@@ -18,7 +18,7 @@ const Banner = (props) => {
               // </div>
               <span className="text-sm lg:text-xl">Ładowanie...</span>
             ) : (
-              <div className={`flex flex-col md:pt-8 gap-2 ${props.text}`}>
+              <div className={`flex flex-col items-center md:items-start md:pt-8 gap-2 ${props.text}`}>
                 <div className={props.text}>
                   {props.title.slice(0, -2)}
                   <span className="text-slate-100">
@@ -30,7 +30,7 @@ const Banner = (props) => {
             )}
           </div>
           {!props.loading && (
-            <div className="flex flex-col gap-2">
+            <div className="hidden md:flex flex-col gap-2">
               <Link
                 className="p-2 bg-slate-300 hover:bg-slate-200 transition-all duration-200"
                 to="https://cke.gov.pl/"
@@ -49,7 +49,7 @@ const Banner = (props) => {
         </div>
         <div className="lg:h-96 md:w-2/3 flex flex-col gap-12 items-start py-12 px-4 md:px-0 md:pl-12">
           {!props.loading ? (
-            <h1 className="text-2xl xl:text-4xl flex items-center gap-4 font-black">
+            <h1 className="md:text-2xl xl:text-4xl flex items-center gap-4 font-black">
               <MdInfo />
               KRÓTKIE INFO NA TEMAT KWALIFIKACJI
             </h1>

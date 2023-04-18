@@ -265,7 +265,7 @@ function Course() {
             </footer>
           </section>
 
-          <section className="hidden md:block">
+          <section className="hidden lg:block">
             <div className="sticky top-[120px]">
               <h2 className="mb-6 font-bold">Na tej stronie</h2>
               <ul className="text-sm w-48 flex flex-col gap-2">

@@ -29,7 +29,7 @@ function Learning() {
         <h1 className="text-4xl font-black">KURSY</h1>
         <div
           className={`${
-            !loading ? "grid grid-cols-3" : "flex justify-center"
+            !loading ? "grid  sm:grid-cols-2 lg:grid-cols-3" : "flex justify-center"
           } gap-8`}
         >
           {!loading ? (

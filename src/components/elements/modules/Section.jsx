@@ -2,7 +2,7 @@ import { MdPhoto } from "react-icons/md";
 
 const Section = (props) => {
   return (
-    <section className={`${props.bgColor ?? "bg-slate-100"} px-4`}>
+    <section className={`${props.bgColor ?? "bg-slate-100"} px-4 md:px-8`}>
       <section className="container mx-auto flex items-center justify-between gap-24 py-16 xl:py-24">
         {!props.right && !props.left && (
           <div className={`container mx-auto`}>

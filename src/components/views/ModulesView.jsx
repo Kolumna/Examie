@@ -49,9 +49,9 @@ function ModulesView(props) {
               )))}
       {loading && (
         <>
-          <div className="bg-slate-400 w-[384px] h-[256px] rounded-xl animate-pulse"></div>
-          <div className="bg-slate-400 w-[384px] h-[256px] rounded-xl animate-pulse"></div>
-          <div className="bg-slate-400 w-[384px] h-[256px] rounded-xl animate-pulse"></div>
+          <div className="bg-slate-400 w-96 h-64 rounded-xl animate-pulse"></div>
+          <div className="bg-slate-400 w-96 h-64 rounded-xl animate-pulse"></div>
+          <div className="bg-slate-400 w-96 h-64 rounded-xl animate-pulse"></div>
         </>
       )}
     </section>

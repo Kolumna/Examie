@@ -132,31 +132,33 @@ export default function Module() {
                 <div className="flex justify-center">
                   <Link
                     to="/quizes/inf03"
-                    className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-3xl p-4 px-4 flex justify-center items-center text-5xl font-bold"
+                    className="bg-zinc-800 text-slate-200 hover:bg-zinc-700 cursor-pointer duration-200 transition-all  rounded-3xl p-4 flex justify-center items-center text-3xl md:text-5xl font-bold"
                   >
                     <MdPlayArrow />
                   </Link>
                 </div>
-                <div className="flex items-center bg-slate-200 px-8 rounded-2xl">
+                <div className="flex items-center w-full justify-center bg-slate-200 px-8 rounded-2xl">
                   <Title
                     title="ĆWICZENIA"
-                    size="text-3xl lg:text-5xl"
+                    size="md:text-3xl lg:text-5xl"
                     textColor="text-zinc-800"
                   />
                 </div>
               </div>
               {auth ? (
                 <div className="flex justify-between items-center text-center gap-4 w-full">
-                  <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black lg:text-xl">
+                  <span className="bg-slate-300 p-4 whitespace-nowrap px-8 w-full rounded-2xl font-black lg:text-xl">
                     UKOŃCZONO{" "}
                     <span className="text-slate-500">
                       {user?.quizy?.length ?? "0"}
                     </span>
                     /{quizesLength ?? "0"}
                   </span>
-                  <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-3xl">
+                  <div className="bg-yellow-300 flex items-center gap-2 p-4 px-8 rounded-2xl font-black text-xl md:text-3xl">
                     <MdDescription />
-                    <span className="text-xl">{user?.exams?.ilosc ?? 0}</span>
+                    <span className="text-lg md:text-xl">
+                      {user?.exams?.ilosc ?? 0}
+                    </span>
                   </div>
                 </div>
               ) : (

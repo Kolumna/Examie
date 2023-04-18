@@ -6,11 +6,14 @@ export default function Kafel(props) {
 
   return (
     <>
-      <Link className="w-full" to={`/modules/inf${props.nrKwalifikacji}`}>
+      <Link
+        className="w-full xl:w-auto flex justify-center xl:block"
+        to={`/modules/inf${props.nrKwalifikacji}`}
+      >
         <div
           className={`p-6 ${
             !props.active ? "justify-between" : "justify-end"
-          } h-48 md:h-64 md:w-96 w-full gap-4 hover:bg-amber-400 border-[6px] hover:border-amber-400 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
+          } h-48 md:h-64 md:w-96 sm:w-72 w-full gap-4 md:gap-0 hover:bg-amber-400 border-[6px] hover:border-amber-400 items-start transition-all duration-200 rounded-xl flex flex-col ${className}`}
         >
           {!props.active && (
             <span className="font-black flex text-xs md:text-md items-center gap-2 text-white bg-orange-500 p-1 px-2 rounded-lg">
