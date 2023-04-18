@@ -2,8 +2,95 @@
 @tailwind components;
 @tailwind utilities;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer {
   .btn-anim {
     @apply transition-all duration-200 ease-in-out;
   }
+
+  /* body {
+    background-color: red;
+  } */
+
+
+  ::selection {
+    background-color: #fbbf24;
+    color: #fff;
+}
+
+::-webkit-scrollbar {
+    width: 17px;
+}
+
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #fbbf24;
+    /* border-radius: 8px; */
+  
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #fcd34d;
+}
+
+  .header {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-image: url("../src/assets/imgs/header-small.jpg");
+    width: 100%;
+    height: 100%;
+  }
+
+/* ABOUT US */
+
+.about-us {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 2rem;
+}
+.about-us__img {
+ width: 40%;
+}
+
+.about-us__box {
+  width: 60%;
+}
+
+/* .about-us {
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    &__img {
+        width: 100%;
+    }
+
+    &__box {
+        margin-top: 2rem;
+    }
+
+    &__box-text {
+        font-size: 1.8rem;
+    }
+} */
+
+  @media (min-width: 992px) {
+    .header {
+      background-image: url("../src/assets/imgs/header-big.jpg");
+    }
+  }
+
+  
+  
 }

@@ -4,6 +4,7 @@ import {
   MdAccountCircle,
   MdContrast,
   MdHelp,
+  MdMenu,
   MdTextDecrease,
   MdTextIncrease,
 } from "react-icons/md";
@@ -23,7 +24,10 @@ export default function Header() {
 
   return (
     <section className="px-4 md:px-8 bg-white py-5 w-full flex items-center shadow-md">
-      <BurgerMenu isMobile={isMobile} setIsMobile={(value) => setIsMobile(value)} />
+      <BurgerMenu
+        isMobile={isMobile}
+        setIsMobile={(value) => setIsMobile(value)}
+      />
       <div className="flex justify-between w-full">
         <div className="flex gap-12 items-center">
           <Link title="Wróć do strony głównej" to="/">
@@ -55,10 +59,8 @@ export default function Header() {
         </div>
         <div className="flex items-center lg:hidden">
           <button onClick={() => setIsMobile(true)}>
-            <div className="h-6 md:h-8 w-10 flex flex-col items-end gap-1 md:gap-2">
-              <div className="h-full w-full bg-zinc-800"></div>
-              <div className="h-full w-full bg-zinc-800"></div>
-              <div className="h-full w-full bg-zinc-800"></div>
+            <div className="text-4xl">
+              <MdMenu />
             </div>
           </button>
         </div>

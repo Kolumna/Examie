@@ -26,15 +26,6 @@ const Section = (props) => {
             </div>
           </div>
         )}
-        {(props.left || props.right) && (
-          <div
-            className={`w-full hidden h-64 lg:h-96 ${
-              props.color ?? "bg-slate-400"
-            } rounded-xl md:flex justify-center items-center text-7xl text-zinc-800`}
-          >
-            <MdPhoto />
-          </div>
-        )}
         {props.left && (
           <div className={`container mx-auto`}>
             <div

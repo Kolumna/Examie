@@ -139,7 +139,7 @@ export default function Module() {
                 </div>
                 <div className="flex items-center w-full justify-center bg-slate-200 px-8 rounded-2xl">
                   <Title
-                    title="ĆWICZENIA"
+                    title="QUIZY"
                     size="md:text-3xl lg:text-5xl"
                     textColor="text-zinc-800"
                   />
