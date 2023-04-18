@@ -20,7 +20,7 @@ function ModulesView(props) {
   }, []);
 
   return (
-    <section className="flex justify-between w-full gap-8">
+    <section className="flex flex-col xl:flex-row items-center justify-between w-full gap-4">
       {!loading &&
         (props.all
           ? modules.map((kafel) => (

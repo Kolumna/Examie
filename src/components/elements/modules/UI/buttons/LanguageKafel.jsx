@@ -37,7 +37,7 @@ const LanguageKafel = (props) => {
       className="bg-slate-200 gap-8 transition-all duration-200 hover:bg-amber-400 border-[8px] border-zinc-900 p-5 pt-12 flex justify-between items-end text-4xl font-bold"
     >
       <div className="w-full flex flex-col justify-end gap-4">
-        <span className="text-4xl font-black">{props.language}</span>
+        <span className="text-3xl xl:text-4xl font-black">{props.language}</span>
         {props.progress && auth && (
           <div className="flex gap-2 bg-slate-500 rounded-full pr-2">
             <div className="h-5 flex justify-start items-center w-full bg-zinc-900 rounded-full">

@@ -49,8 +49,6 @@ const Summary = (props) => {
   const [lastTarget, setLastTarget] = useState(null);
   const [answer, setAnswer] = useState(null);
 
-  console.log(selectedAnswer);
-
   const fetchUser = async () => {
     setLoading(true);
     const res = await axios.get(
@@ -221,10 +219,12 @@ const Summary = (props) => {
           <h2 className="text-4xl font-bold text-center">QUIZ</h2>
           <div className="flex flex-col gap-4">
             <h3 className="text-3xl text-center">
-              {props.lesson.summary?.quiz.pytanie ?? "Brak pytania"}
+              {props.lesson.summary?.quiz.pytanie !== ""
+                ? props.lesson.summary.quiz.pytanie
+                : "Brak pytania"}
             </h3>
             <div className="grid grid-cols-2 gap-2 mt-4">
-              {props.lesson.summary?.quiz.odpowiedzi &&
+              {props.lesson.summary?.quiz.odpowiedzi.length > 0 ? (
                 props.lesson.summary?.quiz.odpowiedzi.map((answer) => (
                   <button
                     className="bg-amber-500 p-2 rounded-full hover:bg-amber-600 font-bold btn-anim"
@@ -232,7 +232,10 @@ const Summary = (props) => {
                   >
                     {answer.value}
                   </button>
-                ))}
+                ))
+              ) : (
+                <h3 className="text-2xl text-center">Brak odpowiedzi</h3>
+              )}
             </div>
           </div>
           {answer && (

@@ -9,13 +9,13 @@ export default function Section(props) {
     <section className={`${className} px-12`}>
       <section className="container flex items-center flex-col mx-auto">
         <div className="text-4xl font-black p-12 pt-20">
-          <h1>{props.label}</h1>
+          <h1 className="text-center">{props.label}</h1>
         </div>
         <div className="flex justify-between w-full py-12">
           {props.kafle && <ModulesView all />}
           {props.content && (
             <div className="text-4xl font-black flex justify-center w-full text-white p-12 pt-20">
-              <h1 className="bg-slate-400 p-4 px-8 rounded-2xl">
+              <h1 className="bg-slate-400 p-4 px-8 rounded-2xl text-center">
                 {props.content}
               </h1>
             </div>

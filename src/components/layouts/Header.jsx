@@ -26,7 +26,7 @@ export default function Header() {
               alt="Examie logo"
             />
           </Link>
-          <div className="gap-4 hidden md:flex">
+          <div className="gap-4 hidden lg:flex">
             <Link title="Nauka" to="/learning">
               <button className="bg-amber-400 hover:bg-amber-300 transition-all duration-300 p-2 px-6 text-xs rounded-full text-zinc-900 font-extrabold">
                 NAUKA
@@ -44,7 +44,14 @@ export default function Header() {
             </Link>
           </div>
         </div>
-        <div className="items-center gap-4 hidden md:flex">
+        <div className="flex items-center lg:hidden">
+          <div className="h-6 md:h-8 w-10 flex flex-col items-end gap-1 md:gap-2">
+            <div className="h-full w-full bg-zinc-800"></div>
+            <div className="h-full w-full bg-zinc-800"></div>
+            <div className="h-full w-full bg-zinc-800"></div>
+          </div>
+        </div>
+        <div className="items-center gap-4 hidden lg:flex">
           <button
             title="wersja kontrastowa"
             className="font-black bg-slate-200 hover:bg-slate-300 btn-anim w-8 h-8 rounded-full flex justify-center items-center"

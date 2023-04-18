@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
-    <section className="bg-amber-400 flex flex-col gap-10 p-12 items-center">
-      <div className="font-black text-xl md:text-2xl flex items-center gap-2">
+    <section className="bg-amber-400 flex flex-col gap-8 md:gap-10 p-12 items-center">
+      <div className="font-black text-md md:text-2xl flex items-center gap-2">
         MADE WITH{" "}
-        <span className="text-red-600 text-3xl">
+        <span className="text-red-600 text-xl md:text-3xl">
           <MdFavorite />
         </span>
       </div>
-      <div className="font-black text-2xl">
+      <div className="w-36 md:w-auto font-black text-2xl">
         <img width={320} height={"100%"} src={logoFotter} alt="logo Examie" />
       </div>
       {/* <div className="flex gap-4">

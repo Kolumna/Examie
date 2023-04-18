@@ -92,9 +92,15 @@ export default function Module() {
           />
 
           <Section bgColor={color} col>
-            <Title title="KURSY" size="text-5xl" textColor={text} />
-            <div className="grid grid-cols-4 gap-12 w-full">
-              {module[0]?.kursy &&
+            <Title title="KURSY" size="text-4xl xl:text-5xl" textColor={text} />
+            <div
+              className={`${
+                module[0]?.kursy
+                  ? "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-12"
+                  : "flex justify-center"
+              } w-full`}
+            >
+              {module[0]?.kursy ? (
                 module[0]?.kursy.map((kurs) => (
                   <LanguageKafel
                     key={kurs}
@@ -111,7 +117,12 @@ export default function Module() {
                     }
                     auth={auth}
                   />
-                ))}
+                ))
+              ) : (
+                <span className="bg-slate-300 text-center font-black text-xl p-4 px-12 rounded-2xl">
+                  Brak kursów
+                </span>
+              )}
             </div>
           </Section>
 
@@ -129,14 +140,14 @@ export default function Module() {
                 <div className="flex items-center bg-slate-200 px-8 rounded-2xl">
                   <Title
                     title="ĆWICZENIA"
-                    size="text-5xl"
+                    size="text-3xl lg:text-5xl"
                     textColor="text-zinc-800"
                   />
                 </div>
               </div>
               {auth ? (
-                <div className="flex justify-between text-center gap-4 w-full">
-                  <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black text-xl">
+                <div className="flex justify-between items-center text-center gap-4 w-full">
+                  <span className="bg-slate-300 p-4 px-8 w-full rounded-2xl font-black lg:text-xl">
                     UKOŃCZONO{" "}
                     <span className="text-slate-500">
                       {user?.quizy?.length ?? "0"}
@@ -149,7 +160,7 @@ export default function Module() {
                   </div>
                 </div>
               ) : (
-                <span className="bg-slate-300 font-black text-xl p-4 px-8 w-full rounded-2xl">
+                <span className="bg-slate-300 font-black text-center lg:text-xl p-4 px-8 w-full rounded-2xl">
                   ZALOGUJ SIĘ PO WIĘCEJ INFORMACJI
                 </span>
               )}
@@ -159,13 +170,13 @@ export default function Module() {
           <Section bgColor="bg-slate-100" color="bg-slate-300" right col>
             <Title
               title="NAGRANIA Z ROZWIĄZYWANIA"
-              size="text-4xl"
+              size="text-2xl lg:text-4xl"
               textColor="text-zinc-900"
             />
             <div className="flex justify-center">
               <Link
                 to="/videos/inf03/"
-                className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center gap-2 text-2xl"
+                className="bg-slate-300 hover:bg-slate-200 cursor-pointer duration-200 transition-all  rounded-xl p-4 px-8 font-black flex justify-center items-center gap-2 text-lg lg:text-2xl"
               >
                 <MdMovie /> ZOBACZ
               </Link>
