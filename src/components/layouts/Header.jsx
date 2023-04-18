@@ -22,6 +22,7 @@ export default function Header() {
   useEffect(() => {
     if (isMobile) {
       document.body.style.overflowY= "hidden";
+      document.body.height = "100vh";
     }
     else {
       document.body.style.overflowY= "auto";
