@@ -19,12 +19,14 @@ export default function Header() {
 
   const navigate = useNavigate();
 
+  console.log(isMobile)
+
   useEffect(() => {
     if (isMobile) {
-      document.body.style.overflowY= "hidden";
-    }
-    else {
-      document.body.style.overflowY= "auto";
+      document.body.style.overflow = "hidden";
+      document.body.style.height = "100vh";
+    } else {
+      document.body.style.overflow = "unset";
     }
   }, [isMobile]);
 

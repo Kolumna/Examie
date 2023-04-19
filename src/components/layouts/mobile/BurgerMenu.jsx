@@ -5,9 +5,9 @@ import arenaLogo from "../../../assets/svgs/arenaLogo.svg";
 const BurgerMenu = (props) => {
   return (
     <section
-      className={`absolute ${
+      className={`fixed ${
         !props.isMobile ? "translate-x-full" : "translate-x-0"
-      } w-full transition-all flex flex-col justify-start items-end p-4 ease-in-out duration-500 h-[100vh] top-0 left-0 z-50 bg-amber-400`}
+      } w-full transition-all flex flex-col justify-start items-end p-4 ease-in-out duration-500 h-screen top-0 left-0 z-50 bg-amber-400`}
     >
       <button
         onClick={() => {
@@ -56,7 +56,7 @@ const BurgerMenu = (props) => {
             }}
             className="bg-gray-400 text-white hover:bg-gray-500 btn-anim w-full rounded-xl p-4 font-bold text-center"
           >
-            <div className="w-full">WYLOGU</div>
+            <div className="w-full">WYLOGUJ</div>
           </button>
         ) : (
           <Link

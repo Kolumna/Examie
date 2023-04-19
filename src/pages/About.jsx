@@ -1,4 +1,3 @@
-import logo from "../assets/svgs/logo.svg";
 import aboutImg from "../assets/imgs/about.png";
 
 export default function About(props) {
