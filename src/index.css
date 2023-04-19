@@ -7,10 +7,6 @@
 @tailwind utilities;
 
 @layer {
-  html {
-    @apply overflow-x-hidden
-  }
-
   .btn-anim {
     @apply transition-all duration-200 ease-in-out;
   }

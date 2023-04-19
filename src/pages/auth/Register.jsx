@@ -58,12 +58,12 @@ function Register() {
 
   return (
     <section className="">
-      <section className="flex flex-col gap-24 items-center justify-center pt-24 px-8">
+      <section className="flex flex-col gap-24 items-center justify-center md:pt-24 md:px-8">
         <form
           onSubmit={submit}
-          className="flex flex-col items-center gap-8 mb-24 bg-slate-100 p-12 rounded-xl"
+          className="flex flex-col items-center px-8 md:px-auto gap-8 md:mb-24 bg-slate-100 p-12 w-full md:w-auto md:rounded-xl"
         >
-          <h1 className="text-6xl font-bold p-4 rounded-xl">Rejestracja</h1>
+          <h1 className="text-4xl md:text-6xl font-bold p-4 rounded-xl">Rejestracja</h1>
           {error && (
             <div className="bg-white text-lg p-4 w-full rounded-xl flex items-center gap-2 text-red-500">
               <span>

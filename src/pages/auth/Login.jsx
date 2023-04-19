@@ -46,12 +46,12 @@ function Login() {
 
   return (
     <section className="">
-      <section className="flex flex-col gap-24 items-center justify-center pt-24 px-8">
+      <section className="flex flex-col w-full md:w-auto gap-24 items-center justify-center md:pt-24 md:px-8">
         <form
           onSubmit={submit}
-          className="flex flex-col items-center gap-8 mb-24 bg-slate-100 p-12 rounded-xl"
+          className="flex flex-col px-8 md:px-auto md:w-auto w-full items-center gap-8 md:mb-24 bg-slate-100 p-12 md:rounded-xl"
         >
-          <h1 className="text-6xl font-bold p-4 rounded-xl">Logowanie</h1>
+          <h1 className="text-4xl md:text-6xl font-bold p-4 rounded-xl">Logowanie</h1>
           {error && (
             <div className="bg-white text-lg p-4 w-full rounded-xl flex items-center gap-2 text-red-500">
               <span>
@@ -92,7 +92,7 @@ function Login() {
         </form>
       </section>
       <section className="">
-        <div className="bg-slate-500 p-12 py-20 mt-24">
+        <div className="bg-slate-500 p-12 py-20 md:mt-24">
           <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
             <div className="flex flex-col items-center md:items-start gap-12">
               <h1 className="text-4xl text-center md:text-left md:text-6xl font-black text-white">
