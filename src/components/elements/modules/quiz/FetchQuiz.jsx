@@ -52,7 +52,6 @@ function FetchQuiz(props) {
     );
     const sorted = objectToArrayWithId(res.data).sort(() => Math.random() - 0.5);
 
-    console.log(sorted);
     setCurrentQuizes(sorted);
     setLoading(false);
   };
@@ -87,6 +86,8 @@ function FetchQuiz(props) {
           return (
             <QuizComponent
               exam
+              setGoodAnswers={props.setGoodAnswers}
+              goodAnswers={props.goodAnswers}
               finished={props.finished}
               data={quiz}
               key={quiz._id}

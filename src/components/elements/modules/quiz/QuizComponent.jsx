@@ -69,6 +69,10 @@ function QuizComponent(props) {
     if (!result && !correct) {
       e.currentTarget.style.backgroundColor = "#ef4444";
     }
+    if (!result && correct) {
+      console.log('wyk')
+      props.setGoodAnswers(props.goodAnswers + 1);
+    }
     if (auth) {
       if (correct && (!user.quizy || !user.quizy?.includes(currentQuiz._id))) {
         addQuiz();
@@ -164,7 +168,7 @@ function QuizComponent(props) {
                 <span className="bg-slate-500 h-full flex items-center justify-center p-2 px-4 rounded-l-lg text-white">
                   {key === 0 ? "A" : key === 1 ? "B" : key === 2 ? "C" : "D"}
                 </span>
-                <span className="bg-white p-2 px-4 rounded-r-lg">
+                <span className="bg-white p-4 px-4 h-full w-full flex justify-start items-center rounded-r-lg">
                   {answer.name}
                 </span>
               </button>

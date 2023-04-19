@@ -125,8 +125,8 @@ function Course() {
         <CourseLoading />
       ) : (
         <>
-          <section className="flex flex-col font-bold text-md">
-            <ul className="bg-slate-200 pr-4 py-4 rounded-lg text-lg flex flex-col gap-2 sticky top-[120px]">
+          <section className="flex flex-col font-bold">
+            <ul className="bg-slate-200 pr-4 py-4 rounded-lg flex flex-col gap-2 sticky top-[120px]">
               {data.modules?.map((module) => {
                 return (
                   <div key={module.id} className="flex items-center gap-2">
@@ -268,7 +268,7 @@ function Course() {
           <section className="hidden lg:block">
             <div className="sticky top-[120px]">
               <h2 className="mb-6 font-bold">Na tej stronie</h2>
-              <ul className="text-sm w-48 flex flex-col gap-2">
+              <ul className="w-48 flex text-[0.9em] flex-col gap-2">
                 {steps.map((step) => {
                   return (
                     <li

@@ -2,14 +2,34 @@ import { useParams } from "react-router-dom";
 import FetchQuiz from "../../../components/elements/modules/quiz/FetchQuiz";
 import { useState, useEffect } from "react";
 import moment from "moment/moment";
+import axios from "axios";
 
 function Exam() {
   const [start, setStart] = useState(false);
   const [odliczanie, setOdliczanie] = useState("Zaczynamy!");
+  const [quizesLength, setQuizesLength] = useState(null);
+  const [goodAnswers, setGoodAnswers] = useState(0);
+  const [results, setResults] = useState(false);
+  const [time, setTime] = useState(null);
 
-  const endTime = moment().add(30, "minutes");
+  const endTime = moment().add(60, "minutes");
 
   const { modules } = useParams();
+
+  const fetchQuizesLength = async () => {
+    const res = await axios.get(
+      `https://examie-default-rtdb.europe-west1.firebasedatabase.app/quizes/${modules}.json?shallow=true`
+    );
+    setQuizesLength(Object.keys(res.data).length);
+  };
+
+  const examResults = () => {
+    const result = goodAnswers / quizesLength;
+    console.log(result);
+    setStart(false);
+    setResults(true);
+    setTime(odliczanie);
+  };
 
   useEffect(() => {
     setOdliczanie("Zaczynamy!");
@@ -23,6 +43,35 @@ function Exam() {
       return () => clearInterval(interval);
     }
   }, [start]);
+
+  useEffect(() => {
+    fetchQuizesLength();
+  }, []);
+
+  if (results) {
+    return (
+      <section
+        className="flex flex-col gap-12 px-4 md:px-8 justify-center
+       items-center pt-24 pb-24"
+      >
+        <span className="bg-green-400 text-white text-4xl font-bold p-4 rounded-xl">
+          WYNIK <span className="font-black text-zinc-800">{goodAnswers}</span>{" "}
+          / {quizesLength}
+        </span>
+        <span className="text-xl font-bold">Pozostały czas: {time}</span>
+        <button
+          onClick={() => {
+            setResults(false);
+            setStart(true);
+            setGoodAnswers(0);
+          }}
+          className="bg-slate-400 p-4 text-white px-8 rounded-xl hover:bg-slate-500 btn-anim font-bold text-xl"
+        >
+          NOWY EGZAMIN
+        </button>
+      </section>
+    );
+  }
 
   return (
     <section className="flex flex-col justify-center items-center">
@@ -46,10 +95,10 @@ function Exam() {
               <strong>40</strong> PYTAŃ
             </p>
             <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
-              <strong>30</strong> MINUT
+              <strong>60</strong> MINUT
             </p>
             <p className="font-bold text-2xl bg-white text-slate-500 p-4 rounded-xl">
-              BAZA <strong>300</strong> PYTAŃ
+              BAZA <strong>{quizesLength}</strong> PYTAŃ
             </p>
           </div>
         </div>
@@ -58,46 +107,22 @@ function Exam() {
         <section className="bg-white p-24">
           <button
             onClick={() => setStart(!start)}
-            className="container mx-auto bg-slate-500 hover:bg-yellow-500 btn-anim p-8 text-2xl font-black rounded-xl text-slate-50"
+            className="container mx-auto bg-slate-500 hover:bg-amber-400 btn-anim p-8 text-2xl font-black rounded-xl text-slate-50"
           >
             ROZPOCZNIJ
           </button>
         </section>
       ) : (
         <div className="flex flex-col w-full gap-8 mt-8 items-center">
-          <FetchQuiz finished={false} exam />
-          {/* <section className="px-12 w-full">
-            <section className="grid grid-cols-4 w-full gap-8 container mx-auto pt-24">
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 1
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 2
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 3
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 4
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 5
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 6
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 7
-              </button>
-              <button className="bg-yellow-500 hover:bg-yellow-400 text-left btn-anim  p-8 px-12 font-bold text-2xl border-8 border-zinc-800">
-                Zadanie 8
-              </button>
-            </section>
-          </section> */}
-
+          <FetchQuiz
+            finished={true}
+            goodAnswers={goodAnswers}
+            setGoodAnswers={(value) => setGoodAnswers(value)}
+            exam
+          />
           <section className="p-24">
             <button
-              onClick={(prev) => setStart(!prev)}
+              onClick={examResults}
               className="bg-slate-500 p-4 px-6 text-xl btn-anim hover:bg-slate-400 font-bold text-slate-100 rounded-xl"
             >
               ZAKOŃCZ

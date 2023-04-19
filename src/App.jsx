@@ -15,7 +15,7 @@ import Arkusze from "./pages/Arkusze";
 import Forum from "./pages/Forum";
 import Login from "./pages/auth/Login";
 import AuthContext from "./context/authContext";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Register from "./pages/auth/Register";
 
 function App() {
@@ -25,8 +25,26 @@ function App() {
       ? JSON.parse(localStorage.getItem("user"))
       : null,
   });
+  const [textSize, setTextSize] = useState(2);
+  const [textStyle, setTextStyle] = useState("");
 
-  const header = <Header />;
+  useEffect(() => {
+    switch(textSize) {
+      case 1:
+        setTextStyle("text-sm");
+        break;
+      case 2:
+        setTextStyle("text-base");
+        break;
+      case 3:
+        setTextStyle("text-lg");
+        break;
+      case 4:
+        setTextStyle("text-xl");
+    }
+  }, [textSize])
+
+  const header = <Header setTextSize={(value) => setTextSize(value)} />;
 
   //Routing stron
   const content = (
@@ -53,7 +71,7 @@ function App() {
   const footer = <Footer />;
 
   return (
-    <main className="bg-amber-400 min-h-screen">
+    <main className={`bg-amber-400 min-h-screen transition-all duration-200`}>
       <Router>
         <AuthContext.Provider
           value={{

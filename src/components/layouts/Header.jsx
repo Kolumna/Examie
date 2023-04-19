@@ -19,8 +19,6 @@ export default function Header() {
 
   const navigate = useNavigate();
 
-  console.log(isMobile)
-
   useEffect(() => {
     if (isMobile) {
       document.body.style.overflow = "hidden";
@@ -35,7 +33,7 @@ export default function Header() {
   }, [navigate]);
 
   return (
-    <section className="px-4 md:px-8 bg-white py-5 w-full flex items-center shadow-md">
+    <section className="px-4 md:px-8 bg-white py-5 w-full text-lg flex items-center shadow-md">
       <BurgerMenu
         auth={auth}
         setAuth={setAuth}
@@ -80,18 +78,27 @@ export default function Header() {
         </div>
         <div className="items-center gap-4 hidden lg:flex">
           <button
+            onClick={() => {
+              document.body.classList.toggle("dark");
+            }}
             title="wersja kontrastowa"
             className="font-black bg-slate-200 hover:bg-slate-300 btn-anim w-8 h-8 rounded-full flex justify-center items-center"
           >
             <MdContrast />
           </button>
           <button
+            onClick={() => {
+              document.body.style.fontSize = "1rem";
+            }}
             title="zmniejsz wielkość czcionki"
             className="font-black bg-slate-200 hover:bg-slate-300 btn-anim w-8 h-8 rounded-full flex justify-center items-center"
           >
             <MdTextDecrease />
           </button>
           <button
+            onClick={() => {
+              document.body.style.fontSize = "1.2rem";
+            }}
             title="zwiększ wielkość czcionki"
             className="font-black bg-slate-200 hover:bg-slate-300 btn-anim w-8 h-8 rounded-full flex justify-center items-center"
           >

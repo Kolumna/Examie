@@ -19,7 +19,7 @@ const TitleField = (props) => {
         className="flex items-center gap-8"
       >
         {props.img && <img width={64} height={"100%"} src={props.img} />}
-        {props.value && <h1 className="text-5xl font-bold">{props.value}</h1>}
+        {props.value && <h1 className="text-[3em] font-bold">{props.value}</h1>}
         {props.loading && (
           <div className="flex gap-8">
             <div className="animate-pulse h-24 w-1/6 bg-slate-200 rounded-lg"></div>
