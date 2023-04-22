@@ -69,10 +69,10 @@ function QuizComponent(props) {
     if (!result && !correct) {
       e.currentTarget.style.backgroundColor = "#ef4444";
     }
-    if (!result && correct) {
-      console.log('wyk')
-      props.setGoodAnswers(props.goodAnswers + 1);
-    }
+    // if (!result && correct) {
+    //   console.log('wyk')
+    //   props.setGoodAnswers(props.goodAnswers + 1);
+    // }
     if (auth) {
       if (correct && (!user.quizy || !user.quizy?.includes(currentQuiz._id))) {
         addQuiz();
@@ -157,7 +157,7 @@ function QuizComponent(props) {
                 key={answer.id}
                 className={`${
                   result
-                    ? answer.correct && props.finished
+                    ? answer.correct //todo finished
                       ? "bg-green-500"
                       : "bg-amber-400"
                     : "bg-amber-400"
